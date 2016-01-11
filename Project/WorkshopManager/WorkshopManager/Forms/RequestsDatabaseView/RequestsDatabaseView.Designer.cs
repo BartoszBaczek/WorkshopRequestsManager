@@ -1,6 +1,6 @@
-﻿namespace WorkshopManager
+﻿namespace WorkshopManager.Forms.RequestsDatabaseView
 {
-    partial class Form1
+    partial class RequestsDatabaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,120 +29,120 @@
         private void InitializeComponent()
         {
             this.requestsGroupBox = new System.Windows.Forms.GroupBox();
-            this.requestsGrid = new System.Windows.Forms.DataGridView();
-            this.modifyRequestsGroupBox = new System.Windows.Forms.GroupBox();
+            this.requestsDataGridView = new System.Windows.Forms.DataGridView();
+            this.modifyGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.filtersGroupBox = new System.Windows.Forms.GroupBox();
-            this.currentComboBox = new System.Windows.Forms.ComboBox();
-            this.currentLabel = new System.Windows.Forms.Label();
+            this.filterGroupBox = new System.Windows.Forms.GroupBox();
+            this.activeComboBox = new System.Windows.Forms.ComboBox();
+            this.activeLabel = new System.Windows.Forms.Label();
             this.requestsGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.requestsGrid)).BeginInit();
-            this.modifyRequestsGroupBox.SuspendLayout();
-            this.filtersGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).BeginInit();
+            this.modifyGroupBox.SuspendLayout();
+            this.filterGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // requestsGroupBox
             // 
-            this.requestsGroupBox.Controls.Add(this.requestsGrid);
-            this.requestsGroupBox.Location = new System.Drawing.Point(13, 13);
+            this.requestsGroupBox.Controls.Add(this.requestsDataGridView);
+            this.requestsGroupBox.Location = new System.Drawing.Point(12, 12);
             this.requestsGroupBox.Name = "requestsGroupBox";
-            this.requestsGroupBox.Size = new System.Drawing.Size(444, 285);
+            this.requestsGroupBox.Size = new System.Drawing.Size(386, 278);
             this.requestsGroupBox.TabIndex = 0;
             this.requestsGroupBox.TabStop = false;
             this.requestsGroupBox.Text = "Requests";
             // 
-            // requestsGrid
+            // requestsDataGridView
             // 
-            this.requestsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.requestsGrid.Location = new System.Drawing.Point(7, 20);
-            this.requestsGrid.Name = "requestsGrid";
-            this.requestsGrid.Size = new System.Drawing.Size(431, 259);
-            this.requestsGrid.TabIndex = 0;
+            this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
+            this.requestsDataGridView.Name = "requestsDataGridView";
+            this.requestsDataGridView.Size = new System.Drawing.Size(373, 252);
+            this.requestsDataGridView.TabIndex = 0;
             // 
-            // modifyRequestsGroupBox
+            // modifyGroupBox
             // 
-            this.modifyRequestsGroupBox.Controls.Add(this.deleteButton);
-            this.modifyRequestsGroupBox.Controls.Add(this.editButton);
-            this.modifyRequestsGroupBox.Controls.Add(this.addButton);
-            this.modifyRequestsGroupBox.Location = new System.Drawing.Point(463, 33);
-            this.modifyRequestsGroupBox.Name = "modifyRequestsGroupBox";
-            this.modifyRequestsGroupBox.Size = new System.Drawing.Size(88, 109);
-            this.modifyRequestsGroupBox.TabIndex = 4;
-            this.modifyRequestsGroupBox.TabStop = false;
-            this.modifyRequestsGroupBox.Text = "Modify";
+            this.modifyGroupBox.Controls.Add(this.deleteButton);
+            this.modifyGroupBox.Controls.Add(this.editButton);
+            this.modifyGroupBox.Controls.Add(this.addButton);
+            this.modifyGroupBox.Location = new System.Drawing.Point(418, 12);
+            this.modifyGroupBox.Name = "modifyGroupBox";
+            this.modifyGroupBox.Size = new System.Drawing.Size(91, 107);
+            this.modifyGroupBox.TabIndex = 1;
+            this.modifyGroupBox.TabStop = false;
+            this.modifyGroupBox.Text = "Modify";
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(6, 79);
+            this.deleteButton.Location = new System.Drawing.Point(7, 79);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteButton.TabIndex = 6;
+            this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(6, 49);
+            this.editButton.Location = new System.Drawing.Point(7, 50);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
-            this.editButton.TabIndex = 5;
+            this.editButton.TabIndex = 1;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(6, 19);
+            this.addButton.Location = new System.Drawing.Point(7, 20);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 4;
+            this.addButton.TabIndex = 0;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
-            // filtersGroupBox
+            // filterGroupBox
             // 
-            this.filtersGroupBox.Controls.Add(this.currentLabel);
-            this.filtersGroupBox.Controls.Add(this.currentComboBox);
-            this.filtersGroupBox.Location = new System.Drawing.Point(469, 149);
-            this.filtersGroupBox.Name = "filtersGroupBox";
-            this.filtersGroupBox.Size = new System.Drawing.Size(201, 143);
-            this.filtersGroupBox.TabIndex = 5;
-            this.filtersGroupBox.TabStop = false;
-            this.filtersGroupBox.Text = "Filters";
+            this.filterGroupBox.Controls.Add(this.activeComboBox);
+            this.filterGroupBox.Controls.Add(this.activeLabel);
+            this.filterGroupBox.Location = new System.Drawing.Point(425, 125);
+            this.filterGroupBox.Name = "filterGroupBox";
+            this.filterGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.filterGroupBox.TabIndex = 2;
+            this.filterGroupBox.TabStop = false;
+            this.filterGroupBox.Text = "Filters:";
             // 
-            // currentComboBox
+            // activeComboBox
             // 
-            this.currentComboBox.FormattingEnabled = true;
-            this.currentComboBox.Location = new System.Drawing.Point(97, 19);
-            this.currentComboBox.Name = "currentComboBox";
-            this.currentComboBox.Size = new System.Drawing.Size(98, 21);
-            this.currentComboBox.TabIndex = 0;
+            this.activeComboBox.FormattingEnabled = true;
+            this.activeComboBox.Location = new System.Drawing.Point(60, 28);
+            this.activeComboBox.Name = "activeComboBox";
+            this.activeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.activeComboBox.TabIndex = 1;
             // 
-            // currentLabel
+            // activeLabel
             // 
-            this.currentLabel.AutoSize = true;
-            this.currentLabel.Location = new System.Drawing.Point(6, 22);
-            this.currentLabel.Name = "currentLabel";
-            this.currentLabel.Size = new System.Drawing.Size(44, 13);
-            this.currentLabel.TabIndex = 1;
-            this.currentLabel.Text = "Current:";
+            this.activeLabel.AutoSize = true;
+            this.activeLabel.Location = new System.Drawing.Point(7, 31);
+            this.activeLabel.Name = "activeLabel";
+            this.activeLabel.Size = new System.Drawing.Size(40, 13);
+            this.activeLabel.TabIndex = 0;
+            this.activeLabel.Text = "Active:";
             // 
-            // Form1
+            // RequestsDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 321);
-            this.Controls.Add(this.filtersGroupBox);
-            this.Controls.Add(this.modifyRequestsGroupBox);
+            this.ClientSize = new System.Drawing.Size(637, 290);
+            this.Controls.Add(this.filterGroupBox);
+            this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "RequestsDatabaseForm";
+            this.Text = "RequestsDatabaseView";
             this.requestsGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.requestsGrid)).EndInit();
-            this.modifyRequestsGroupBox.ResumeLayout(false);
-            this.filtersGroupBox.ResumeLayout(false);
-            this.filtersGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).EndInit();
+            this.modifyGroupBox.ResumeLayout(false);
+            this.filterGroupBox.ResumeLayout(false);
+            this.filterGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -150,14 +150,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox requestsGroupBox;
-        private System.Windows.Forms.DataGridView requestsGrid;
-        private System.Windows.Forms.GroupBox modifyRequestsGroupBox;
+        private System.Windows.Forms.DataGridView requestsDataGridView;
+        private System.Windows.Forms.GroupBox modifyGroupBox;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.GroupBox filtersGroupBox;
-        private System.Windows.Forms.Label currentLabel;
-        private System.Windows.Forms.ComboBox currentComboBox;
+        private System.Windows.Forms.GroupBox filterGroupBox;
+        private System.Windows.Forms.ComboBox activeComboBox;
+        private System.Windows.Forms.Label activeLabel;
     }
 }
-

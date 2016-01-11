@@ -11,45 +11,34 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         public RequestsDatabaseForm()
         {
             InitializeComponent();
+            new RequestsDatabasePresenter(this);
         }
 
         public List<string> ActiveDataComboBox
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return (List<string>) activeComboBox.DataSource; }
+            set { activeComboBox.DataSource = value; }
         }
 
         public int SelectedActiveData
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return activeComboBox.SelectedIndex; }
+            set { activeComboBox.SelectedIndex = value; }
         }
 
         public DataTable DataGridViewSource
         {
-            set { throw new System.NotImplementedException(); }
-        }
-
-        public DataGridView DataGridView
-        {
-            get { throw new System.NotImplementedException(); }
+            set { requestsDataGridView.DataSource = value; }
         }
 
         public DataGridViewRow SelectedRow
         {
-            get { throw new System.NotImplementedException(); }
+            get
+            {
+                if (this.DataGridView.SelectedRows.Count >= 1)
+                    return DataGridView.SelectedRows[0];
+                else return new DataGridViewRow();
+            }
         }
     }
 }

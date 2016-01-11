@@ -12,7 +12,6 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             InitializeComponent();
             new RequestsDatabasePresenter(this);
-
         }
 
         public object ActiveDataComboBox

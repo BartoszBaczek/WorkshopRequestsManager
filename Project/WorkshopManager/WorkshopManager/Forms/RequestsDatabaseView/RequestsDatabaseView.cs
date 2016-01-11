@@ -14,16 +14,16 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             new RequestsDatabasePresenter(this);
         }
 
-        public List<string> ActiveDataComboBox
+        public object ActiveDataComboBox
         {
-            get { return (List<string>) activeComboBox.DataSource; }
+            get { return activeComboBox.DataSource; }
             set { activeComboBox.DataSource = value; }
         }
 
-        public int SelectedActiveData
+        public object SelectedActiveData
         {
-            get { return activeComboBox.SelectedIndex; }
-            set { activeComboBox.SelectedIndex = value; }
+            get { return activeComboBox.SelectedItem; }
+            set { activeComboBox.SelectedItem = value; }
         }
 
         public DataTable DataGridViewSource

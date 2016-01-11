@@ -14,8 +14,8 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
     {
         RequestsDatabasePresenter Presenter { set; }
 
-        List<string> ActiveDataComboBox { get; set; }
-        int SelectedActiveData { get; set; }
+        object ActiveDataComboBox { get; set; }
+        object SelectedActiveData { get; set; }
 
         DataTable DataGridViewSource { set; }
         DataGridViewRow SelectedRow { get; }

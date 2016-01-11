@@ -33,12 +33,7 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public DataGridViewRow SelectedRow
         {
-            get
-            {
-                if (this.DataGridView.SelectedRows.Count >= 1)
-                    return DataGridView.SelectedRows[0];
-                else return new DataGridViewRow();
-            }
+            get { return requestsDataGridView.SelectedRows[0]; }
         }
     }
 }

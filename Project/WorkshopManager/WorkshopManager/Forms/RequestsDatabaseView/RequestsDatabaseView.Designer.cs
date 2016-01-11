@@ -34,9 +34,13 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.filtersGroupBox = new System.Windows.Forms.GroupBox();
+            this.currentComboBox = new System.Windows.Forms.ComboBox();
+            this.currentLabel = new System.Windows.Forms.Label();
             this.requestsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requestsGrid)).BeginInit();
             this.modifyRequestsGroupBox.SuspendLayout();
+            this.filtersGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // requestsGroupBox
@@ -64,7 +68,7 @@
             this.modifyRequestsGroupBox.Controls.Add(this.addButton);
             this.modifyRequestsGroupBox.Location = new System.Drawing.Point(463, 33);
             this.modifyRequestsGroupBox.Name = "modifyRequestsGroupBox";
-            this.modifyRequestsGroupBox.Size = new System.Drawing.Size(87, 109);
+            this.modifyRequestsGroupBox.Size = new System.Drawing.Size(88, 109);
             this.modifyRequestsGroupBox.TabIndex = 4;
             this.modifyRequestsGroupBox.TabStop = false;
             this.modifyRequestsGroupBox.Text = "Modify";
@@ -96,11 +100,40 @@
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
+            // filtersGroupBox
+            // 
+            this.filtersGroupBox.Controls.Add(this.currentLabel);
+            this.filtersGroupBox.Controls.Add(this.currentComboBox);
+            this.filtersGroupBox.Location = new System.Drawing.Point(469, 149);
+            this.filtersGroupBox.Name = "filtersGroupBox";
+            this.filtersGroupBox.Size = new System.Drawing.Size(201, 143);
+            this.filtersGroupBox.TabIndex = 5;
+            this.filtersGroupBox.TabStop = false;
+            this.filtersGroupBox.Text = "Filters";
+            // 
+            // currentComboBox
+            // 
+            this.currentComboBox.FormattingEnabled = true;
+            this.currentComboBox.Location = new System.Drawing.Point(97, 19);
+            this.currentComboBox.Name = "currentComboBox";
+            this.currentComboBox.Size = new System.Drawing.Size(98, 21);
+            this.currentComboBox.TabIndex = 0;
+            // 
+            // currentLabel
+            // 
+            this.currentLabel.AutoSize = true;
+            this.currentLabel.Location = new System.Drawing.Point(6, 22);
+            this.currentLabel.Name = "currentLabel";
+            this.currentLabel.Size = new System.Drawing.Size(44, 13);
+            this.currentLabel.TabIndex = 1;
+            this.currentLabel.Text = "Current:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 321);
+            this.ClientSize = new System.Drawing.Size(682, 321);
+            this.Controls.Add(this.filtersGroupBox);
             this.Controls.Add(this.modifyRequestsGroupBox);
             this.Controls.Add(this.requestsGroupBox);
             this.Name = "Form1";
@@ -108,6 +141,8 @@
             this.requestsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.requestsGrid)).EndInit();
             this.modifyRequestsGroupBox.ResumeLayout(false);
+            this.filtersGroupBox.ResumeLayout(false);
+            this.filtersGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -120,6 +155,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.GroupBox filtersGroupBox;
+        private System.Windows.Forms.Label currentLabel;
+        private System.Windows.Forms.ComboBox currentComboBox;
     }
 }
 

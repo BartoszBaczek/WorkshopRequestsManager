@@ -131,6 +131,7 @@
             // RequestsDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 290);
             this.Controls.Add(this.filterGroupBox);
@@ -145,6 +146,7 @@
             this.filterGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
+            this.Text = "Form1";
         }
 
         #endregion
@@ -160,3 +162,4 @@
         private System.Windows.Forms.Label activeLabel;
     }
 }
+

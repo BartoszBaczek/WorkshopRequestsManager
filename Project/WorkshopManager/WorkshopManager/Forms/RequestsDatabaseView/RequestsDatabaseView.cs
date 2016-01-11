@@ -12,7 +12,7 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             InitializeComponent();
             new RequestsDatabasePresenter(this);
-            Presenter.Init();
+
         }
 
         public object ActiveDataComboBox

@@ -18,7 +18,6 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         int SelectedActiveData { get; set; }
 
         DataTable DataGridViewSource { set; }
-        DataGridView DataGridView { get; }
         DataGridViewRow SelectedRow { get; }
     }
 }

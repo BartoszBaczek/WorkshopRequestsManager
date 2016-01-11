@@ -2,5 +2,9 @@
 {
     public class RequestsDatabasePresenter
     {
+        public RequestsDatabasePresenter(IRequestsDatabaseView view)
+        {
+            
+        }
     }
 }

@@ -42,8 +42,5 @@ namespace WorkshopManager.Forms.RequestsModifierView
             get { return descriptionTextBox.Text; }
             set { descriptionTextBox.Text = value; }
         }
-
-
-        
     }
 }

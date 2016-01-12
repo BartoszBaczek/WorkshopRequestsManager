@@ -35,5 +35,12 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             get { return requestsDataGridView.SelectedRows[0]; }
         }
+
+        private void addButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Presenter.OpenModifierForm();
+            this.Show();
+        }
     }
 }

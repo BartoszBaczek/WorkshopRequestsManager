@@ -12,13 +12,7 @@ namespace WorkshopManager
         private string name;
         private double prize;
 
-        Part()
-        {
-            name = "noname";
-            prize = '0';
-        }
-
-        Part(int _id, string _name, double _prize)
+        public Part(int _id, string _name, double _prize)
         {
             name = _name;
             prize = _prize;

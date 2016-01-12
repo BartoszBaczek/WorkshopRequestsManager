@@ -19,9 +19,15 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             SetActiveComboBoxDataSource();
         }
 
-        public void OpenModifierForm()
+        public void OpenModifierFormForAdding()
         {
             var requestsModifierForm = new RequestsModifierView.RequestsModifierView();
+            requestsModifierForm.ShowDialog();
+        }
+
+        public void OpenModifierFormForEditing()
+        {
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView("dsfdsf"); //bedzie przesylana struktura z informacjami o requescie
             requestsModifierForm.ShowDialog();
         }
 

@@ -14,7 +14,7 @@ namespace WorkshopManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RequestsDatabaseForm());
+            Application.Run(new RequestsDatabaseView());
         }
     }
 }

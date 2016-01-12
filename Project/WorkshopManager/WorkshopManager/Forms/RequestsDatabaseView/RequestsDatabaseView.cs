@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
 {
-    public partial class RequestsDatabaseForm : Form, IRequestsDatabaseView
+    public partial class RequestsDatabaseView : Form, IRequestsDatabaseView
     {
         public RequestsDatabasePresenter Presenter { private get; set; }
 
-        public RequestsDatabaseForm()
+        public RequestsDatabaseView()
         {
             InitializeComponent();
             new RequestsDatabasePresenter(this);

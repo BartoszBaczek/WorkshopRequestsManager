@@ -52,6 +52,8 @@
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabaseView.Designer.cs">
       <DependentUpon>RequestsDatabaseView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RequestsModifierView\IRequestsModifierView.cs" />
+    <Compile Include="Forms\RequestsModifierView\RequestsModifierPresenter.cs" />
     <Compile Include="Forms\RequestsModifierView\RequestsModifierView.cs">
       <SubType>Form</SubType>
     </Compile>

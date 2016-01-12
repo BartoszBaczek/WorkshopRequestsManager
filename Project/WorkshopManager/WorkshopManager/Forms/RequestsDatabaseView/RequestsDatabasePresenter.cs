@@ -22,7 +22,6 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         private void SetActiveComboBoxDataSource()
         {
             _view.ActiveDataComboBox = Enum.GetValues(typeof(RequestsCategory));
-
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WorkshopManager.Forms.RequestsDatabaseView
 {
-    partial class RequestsDatabaseForm
+    partial class RequestsDatabaseView
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@
             this.activeLabel.TabIndex = 0;
             this.activeLabel.Text = "Active:";
             // 
-            // RequestsDatabaseForm
+            // RequestsDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.components = new System.ComponentModel.Container();
@@ -137,7 +137,7 @@
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
-            this.Name = "RequestsDatabaseForm";
+            this.Name = "RequestsDatabaseView";
             this.Text = "RequestsDatabaseView";
             this.requestsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).EndInit();

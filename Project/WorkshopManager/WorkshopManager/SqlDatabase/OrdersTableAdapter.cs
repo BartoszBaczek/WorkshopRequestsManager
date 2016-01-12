@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkshopManager.SqlDatabase
 {
-    using Extension;
+    using OrdersTableAdapterExtension;
 
     class OrdersTableAdapter
     {
@@ -19,9 +19,9 @@ namespace WorkshopManager.SqlDatabase
     } 
 }
 
-namespace Extension
+namespace OrdersTableAdapterExtension
 {
-    using WorkshopManager.SqlDatabase;
+    using WorkshopManager.SqlDatabase.MySql;
        
     class Get
     {

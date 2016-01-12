@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Windows.Forms;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
@@ -34,6 +33,20 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         public DataGridViewRow SelectedRow
         {
             get { return requestsDataGridView.SelectedRows[0]; }
+        }
+
+        private void addButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Presenter.OpenModifierFormForAdding();
+            this.Show();
+        }
+
+        private void editButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Presenter.OpenModifierFormForEditing();
+            this.Show();
         }
     }
 }

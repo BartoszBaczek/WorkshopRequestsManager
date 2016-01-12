@@ -53,7 +53,9 @@
       <DependentUpon>RequestsDatabaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RequestsModifierView\IRequestsModifierView.cs" />
-    <Compile Include="Forms\RequestsModifierView\RequestsModifierPresenter.cs" />
+    <Compile Include="Forms\RequestsModifierView\ModifierPresenters\RequestAdderPresenter.cs" />
+    <Compile Include="Forms\RequestsModifierView\ModifierPresenters\RequestEditorPresenter.cs" />
+    <Compile Include="Forms\RequestsModifierView\ModifierPresenters\RequestsModifierPresenter.cs" />
     <Compile Include="Forms\RequestsModifierView\RequestsModifierView.cs">
       <SubType>Form</SubType>
     </Compile>

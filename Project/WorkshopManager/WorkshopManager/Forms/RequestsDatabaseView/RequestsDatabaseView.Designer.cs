@@ -90,6 +90,7 @@
             this.editButton.TabIndex = 1;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -99,6 +100,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // filterGroupBox
             // 
@@ -131,14 +133,13 @@
             // RequestsDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 290);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
             this.Name = "RequestsDatabaseView";
-            this.Text = "RequestsDatabaseView";
+            this.Text = "Form1";
             this.requestsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).EndInit();
             this.modifyGroupBox.ResumeLayout(false);
@@ -146,7 +147,6 @@
             this.filterGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
-            this.Text = "Form1";
         }
 
         #endregion

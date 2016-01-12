@@ -23,10 +23,10 @@ namespace WorkshopManager.SqlDatabase
 
         private static void Initialize()
         {
-            _server = "185.25.148.252";
-            _database = "virt1135_CBR";
-            _uid = "virt1135_mcmorn";
-            _password = "viper5";
+            _server = "mysql.sh178054.website.pl";
+            _database = "sh178054_carserwis";
+            _uid = "sh178054_Cars";
+            _password = "autko123";
             string connectionString =   "SERVER=" + _server + ";" +
                                         "DATABASE=" + _database + ";" +
                                         "UID=" + _uid + ";" +

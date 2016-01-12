@@ -9,7 +9,20 @@ namespace WorkshopManager.Forms.RequestsModifierView
         public RequestsModifierView()
         {
             InitializeComponent();
-            new RequestsModifierPresenter(this);
+            Presenter = new RequestAdderPresenter(this);
+        }
+
+        //jako argument bedzie struktura posiadajaca informacje o request
+        public RequestsModifierView(string s)
+        {
+            InitializeComponent();
+            Presenter = new RequestEditorPresenter(this);
+        }
+
+        public string RequestId
+        {
+            get { return idTextBox.Text; }
+            set { idTextBox.Text = value; }
         }
 
         public string OwnerTextBox
@@ -29,5 +42,8 @@ namespace WorkshopManager.Forms.RequestsModifierView
             get { return descriptionTextBox.Text; }
             set { descriptionTextBox.Text = value; }
         }
+
+
+        
     }
 }

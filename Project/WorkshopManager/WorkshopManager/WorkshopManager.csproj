@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabasePresenter\DatabasePresenter.cs" />
+    <Compile Include="DatabasePresenter\Interfaces\IPartsDatabaseAdapter.cs" />
+    <Compile Include="DatabasePresenter\Interfaces\IRequestDatabaseAdapter.cs" />
     <Compile Include="Forms\RequestsDatabaseView\IRequestsDatabaseView.cs" />
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabasePresenter.cs" />
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabaseView.cs">
@@ -98,10 +101,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="SqlDatabase\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

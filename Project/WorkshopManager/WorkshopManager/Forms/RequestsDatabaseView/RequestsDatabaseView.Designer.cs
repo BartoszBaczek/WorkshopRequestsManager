@@ -115,6 +115,7 @@
             // 
             // activeComboBox
             // 
+            this.activeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activeComboBox.FormattingEnabled = true;
             this.activeComboBox.Location = new System.Drawing.Point(60, 28);
             this.activeComboBox.Name = "activeComboBox";

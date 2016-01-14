@@ -26,6 +26,7 @@ namespace PartsTableAdapterExtension
     class Get
     {
         private static string _table = "Parts";
+        private static string _partsTable = "PartsList";
         private static string _allColumns = "id, Name, Price";
 
         /// <summary>
@@ -67,6 +68,35 @@ namespace PartsTableAdapterExtension
                 false,
                 _table,
                 string.Format("Price=\'{0}\'", price));
+        }
+
+        /// <summary>
+        /// Zwraca tablicę list stringów zawierającą wszystkie rekordy z tabeli 'Parts'
+        /// które w tabeli 'PartsList' zostały przypisane do podanego id z tabeli 'Orders'
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<string>[] PartsList(int id)
+        {
+            var list = DBConnector.Select(
+                "Parts_id",
+                false,
+                _partsTable,
+                string.Format("Orders_id=\'{0}\'", id))[0];
+
+            var str = string.Empty;
+
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                str += string.Format("id=\'{0}\' or ", list[i]);
+            }
+            str += string.Format("id=\'{0}\'", list[list.Count - 1]);
+
+            return DBConnector.Select(
+                _allColumns,
+                false,
+                _table,
+                str);
         }
     }
 }

@@ -6,7 +6,8 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
     public enum RequestsCategory
     {
         Active,
-        Archivized
+        Archivized,
+        All
     }
 
     public interface IRequestsDatabaseView

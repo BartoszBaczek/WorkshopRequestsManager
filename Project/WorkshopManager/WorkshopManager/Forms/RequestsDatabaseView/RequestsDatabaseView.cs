@@ -37,16 +37,12 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
             Presenter.OpenModifierFormForAdding();
-            this.Show();
         }
 
         private void editButton_Click(object sender, System.EventArgs e)
         {
-            this.Hide();
             Presenter.OpenModifierFormForEditing();
-            this.Show();
         }
     }
 }

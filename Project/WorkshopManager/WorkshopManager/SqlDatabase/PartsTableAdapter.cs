@@ -10,6 +10,12 @@ namespace WorkshopManager.SqlDatabase
 
     class PartsTableAdapter
     {
+        public Get Get;
+
+        public PartsTableAdapter()
+        {
+            Get = new Get();
+        }
     }
 }
 

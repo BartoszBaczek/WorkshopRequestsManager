@@ -28,6 +28,10 @@ namespace OrdersTableAdapterExtension
         private static string _table = "Orders";
         private static string _allColumns = "id, Mark, Model, Owner, Comment, Archive";
 
+        /// <summary>
+        /// Zwraca tablicę list stringów zawierającą kompletną tabelę 'Orders'
+        /// </summary>
+        /// <returns></returns>
         public List<string>[] All()
         {
             return  DBConnector.Select(
@@ -37,6 +41,11 @@ namespace OrdersTableAdapterExtension
                 "");
         }
 
+        /// <summary>
+        /// Zwraca tablicę list stringów zawierającą wszystkie rekordy z tabeli 'Orders' o podanej marce
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
         public List<string>[] ByMark(string mark)
         {
             return DBConnector.Select(
@@ -46,6 +55,11 @@ namespace OrdersTableAdapterExtension
                 string.Format("Mark=\'{0}\'", mark));
         }
 
+        /// <summary>
+        /// Zwraca tablicę list stringów zawierającą wszystkie rekordy z tabeli 'Orders' o podanym modelu
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public List<string>[] ByModel(string model)
         {
             return DBConnector.Select(
@@ -55,6 +69,11 @@ namespace OrdersTableAdapterExtension
                 string.Format("Model=\'{0}\'", model));
         }
 
+        /// <summary>
+        /// Zwraca tablicę list stringów zawierającą rekord o podanym id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<string>[] ById(int id)
         {
             return DBConnector.Select(

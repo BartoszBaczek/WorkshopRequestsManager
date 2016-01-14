@@ -5,6 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+/*
+Należy pobrać MySQL Installer ze strony
+https://dev.mysql.com/downloads/installer/
+a następnie przy jego pomocy zainstalować MySQL Connector/NET
+*/
 
 namespace WorkshopManager.SqlDatabase.MySql
 {

@@ -63,6 +63,8 @@
     <Compile Include="Forms\RequestsModifierView\RequestsModifierView.Designer.cs">
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Part.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabase\DBConnector.cs" />
@@ -97,7 +99,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Models\" />
+=======
+    <Folder Include="SqlDatabase\" />
+>>>>>>> origin/master
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

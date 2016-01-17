@@ -21,24 +21,65 @@ namespace WorkshopManager.DatabasePresenter
 
     class DatabasePresenter : IPartsDatabaseAdapter, IRequestDatabaseAdapter
     {
-        OrdersTableAdapter OrdersData = new OrdersTableAdapter();
-        
-        public List<Request> GetByID(int id)
+        private OrdersTableAdapter OrdersData = new OrdersTableAdapter();
+        private List<string>[] DatabaseData;
+        private string[,] convertedData;
+        private Data ReqBuff;
+
+
+        public List<Request> GetAll()
         {
-            Data requestBuff;
-            List<Request> result = new List<Request>();
-            List<string>[] DatabaseData = OrdersData.Get.ById(id);
-            string[,]
-            for (int i = 0; i < DatabaseData[0].Count();i++)
-            {
-                
-            }
 
+            DatabaseData = OrdersData.Get.All();
+            return PrepareList();
+        }
 
-            return result;
+        public List<Request> GetByModel(string model)
+        {
+            
+            DatabaseData = OrdersData.Get.ByMark(model);
+            return PrepareList();
+        }
+
+        public List<Request> GetByMark(string mark)
+        {
+
+            DatabaseData = OrdersData.Get.ByMark(mark);
+            return PrepareList();
         }
         
-        public string[,] ConvertToTable(List<string>[] tabelOfLists)
+
+        public Request GetByID(int ID)
+        {
+            Request result;
+            DatabaseData = OrdersData.Get.ById(ID);
+            convertedData = ConvertToTable(DatabaseData);
+            ReqBuff.ID = int.Parse(convertedData[0, 0]);
+            ReqBuff.Model = convertedData[0, 1];
+            ReqBuff.Owner = convertedData[0, 2];
+            ReqBuff.Description = convertedData[0, 3];
+            ReqBuff.ListOfParts = null;
+            result = new Request(ReqBuff.ID, ReqBuff.Model, ReqBuff.Owner, ReqBuff.Description, ReqBuff.ListOfParts);
+            return result;
+        }
+
+        private List<Request> PrepareList()
+        {
+            List<Request> result = new List<Request>();
+            convertedData = ConvertToTable(DatabaseData);
+            for (int i = 0; i < DatabaseData[0].Count(); i++)
+            {
+                ReqBuff.ID = int.Parse(convertedData[i, 0]);
+                ReqBuff.Model = convertedData[i, 1];
+                ReqBuff.Owner = convertedData[i, 2];
+                ReqBuff.Description = convertedData[i, 3];
+                ReqBuff.ListOfParts = null;
+                result.Add(new Request(ReqBuff.ID, ReqBuff.Model, ReqBuff.Owner, ReqBuff.Description, ReqBuff.ListOfParts));
+            }
+            return result;
+        }
+
+        private string[,] ConvertToTable(List<string>[] tabelOfLists)
         {
             int colCount = tabelOfLists.Length;
             int rowCount = tabelOfLists[0].Count;
@@ -56,7 +97,5 @@ namespace WorkshopManager.DatabasePresenter
                 return result;
 
         }
-
-
     }
 }

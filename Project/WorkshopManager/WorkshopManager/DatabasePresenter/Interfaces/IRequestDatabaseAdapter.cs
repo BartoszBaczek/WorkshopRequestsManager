@@ -13,7 +13,7 @@ namespace WorkshopManager.DatabasePresenter
         List<Request> GetByMOdel(string model);
         List<Request> GetByOwner(string owner);
         Request GetById(int id);
-        void DeleteById(int id);
-        void UpdateById(int id); 
+        void DeleteReqById(int id);
+        void UpdateReqById(int id); 
     }
 }

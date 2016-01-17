@@ -11,10 +11,12 @@ namespace WorkshopManager.SqlDatabase
     class OrdersTableAdapter
     {
         public Get Get;
+        public Add Add;
 
         public OrdersTableAdapter()
         {
             Get = new Get();
+            Add = new Add();
         }
     } 
 }
@@ -80,7 +82,7 @@ namespace OrdersTableAdapterExtension
                 _allColumns,
                 false,
                 _table,
-                string.Format("Owner=\'{0}\'", id));
+                string.Format("Owner=\'{0}\'", owner));
         }
 
         /// <summary>
@@ -95,6 +97,30 @@ namespace OrdersTableAdapterExtension
                 false,
                 _table,
                 string.Format("id=\'{0}\'", id));
+        }
+    }
+
+    class Add
+    {
+        private static string _table = "Orders";
+        private static string _allColumns = "Mark, Model, Owner, Comment, Archive";
+
+        public int Order(string mark, string model, string owner, string comment)
+        {
+            DBConnector.Insert(
+                _table,
+                _allColumns,
+                string.Format(
+                    "\'{0}\',\'{1}\',\'{2}\',\'{3}\',0", mark, model, owner, comment));
+
+            var id = DBConnector.Select(
+                    "id",
+                    false,
+                    _table,
+                    string.Format(
+                        "Mark=\'{0}\' AND Model=\'{1}\' AND Owner=\'{2}\'", mark, model, owner))[0];
+
+            return Convert.ToInt32(id.Max<string>());
         }
     }
 }

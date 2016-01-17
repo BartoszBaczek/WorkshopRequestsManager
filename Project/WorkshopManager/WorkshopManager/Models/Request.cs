@@ -18,5 +18,6 @@ namespace WorkshopManager
             Description = description;
             ListOfParts = listOfParts;
         }
+
     }
 }

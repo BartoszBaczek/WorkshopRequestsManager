@@ -80,7 +80,7 @@ namespace OrdersTableAdapterExtension
                 _allColumns,
                 false,
                 _table,
-                string.Format("Owner=\'{0}\'", id));
+                string.Format("Owner=\'{0}\'", owner));
         }
 
         /// <summary>

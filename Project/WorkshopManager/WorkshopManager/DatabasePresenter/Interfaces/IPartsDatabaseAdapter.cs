@@ -8,11 +8,12 @@ namespace WorkshopManager.DatabasePresenter
 {
     interface IPartsDatabaseAdapter
     {
-        List<Request> GetByMOdel();
-        List<Request> GetByOwner();
-        Request GetById();
+        List<Request> GetAll();
+        List<Part> GetByName(string name);
+        List<Part> GetByPrize(float prize);
+        Part GetById(int id);
         void DeleteById(int id);
-        void UpdateById(int id); 
+        void UpdateById(int id);
  
     }
 }

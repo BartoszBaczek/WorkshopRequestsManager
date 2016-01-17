@@ -86,6 +86,14 @@ namespace WorkshopManager.DatabasePresenter
             }
             return result;
         }
+
+        void DeleteReqById(int id)
+        {
+
+        }
+
+
+
         #endregion
 
         private string[,] ConvertToTable(List<string>[] tabelOfLists)
@@ -107,6 +115,7 @@ namespace WorkshopManager.DatabasePresenter
 
         }
         #region opracje dla Part
+
         public Part GetByID(int ID)
         {
             Part result;
@@ -119,26 +128,26 @@ namespace WorkshopManager.DatabasePresenter
             return result;
         }
 
-        public List<Request> GetAll()
+        public List<Part> GetAll()
         {
 
-            databaseData = ordersData.Get.All();
-            return PrepareReqList();
+            databaseData = partsData.Get.All();
+            return PreparePartList();
         }
 
-        public List<Request> GetByModel(string model)
+        public List<Part> GetByPrice(double price)
+        {
+            
+            databaseData = partsData.Get.ByPrice(price);
+            return PreparePartList();
+        }
+        public List<Part> GetByName(string name)
         {
 
-            databaseData = ordersData.Get.ByMark(model);
-            return PrepareReqList();
+            databaseData = partsData.Get.ByName(name);
+            return PreparePartList();
         }
 
-        public List<Request> GetByMark(string mark)
-        {
-
-            databaseData = ordersData.Get.ByMark(mark);
-            return PrepareReqList();
-        }
 
         private List<Part> PreparePartList()
         {
@@ -153,26 +162,17 @@ namespace WorkshopManager.DatabasePresenter
             }
             return result;
         }
-        #endregion 
 
-        void DeleteReqById(int id)
-        {
 
-        }
-
-        void UpdateReqById(int id)
-        {
-
-        }
         void DeleteParById(int id)
         {
 
         }
+        #endregion 
 
-        void UpdateParById(int id)
-        {
 
-        }
+
+
 
 
     }

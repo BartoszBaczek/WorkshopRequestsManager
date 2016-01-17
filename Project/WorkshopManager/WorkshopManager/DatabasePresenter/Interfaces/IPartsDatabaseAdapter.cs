@@ -10,7 +10,7 @@ namespace WorkshopManager.DatabasePresenter
     {
         List<Request> GetAll();
         List<Part> GetByName(string name);
-        List<Part> GetByPrize(float prize);
+        List<Part> GetByPrice(double price);
         Part GetById(int id);
         void DeleteParqById(int id);
         void UpdateParById(int id);

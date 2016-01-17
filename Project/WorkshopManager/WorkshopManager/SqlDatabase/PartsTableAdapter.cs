@@ -61,7 +61,7 @@ namespace PartsTableAdapterExtension
         /// </summary>
         /// <param name="price"></param>
         /// <returns></returns>
-        public List<string>[] ByPrice(float price)
+        public List<string>[] ByPrice(double price)
         {
             return DBConnector.Select(
                 _allColumns,

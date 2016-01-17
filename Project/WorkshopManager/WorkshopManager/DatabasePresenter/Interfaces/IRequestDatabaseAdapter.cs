@@ -8,10 +8,12 @@ namespace WorkshopManager.DatabasePresenter
 {
     interface IRequestDatabaseAdapter
     {
-        List<Part> GetByName();
-        List<Part> GetByPrize();
-        Part GetById();
-        void DeleteById(int id);
-        void UpdateById(int id); 
+
+        List<Request> GetAll();
+        List<Request> GetByMOdel(string model);
+        List<Request> GetByOwner(string owner);
+        Request GetById(int id);
+        void DeleteReqById(int id);
+        void UpdateReqById(int id); 
     }
 }

@@ -70,6 +70,20 @@ namespace OrdersTableAdapterExtension
         }
 
         /// <summary>
+        /// Zwraca tablicę list stringów zawierającą rekordy pasujące do danego właściciela
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <returns></returns>
+        public List<string>[] ByOwner(string owner)
+        {
+            return DBConnector.Select(
+                _allColumns,
+                false,
+                _table,
+                string.Format("Owner=\'{0}\'", id));
+        }
+
+        /// <summary>
         /// Zwraca tablicę list stringów zawierającą rekord o podanym id
         /// </summary>
         /// <param name="id"></param>

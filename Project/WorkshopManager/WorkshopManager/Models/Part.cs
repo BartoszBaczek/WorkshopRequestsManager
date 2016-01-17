@@ -12,5 +12,10 @@
             Name = name;
             Prize = prize;
         }
+
+        public bool Equals(Part part)
+        {
+            return false;
+        }
     }
 }

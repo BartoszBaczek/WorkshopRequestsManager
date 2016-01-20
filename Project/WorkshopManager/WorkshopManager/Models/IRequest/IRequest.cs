@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
-namespace WorkshopManager.Models
+namespace WorkshopManager.Models.IRequest
 {
     public interface IRequest
     {

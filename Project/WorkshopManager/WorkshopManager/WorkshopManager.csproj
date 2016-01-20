@@ -66,7 +66,10 @@
     <Compile Include="Forms\RequestsModifierView\RequestsModifierView.Designer.cs">
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\IPart\IPart.cs" />
+    <Compile Include="Models\IPart\IPartWithIdAcces.cs" />
     <Compile Include="Models\IRequest\IRequest.cs" />
+    <Compile Include="Models\IRequest\IRequestWithIdAcces.cs" />
     <Compile Include="Models\Part.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Program.cs" />

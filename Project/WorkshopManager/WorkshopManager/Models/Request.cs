@@ -2,7 +2,7 @@
 
 namespace WorkshopManager
 {
-    class Request
+    public class Request
     {
         public int ID { get; private set; }     //ID tak samo jak w Part
         public string Model { get; set; }

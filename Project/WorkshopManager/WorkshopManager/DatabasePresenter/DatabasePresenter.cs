@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace WorkshopManager.DatabasePresenter
 
 {
+    
     using SqlDatabase;
     struct ReqData
     {
@@ -27,50 +28,76 @@ namespace WorkshopManager.DatabasePresenter
 
     class DatabasePresenter : IPartsDatabaseAdapter, IRequestDatabaseAdapter
     {
-        private OrdersTableAdapter ordersData = new OrdersTableAdapter();
-        private PartsTableAdapter partsData = new PartsTableAdapter();
-        private List<string>[] databaseData;
-        private string[,] convertedData;
-        private ReqData reqBuff;
-        private PartData partBuff;
+        private OrdersTableAdapter ordersData = new OrdersTableAdapter(); //obsluga tabeli zadani
+        private PartsTableAdapter partsData = new PartsTableAdapter();  //obsluga tabeli czesci
+        private List<string>[] databaseData; //zmienna przechowujaca wynik zapytania do bazy danych
+        private string[,] convertedData; //metoda konwertujaca tablice list bedaca wynikiem zapytania do bazy na tablice dwuwymiarowa
+        private ReqData reqBuff; // zmienna przechowujaca dane dla zadania 
+        private PartData partBuff; //zmienna przechowujaca zmienne dla czesci
 
         #region operacje dla request
-        public List<Request> GetAll()
+
+        /// <summary>
+        /// Funkcja zwraca wszystkie zadania znajdujace sie w bazie
+        /// </summary>
+        /// <returns>List<Requests></returns>
+        List<Request> IRequestDatabaseAdapter.GetAll()
         {
 
             databaseData = ordersData.Get.All();
             return PrepareReqList();
         }
-
-        public List<Request> GetByModel(string model)
+        
+        /// <summary>
+        /// Metoda zwraca wszystkie zlecenia ktore oparte sa o podany model samochodu
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        List<Request> IRequestDatabaseAdapter.GetByModel(string model)
         {
             
             databaseData = ordersData.Get.ByMark(model);
             return PrepareReqList();
         }
 
-        public List<Request> GetByMark(string mark)
+        /// <summary>
+        /// Metoda zwracajaca wszystkie zlecenia po marce samochodu
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
+        List<Request> IRequestDatabaseAdapter.GetByMark(string mark)
         {
 
             databaseData = ordersData.Get.ByMark(mark);
             return PrepareReqList();
         }
         
-
-        public Request GetByID(int ID)
+        /// <summary>
+        /// Metoda zwraca zlecenie o podanym ID
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        Request IRequestDatabaseAdapter.GetById(int id)
         {
             Request result;
-            databaseData = ordersData.Get.ById(ID);
+            databaseData = ordersData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             reqBuff.ID = int.Parse(convertedData[0, 0]);
             reqBuff.Model = convertedData[0, 1];
             reqBuff.Owner = convertedData[0, 2];
             reqBuff.Description = convertedData[0, 3];
-            reqBuff.ListOfParts = null;
+            reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
             result = new Request(reqBuff.ID, reqBuff.Model, reqBuff.Owner, reqBuff.Description, reqBuff.ListOfParts);
             return result;
         }
 
+        List<Request> IRequestDatabaseAdapter.GetByOwner(string owner)
+        {
+            databaseData = ordersData.Get.ByOwner(owner);
+            return PrepareReqList();
+        }
+
+        // Funkcja pomocnicza ktora tworzy liste obiektow Request
         private List<Request> PrepareReqList()
         {
             List<Request> result = new List<Request>();
@@ -86,40 +113,36 @@ namespace WorkshopManager.DatabasePresenter
             }
             return result;
         }
-
-        void DeleteReqById(int id)
+        /// <summary>
+        /// Usuwa zadanie o podanym ID 
+        /// </summary>
+        /// <param name="id"></param>
+        void IRequestDatabaseAdapter.DeleteById(int id)
         {
 
         }
 
+        void IRequestDatabaseAdapter.UpdateById(int id)
+        {
 
+        }
+
+        
 
         #endregion
 
-        private string[,] ConvertToTable(List<string>[] tabelOfLists)
-        {
-            int colCount = tabelOfLists.Length;
-            int rowCount = tabelOfLists[0].Count;
-            string[,] result = new String[colCount,rowCount];
-            for (int i = 0; i < colCount;i++ )
-            {
-                int j =0;
-                foreach(string data in tabelOfLists[i])
-                {
-                    result[i, j] = data;
-                    j++;
-                }
 
-            }
-            return result;
-
-        }
         #region opracje dla Part
 
-        public Part GetByID(int ID)
+        /// <summary>
+        /// pozwala na pobranie czesci o podanym ID
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        Part IPartsDatabaseAdapter.GetById(int id)
         {
             Part result;
-            databaseData = ordersData.Get.ById(ID);
+            databaseData = ordersData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             partBuff.ID = int.Parse(convertedData[0, 0]);
             partBuff.Name = convertedData[0, 1];
@@ -128,27 +151,45 @@ namespace WorkshopManager.DatabasePresenter
             return result;
         }
 
-        public List<Part> GetAll()
+        /// <summary>
+        /// Pobiera liste wszystkich czesci znajdujacych sie w bazie
+        /// </summary>
+        /// <returns></returns>
+        List<Part> IPartsDatabaseAdapter.GetAll()
         {
 
             databaseData = partsData.Get.All();
             return PreparePartList();
         }
 
-        public List<Part> GetByPrice(double price)
+        /// <summary>
+        /// pobiera czesci o zadanej cenie
+        /// </summary>
+        /// <param name="price"></param>
+        /// <returns></returns>
+        List<Part> IPartsDatabaseAdapter.GetByPrice(double price)
         {
             
             databaseData = partsData.Get.ByPrice(price);
             return PreparePartList();
         }
-        public List<Part> GetByName(string name)
+
+        /// <summary>
+        /// pobranie czesci o podanych 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        List<Part> IPartsDatabaseAdapter.GetByName(string name)
         {
 
             databaseData = partsData.Get.ByName(name);
             return PreparePartList();
         }
 
-
+        /// <summary>
+        /// metoda pozwala na przygotowanie listy czsci n apodstawie danych otrzymanych z bazy
+        /// </summary>
+        /// <returns></returns>
         private List<Part> PreparePartList()
         {
             List<Part> result = new List<Part>();
@@ -163,15 +204,65 @@ namespace WorkshopManager.DatabasePresenter
             return result;
         }
 
+        /// <summary>
+        /// Metoda pozwalajaca pobrac liste czesci przypisanych do danego zlecenia
+        /// </summary>
+        /// <param name="reqId"></param>
+        /// <returns></returns>
+        private List<Part> PreparePartList(int reqId)
+        {
+            databaseData = partsData.Get.PartsList(reqId);
+            List<Part> result = new List<Part>();
+            convertedData = ConvertToTable(databaseData);
+            for (int i = 0; i < databaseData[0].Count(); i++)
+            {
+                partBuff.ID = int.Parse(convertedData[0, 0]);
+                partBuff.Name = convertedData[0, 1];
+                partBuff.Price = double.Parse(convertedData[0, 2]);
+                result.Add(new Part(partBuff.ID, partBuff.Name, partBuff.Price));
+            }
+            return result;
+        }
 
-        void DeleteParById(int id)
+        /// <summary>
+        /// Usuwa zadanie z bazy po podanym id
+        /// </summary>
+        /// <param name="id"></param>
+        void IPartsDatabaseAdapter.DeleteById(int id)
+        {
+
+        }
+
+        void IPartsDatabaseAdapter.UpdateById(int id)
         {
 
         }
         #endregion 
 
 
+        /// <summary>
+        /// Funkcja pozwala na zmiane danych otrzymanych z bazy na tabice dwuwymiarowa
+        /// </summary>
+        /// <param name="tabelOfLists"></param>
+        /// <returns></returns>
+        private string[,] ConvertToTable(List<string>[] tabelOfLists)
+        {
+            int colCount = tabelOfLists.Length;
+            int rowCount = tabelOfLists[0].Count;
+            string[,] result = new String[colCount, rowCount];
+            for (int i = 0; i < colCount; i++)
+            {
+                int j = 0;
+                foreach (string data in tabelOfLists[i])
+                {
+                    result[i, j] = data;
+                    j++;
+                }
 
+            }
+            return result;
+
+        }
 
 
 

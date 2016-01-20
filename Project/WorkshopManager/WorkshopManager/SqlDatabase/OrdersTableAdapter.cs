@@ -12,11 +12,15 @@ namespace WorkshopManager.SqlDatabase
     {
         public Get Get;
         public Add Add;
+        public Update Update;
+        public Delete Delete;
 
         public OrdersTableAdapter()
         {
             Get = new Get();
             Add = new Add();
+            Update = new Update();
+            Delete = new Delete();
         }
     } 
 }
@@ -121,6 +125,98 @@ namespace OrdersTableAdapterExtension
                         "Mark=\'{0}\' AND Model=\'{1}\' AND Owner=\'{2}\'", mark, model, owner))[0];
 
             return Convert.ToInt32(id.Max<string>());
+        }
+    }
+
+    class Update
+    {
+        private static string _table = "Orders";
+
+        private string GetWhere(int id)
+        {
+            return string.Format("id=\'{0}\'", id);
+        }
+
+        public void Mark(int id, string mark)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Mark=\'{0}\'", mark),
+                GetWhere(id));
+        }
+
+        public void Model(int id, string model)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Model=\'{0}\'", model),
+                GetWhere(id));
+        }
+
+        public void Owner(int id, string owner)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Owner=\'{0}\'", owner),
+                GetWhere(id));
+        }
+
+        public void Comment(int id, string comment)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Comment=\'{0}\'", comment),
+                GetWhere(id));
+        }
+
+        public void Archive(int id)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Archive=\'{0}\'", 1),
+                GetWhere(id));
+        }
+    }
+
+    class Delete
+    {
+        private static string _table = "Orders";
+
+        public void ByID(int id)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("id=\'{0}\'", id));
+        }
+
+        public void ByMark(string mark)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("Mark=\'{0}\'", mark));
+        }
+
+        public void ByModel(string model)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("Model=\'{0}\'", model));
+        }
+
+        public void ByOwner(string owner)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("Owner=\'{0}\'", owner));
+        }
+
+        public void ByArchive(bool archive)
+        {
+            var value = (archive) ? 1 : 0;
+
+            DBConnector.Delete(
+                _table,
+                string.Format("Archive=\'{0}\'", value));
         }
     }
 }

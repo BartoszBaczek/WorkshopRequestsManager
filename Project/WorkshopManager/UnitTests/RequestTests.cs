@@ -10,16 +10,16 @@ namespace UnitTests
     public class RequestUnitTests
     {
         [TestMethod]
-        public void ShouldBeContructed()
+        public void DoKrystiana()       //Wypierdol potem cały ten test. Ten nizej mozesz zostawic.
         {
             string model = "Maluch";
             string owner = "Andrzej Miodek";
             string description = "chujowy";
             List<Part> parts = new List<Part>()
             {
-                new Part(0, "Uszczelka", 40),
-                new Part(1, "Kierownica", 400),
-                new Part(2, "Opona", 600)
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
             };
 
             //Do Krystiana : ja sobie tworze obiekt w ten sposob. Dzieki temu nie mam dostepu do metody SetId()
@@ -35,6 +35,8 @@ namespace UnitTests
 
             //Jezeli potrzebujesz utworzyc obiekt od zera, a nie na podstawie otrzymanego ode mnie:
             IRequestWithIdAcces request_3 = new Request(model, owner, description, parts);
+
+            Assert.IsTrue(1 == 1);
         }
 
         [TestMethod]
@@ -45,9 +47,9 @@ namespace UnitTests
             string description = "chujowy";
             List<Part> parts = new List<Part>()
             {
-                new Part(0, "Uszczelka", 40),
-                new Part(1, "Kierownica", 400),
-                new Part(2, "Opona", 600)
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
             };
 
             IRequest request = new Request(model, owner, description, parts);
@@ -58,7 +60,8 @@ namespace UnitTests
                           request.Owner == requestWithIdAcces.Owner &&
                           request.Description == requestWithIdAcces.Description &&
                           request.ListOfParts.Except(requestWithIdAcces.ListOfParts).Count() == 0 &&        //Asserts, that
-                          requestWithIdAcces.ListOfParts.Except(request.ListOfParts).Count() == 0);         //lists are the same
+                          requestWithIdAcces.ListOfParts.Except(request.ListOfParts).Count() == 0);         //lists are the same.
+                                                                                                            //In future change to Equals method
         }
     }
 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using WorkshopManager.IPart;
+using WorkshopManager.Models.IRequest;
 
 
 namespace WorkshopManager.DatabasePresenter
@@ -79,7 +80,6 @@ namespace WorkshopManager.DatabasePresenter
         /// <returns></returns>
         Request IRequestDatabaseAdapter.GetById(int id)
         {
-            Request result;
             databaseData = ordersData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             reqBuff.ID = int.Parse(convertedData[0, 0]);
@@ -87,8 +87,10 @@ namespace WorkshopManager.DatabasePresenter
             reqBuff.Owner = convertedData[0, 2];
             reqBuff.Description = convertedData[0, 3];
             reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
-            result = new Request(reqBuff.ID, reqBuff.Model, reqBuff.Owner, reqBuff.Description, reqBuff.ListOfParts);
-            return result;
+            IRequestWithIdAcces result = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Description, reqBuff.ListOfParts);
+            result.SetId(reqBuff.ID);
+
+            return (Request) result;
         }
 
         List<Request> IRequestDatabaseAdapter.GetByOwner(string owner)
@@ -109,7 +111,10 @@ namespace WorkshopManager.DatabasePresenter
                 reqBuff.Owner = convertedData[i, 2];
                 reqBuff.Description = convertedData[i, 3];
                 reqBuff.ListOfParts = null;
-                result.Add(new Request(reqBuff.ID, reqBuff.Model, reqBuff.Owner, reqBuff.Description, reqBuff.ListOfParts));
+
+                IRequestWithIdAcces newRequest = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Description, reqBuff.ListOfParts);
+                newRequest.SetId(reqBuff.ID);
+                result.Add((Request)newRequest);
             }
             return result;
         }
@@ -141,14 +146,16 @@ namespace WorkshopManager.DatabasePresenter
         /// <returns></returns>
         Part IPartsDatabaseAdapter.GetById(int id)
         {
-            Part result;
+            IPartWithIdAcces result;
             databaseData = ordersData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             partBuff.ID = int.Parse(convertedData[0, 0]);
             partBuff.Name = convertedData[0, 1];
             partBuff.Price = double.Parse( convertedData[0, 2]);
-            result = new Part(partBuff.ID, partBuff.Name, partBuff.Price);
-            return result;
+
+            result = new Part(partBuff.Name, partBuff.Price);
+            result.SetId(partBuff.ID);
+            return (Part) result;
         }
 
         /// <summary>
@@ -199,7 +206,10 @@ namespace WorkshopManager.DatabasePresenter
                 partBuff.ID = int.Parse(convertedData[0, 0]);
                 partBuff.Name = convertedData[0, 1];
                 partBuff.Price = double.Parse(convertedData[0, 2]);
-                result.Add(new Part(partBuff.ID, partBuff.Name, partBuff.Price));
+
+                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price);
+                newPart.SetId(partBuff.ID);
+                result.Add( (Part)newPart);
             }
             return result;
         }
@@ -219,7 +229,10 @@ namespace WorkshopManager.DatabasePresenter
                 partBuff.ID = int.Parse(convertedData[0, 0]);
                 partBuff.Name = convertedData[0, 1];
                 partBuff.Price = double.Parse(convertedData[0, 2]);
-                result.Add(new Part(partBuff.ID, partBuff.Name, partBuff.Price));
+
+                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price);
+                newPart.SetId(partBuff.ID);
+                result.Add((Part)newPart);
             }
             return result;
         }

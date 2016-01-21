@@ -11,10 +11,16 @@ namespace WorkshopManager.SqlDatabase
     class PartsTableAdapter
     {
         public Get Get;
+        public Add Add;
+        public Update Update;
+        public Delete Delete;
 
         public PartsTableAdapter()
         {
             Get = new Get();
+            Add = new Add();
+            Update = new Update();
+            Delete = new Delete();
         }
     }
 }
@@ -97,6 +103,82 @@ namespace PartsTableAdapterExtension
                 false,
                 _table,
                 str);
+        }
+    }
+
+    class Add
+    {
+        private static string _table = "Parts";
+        private static string _allColumns = "Name, Price";
+
+        public int Part(string name, double price)
+        {
+            DBConnector.Insert(
+                _table,
+                _allColumns,
+                string.Format(
+                    "\'{0}\',\'{1}\'", name, price));
+
+            var id = DBConnector.Select(
+                    "id",
+                    false,
+                    _table,
+                    string.Format(
+                        "Name=\'{0}\' AND Price=\'{1}\'", name, price))[0];
+
+            return Convert.ToInt32(id.Max<string>());
+        }
+    }
+
+    class Update
+    {
+        private static string _table = "Parts";
+
+        private string GetWhere(int id)
+        {
+            return string.Format("id=\'{0}\'", id);
+        }
+
+        public void Name(int id, string name)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Name=\'{0}\'", name),
+                GetWhere(id));
+        }
+
+        public void Price(int id, double price)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Price=\'{0}\'", price),
+                GetWhere(id));
+        }
+    }
+
+    class Delete
+    {
+        private static string _table = "Parts";
+
+        public void ByID(int id)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("id=\'{0}\'", id));
+        }
+
+        public void ByName(string name)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("Name=\'{0}\'", name));
+        }
+
+        public void ByPrice(double price)
+        {
+            DBConnector.Delete(
+                _table,
+                string.Format("Price=\'{0}\'", price));
         }
     }
 }

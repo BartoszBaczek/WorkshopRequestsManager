@@ -1,14 +1,15 @@
-﻿namespace WorkshopManager
+﻿using WorkshopManager.IPart;
+
+namespace WorkshopManager
 {
-    public class Part
+    public class Part : IPartWithIdAcces
     {
-        public int ID { get; private set; }     //Musze miec do tego dostep, ale nie bede mogl tego zmieniac, jak juz raz zostanie ustalone
+        public int ID { get; private set; }
         public string Name { get; set; }
         public double Prize { get; set; }
 
-        public Part(int id, string name, double prize)
+        public Part(string name, double prize)
         {
-            ID = id;
             Name = name;
             Prize = prize;
         }
@@ -16,6 +17,11 @@
         public bool Equals(Part part)
         {
             return false;
+        }
+
+        public void SetId(int id)
+        {
+            ID = id;
         }
     }
 }

@@ -31,9 +31,9 @@ namespace PartsTableAdapterExtension
 
     class Get
     {
-        private static string _table = "Parts";
-        private static string _partsTable = "PartsList";
-        private static string _allColumns = "id, Name, Price";
+        private const string _table = "Parts";
+        private const string _partsTable = "PartsList";
+        private const string _allColumns = "id, Name, Price";
 
         /// <summary>
         /// Zwraca tablicę list stringów zawierającą kompletną tabelę 'Parts'
@@ -108,8 +108,8 @@ namespace PartsTableAdapterExtension
 
     class Add
     {
-        private static string _table = "Parts";
-        private static string _allColumns = "Name, Price";
+        private const string _table = "Parts";
+        private const string _allColumns = "Name, Price";
 
         public int Part(string name, double price)
         {
@@ -132,7 +132,7 @@ namespace PartsTableAdapterExtension
 
     class Update
     {
-        private static string _table = "Parts";
+        private const string _table = "Parts";
 
         private string GetWhere(int id)
         {
@@ -166,7 +166,7 @@ namespace PartsTableAdapterExtension
 
     class Delete
     {
-        private static string _table = "Parts";
+        private const string _table = "Parts";
 
         public void ByID(int id)
         {

@@ -139,6 +139,14 @@ namespace PartsTableAdapterExtension
             return string.Format("id=\'{0}\'", id);
         }
 
+        public void Record(int id, string name, double price)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Name=\'{0}\', Price=\'{1}\'", name, price),
+                GetWhere(id));
+        }
+
         public void Name(int id, string name)
         {
             DBConnector.Update(

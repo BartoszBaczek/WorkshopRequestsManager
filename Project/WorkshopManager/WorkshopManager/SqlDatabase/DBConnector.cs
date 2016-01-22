@@ -138,13 +138,8 @@ namespace WorkshopManager.SqlDatabase.MySql
             return rows;
         }
 
-        public static void Insert(string table, string columns, string values)
+        private static void ExecuteQuery(string sqlCommand)
         {
-            if (GetRows(columns) != GetRows(values))
-                return;
-
-            var sqlCommand = string.Format("INSERT INTO {0} ({1}) VALUES ({2});", table, columns, values);
-
             if (OpenConnection())
             {
                 try
@@ -157,12 +152,22 @@ namespace WorkshopManager.SqlDatabase.MySql
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                } 
+                }
                 finally
                 {
                     CloseConnection();
                 }
             }
+        }
+
+        public static void Insert(string table, string columns, string values)
+        {
+            if (GetRows(columns) != GetRows(values))
+                return;
+
+            var sqlCommand = string.Format("INSERT INTO {0} ({1}) VALUES ({2});", table, columns, values);
+
+            ExecuteQuery(sqlCommand);
         }
 
         public static void Insert(string table, string columns, List<string> values)
@@ -184,72 +189,21 @@ namespace WorkshopManager.SqlDatabase.MySql
 
             var sqlCommand = string.Format("INSERT INTO {0} ({1}) VALUES {2};", table, columns, rows);
 
-            if (OpenConnection())
-            {
-                try
-                {
-                    using (var command = new MySqlCommand(sqlCommand, _connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    CloseConnection();
-                }
-            }
+            ExecuteQuery(sqlCommand);
         }
 
         public static void Update(string table, string set, string where)
         {
             var sqlCommand = string.Format("UPDATE {0} SET {1} where {2}", table, set, where);
 
-            if (OpenConnection())
-            {
-                try
-                {
-                    using (var command = new MySqlCommand(sqlCommand, _connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    CloseConnection();
-                }
-            }
+            ExecuteQuery(sqlCommand);
         }
 
         public static void Delete(string table, string where)
         {
             var sqlCommand = string.Format("DELETE FROM {0} WHERE {1}", table, where);
 
-            if (OpenConnection())
-            {
-                try
-                {
-                    using (var command = new MySqlCommand(sqlCommand, _connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    CloseConnection();
-                }
-            }
+            ExecuteQuery(sqlCommand);
         }
     }
 }

@@ -137,6 +137,14 @@ namespace OrdersTableAdapterExtension
             return string.Format("id=\'{0}\'", id);
         }
 
+        public void Record(int id, string mark, string model, string owner, string comment)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Mark=\'{0}\', Model=\'{1}\', Owner=\'{2}\', Comment=\'{3}\'", mark, model, owner, comment),
+                GetWhere(id));
+        }
+
         public void Mark(int id, string mark)
         {
             DBConnector.Update(

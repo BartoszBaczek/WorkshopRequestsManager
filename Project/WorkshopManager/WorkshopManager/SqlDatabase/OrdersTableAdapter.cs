@@ -31,8 +31,8 @@ namespace OrdersTableAdapterExtension
        
     class Get
     {
-        private static string _table = "Orders";
-        private static string _allColumns = "id, Mark, Model, Owner, Comment, Archive";
+        private const string _table = "Orders";
+        private const string _allColumns = "id, Mark, Model, Owner, Comment, Archive";
 
         /// <summary>
         /// Zwraca tablicę list stringów zawierającą kompletną tabelę 'Orders'
@@ -106,8 +106,8 @@ namespace OrdersTableAdapterExtension
 
     class Add
     {
-        private static string _table = "Orders";
-        private static string _allColumns = "Mark, Model, Owner, Comment, Archive";
+        private const string _table = "Orders";
+        private const string _allColumns = "Mark, Model, Owner, Comment, Archive";
 
         public int Order(string mark, string model, string owner, string comment)
         {
@@ -130,7 +130,7 @@ namespace OrdersTableAdapterExtension
 
     class Update
     {
-        private static string _table = "Orders";
+        private const string _table = "Orders";
 
         private string GetWhere(int id)
         {
@@ -188,7 +188,7 @@ namespace OrdersTableAdapterExtension
 
     class Delete
     {
-        private static string _table = "Orders";
+        private const string _table = "Orders";
 
         public void ByID(int id)
         {

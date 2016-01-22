@@ -165,6 +165,45 @@ namespace WorkshopManager.SqlDatabase.MySql
             }
         }
 
+        public static void Insert(string table, string columns, List<string> values)
+        {
+            var rows = string.Empty;
+
+            foreach (var item in values)
+            {
+                if (GetRows(columns) != GetRows(item))
+                    return;
+            }
+
+            for (int i = 0; i < values.Count - 1; i++)
+            {
+                rows += string.Format("({0}),", values[i]);
+            }
+            rows += string.Format("({0})", values[values.Count - 1]);
+
+
+            var sqlCommand = string.Format("INSERT INTO {0} ({1}) VALUES {2};", table, columns, rows);
+
+            if (OpenConnection())
+            {
+                try
+                {
+                    using (var command = new MySqlCommand(sqlCommand, _connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    CloseConnection();
+                }
+            }
+        }
+
         public static void Update(string table, string set, string where)
         {
             var sqlCommand = string.Format("UPDATE {0} SET {1} where {2}", table, set, where);

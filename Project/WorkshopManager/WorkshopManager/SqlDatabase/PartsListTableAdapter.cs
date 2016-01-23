@@ -72,6 +72,14 @@ namespace PartsListTableAdapterExtensions
 
     class Delete
     {
+        private const string _listTable = "PartsList";
 
+        public void List(int idOrder)
+        {
+            DBConnector.Delete(
+                _listTable,
+                string.Format(
+                    "Orders_id=\'{0}\'", idOrder));
+        }
     }
 }

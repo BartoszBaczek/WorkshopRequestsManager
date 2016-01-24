@@ -6,6 +6,6 @@ namespace WorkshopManager.Forms.ToolsForRequestView
     {
         ToolsForRequestPresenter Presenter { set; }
         List<object> AllToolsListBox { get; set; }
-        List<object> ToolsForRequestListBox { get; set; 
+        List<object> ToolsForRequestListBox { get; set; }
     }
 }

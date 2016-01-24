@@ -12,9 +12,10 @@ namespace UnitTests
         [TestMethod]
         public void DoKrystiana()       //Wypierdol potem cały ten test. Ten nizej mozesz zostawic.
         {
-            string model = "Maluch";
+            string model = "Fiat";
             string owner = "Andrzej Miodek";
-            string description = "chujowy";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
             List<Part> parts = new List<Part>()
             {
                 new Part("Uszczelka", 40),
@@ -23,7 +24,7 @@ namespace UnitTests
             };
 
             //Do Krystiana : ja sobie tworze obiekt w ten sposob. Dzieki temu nie mam dostepu do metody SetId()
-            IRequest request_1 = new Request(model, owner, description, parts);
+            IRequest request_1 = new Request(model, owner, mark, description, parts);
             //acces1.SetId(34); <- u mnie nie dziala
 
 
@@ -34,7 +35,7 @@ namespace UnitTests
             request_2.SetId(34);    // <- u ciebie dziala
 
             //Jezeli potrzebujesz utworzyc obiekt od zera, a nie na podstawie otrzymanego ode mnie:
-            IRequestWithIdAcces request_3 = new Request(model, owner, description, parts);
+            IRequestWithIdAcces request_3 = new Request(model, owner, mark, description, parts);
 
             Assert.IsTrue(1 == 1);
         }
@@ -42,9 +43,10 @@ namespace UnitTests
         [TestMethod]
         public void ShouldNotChangeFieldsWhenProjectedFromIRequestToIRequestWithAcces()
         {
-            string model = "Maluch";
+            string model = "Fiat";
             string owner = "Andrzej Miodek";
-            string description = "chujowy";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
             List<Part> parts = new List<Part>()
             {
                 new Part("Uszczelka", 40),
@@ -52,7 +54,7 @@ namespace UnitTests
                 new Part("Opona", 600)
             };
 
-            IRequest request = new Request(model, owner, description, parts);
+            IRequest request = new Request(model, owner,mark, description, parts);
 
             IRequestWithIdAcces requestWithIdAcces = (IRequestWithIdAcces) request;
 
@@ -67,8 +69,9 @@ namespace UnitTests
         [TestMethod]
         public void SouldSetIDWhenSetID()
         {
-            string model = "Maluch";
+            string model = "Fiat";
             string owner = "Andrzej Miodek";
+            string mark = "126p";
             string description = "Wymiana zderzaka";
             List<Part> parts = new List<Part>()
             {
@@ -76,11 +79,28 @@ namespace UnitTests
                 new Part("Kierownica", 400),
                 new Part("Opona", 600)
             };
-            Request a = new Request(model, owner, description, parts);
+            Request a = new Request(model, owner,mark, description, parts);
                 int id = 34;
             a.SetId(id);
 
             Assert.AreEqual(id, a.ID);
+        }
+        [TestMethod]
+        public void ShouldRetrunTrueWhenVariablesAreEquals()
+        {
+            string model = "Fiat";
+            string owner = "Andrzej Miodek";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
+            List<Part> parts = new List<Part>()
+            {
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
+            };
+            Request a = new Request(model, owner, mark, description, parts);
+            Request b = new Request(model, owner, mark, description, parts);
+            Assert.IsTrue(a.Equals(b));
         }
     }
 }

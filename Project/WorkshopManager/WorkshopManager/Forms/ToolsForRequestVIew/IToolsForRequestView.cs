@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace WorkshopManager.Forms.ToolsForRequestVIew
+namespace WorkshopManager.Forms.ToolsForRequestView
 {
     public interface IToolsForRequestView
     {
-        List<Part> allPartsListBox { get; set; }
-        List<Part> requestPartsListBox { get; set; } 
+        ToolsForRequestPresenter Presenter { set; }
+        List<Part> AllToolsListBox { get; set; }
+        List<Part> ToolsForRequestListBox { get; set; } 
     }
 }

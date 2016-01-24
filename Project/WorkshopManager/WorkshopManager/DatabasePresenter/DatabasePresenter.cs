@@ -57,7 +57,7 @@ namespace WorkshopManager.DatabasePresenter
         List<Request> IRequestDatabaseAdapter.GetByModel(string model)
         {
             
-            databaseData = ordersData.Get.ByMark(model);
+            databaseData = ordersData.Get.ByModel(model);
             return PrepareReqList();
         }
 

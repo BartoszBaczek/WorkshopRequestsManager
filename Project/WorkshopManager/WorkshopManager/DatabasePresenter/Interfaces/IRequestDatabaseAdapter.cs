@@ -14,7 +14,8 @@ namespace WorkshopManager.DatabasePresenter
         List<Request> GetByOwner(string owner);
         List<Request> GetByMark(string mark);
         Request GetById(int id);
+        void AddToDatabase(ref Request newRequest);
         void DeleteById(int id);
-        void UpdateById(int id); 
+        void UpdateRequest(Request updatedRequest); 
     }
 }

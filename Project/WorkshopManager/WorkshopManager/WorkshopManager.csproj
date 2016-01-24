@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabasePresenter\DatabasePresenter.cs" />
-    <Compile Include="DatabasePresenter\IPartsDatabaseAdapter.cs" />
+    <Compile Include="DatabasePresenter\Interfaces\IPartsDatabaseAdapter.cs" />
     <Compile Include="DatabasePresenter\Interfaces\IRequestDatabaseAdapter.cs" />
     <Compile Include="Forms\RequestsDatabaseView\IRequestsDatabaseView.cs" />
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabasePresenter.cs" />
@@ -66,6 +66,12 @@
     <Compile Include="Forms\RequestsModifierView\RequestsModifierView.Designer.cs">
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ToolsForRequestVIew\IToolsForRequestView.cs" />
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestPresenter.cs" />
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.cs" />
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.Designer.cs">
+      <DependentUpon>ToolsForRequestView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\IPart\IPart.cs" />
     <Compile Include="Models\IPart\IPartWithIdAcces.cs" />
     <Compile Include="Models\IRequest\IRequest.cs" />
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestsModifierView\RequestsModifierView.resx">
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToolsForRequestVIew\ToolsForRequestView.resx">
+      <DependentUpon>ToolsForRequestView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

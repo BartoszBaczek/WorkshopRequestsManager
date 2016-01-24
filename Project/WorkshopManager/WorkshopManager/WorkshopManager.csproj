@@ -68,7 +68,9 @@
     </Compile>
     <Compile Include="Forms\ToolsForRequestVIew\IToolsForRequestView.cs" />
     <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestPresenter.cs" />
-    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.cs" />
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.Designer.cs">
       <DependentUpon>ToolsForRequestView.cs</DependentUpon>
     </Compile>

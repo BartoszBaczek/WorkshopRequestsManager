@@ -99,8 +99,37 @@ namespace UnitTests
                 new Part("Opona", 600)
             };
             Request a = new Request(model, owner, mark, description, parts);
+<<<<<<< HEAD
             Request b = new Request(model, owner, mark, description, parts);
             Assert.IsTrue(a.Equals(b));
         }
+=======
+            Request b = new Request(model , owner, mark, description, parts);
+            Assert.IsTrue(a.Equals(b));
+        }
+        [TestMethod]
+        public void ShouldReturnFalseWhenListIsNotEqual()
+        {
+            string model = "Fiat";
+            string owner = "Andrzej Miodek";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
+            List<Part> parts = new List<Part>()
+            {
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
+            };
+            List<Part> parts2 = new List<Part>()
+            {
+                new Part("Uszczelka", 40),
+                new Part("Lampa przednia", 270),
+                new Part("Opona", 600)
+            };
+            Request a = new Request(model, owner, mark, description, parts);
+            Request b = new Request(model, owner, mark, description, parts2);
+            Assert.IsFalse(a.Equals(b));
+        }
+>>>>>>> refs/remotes/origin/Testy2
     }
 }

@@ -63,5 +63,24 @@ namespace UnitTests
                           requestWithIdAcces.ListOfParts.Except(request.ListOfParts).Count() == 0);         //lists are the same.
                                                                                                             //In future change to Equals method
         }
+
+        [TestMethod]
+        public void SouldSetIDWhenSetID()
+        {
+            string model = "Maluch";
+            string owner = "Andrzej Miodek";
+            string description = "Wymiana zderzaka";
+            List<Part> parts = new List<Part>()
+            {
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
+            };
+            Request a = new Request(model, owner, description, parts);
+                int id = 34;
+            a.SetId(id);
+
+            Assert.AreEqual(id, a.ID);
+        }
     }
 }

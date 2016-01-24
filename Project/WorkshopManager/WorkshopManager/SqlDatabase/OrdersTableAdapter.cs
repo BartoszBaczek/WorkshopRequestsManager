@@ -31,8 +31,8 @@ namespace OrdersTableAdapterExtension
        
     class Get
     {
-        private static string _table = "Orders";
-        private static string _allColumns = "id, Mark, Model, Owner, Comment, Archive";
+        private const string _table = "Orders";
+        private const string _allColumns = "id, Mark, Model, Owner, Comment, Archive";
 
         /// <summary>
         /// Zwraca tablicę list stringów zawierającą kompletną tabelę 'Orders'
@@ -106,8 +106,8 @@ namespace OrdersTableAdapterExtension
 
     class Add
     {
-        private static string _table = "Orders";
-        private static string _allColumns = "Mark, Model, Owner, Comment, Archive";
+        private const string _table = "Orders";
+        private const string _allColumns = "Mark, Model, Owner, Comment, Archive";
 
         public int Order(string mark, string model, string owner, string comment)
         {
@@ -130,11 +130,19 @@ namespace OrdersTableAdapterExtension
 
     class Update
     {
-        private static string _table = "Orders";
+        private const string _table = "Orders";
 
         private string GetWhere(int id)
         {
             return string.Format("id=\'{0}\'", id);
+        }
+
+        public void Record(int id, string mark, string model, string owner, string comment)
+        {
+            DBConnector.Update(
+                _table,
+                string.Format("Mark=\'{0}\', Model=\'{1}\', Owner=\'{2}\', Comment=\'{3}\'", mark, model, owner, comment),
+                GetWhere(id));
         }
 
         public void Mark(int id, string mark)
@@ -180,7 +188,7 @@ namespace OrdersTableAdapterExtension
 
     class Delete
     {
-        private static string _table = "Orders";
+        private const string _table = "Orders";
 
         public void ByID(int id)
         {

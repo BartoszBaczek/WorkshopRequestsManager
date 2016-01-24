@@ -18,7 +18,7 @@ namespace WorkshopManager
 
         public bool Equals(Part part)
         {
-            return false;
+            return (Name == part.Name && Prize == part.Prize);
         }
 
         public void SetId(int id)

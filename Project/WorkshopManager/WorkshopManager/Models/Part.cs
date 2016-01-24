@@ -7,6 +7,8 @@ namespace WorkshopManager
         public int ID { get; private set; }
         public string Name { get; set; }
         public double Prize { get; set; }
+        public double Amount { get; set; }
+
 
         public Part(string name, double prize)
         {

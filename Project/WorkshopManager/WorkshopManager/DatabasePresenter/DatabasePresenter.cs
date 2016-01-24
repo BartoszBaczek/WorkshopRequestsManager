@@ -124,8 +124,9 @@ namespace WorkshopManager.DatabasePresenter
 
         void IRequestDatabaseAdapter.AddToDatabase(ref Request newRequest)
         {
-
+            //dodanie do bazy Requesta i ustawia ID obiektu na to co przypisała baza
             newRequest.SetId(ordersData.Add.Order(newRequest.Mark, newRequest.Model, newRequest.Owner, newRequest.Description));
+            
         }
 
         /// <summary>
@@ -139,7 +140,7 @@ namespace WorkshopManager.DatabasePresenter
 
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {
-
+            ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
         }
 
 
@@ -252,13 +253,15 @@ namespace WorkshopManager.DatabasePresenter
         /// <param name="id"></param>
         void IPartsDatabaseAdapter.DeleteById(int id)
         {
-
+            partsData.Delete.ByID(id);
         }
 
-        void IPartsDatabaseAdapter.UpdateById(int id)
+        private void UpdetePartList(List<Part> oldPartList)
         {
 
         }
+
+
         #endregion 
 
 

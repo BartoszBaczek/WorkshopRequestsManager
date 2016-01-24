@@ -11,6 +11,10 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             InitializeComponent();
             new RequestsDatabasePresenter(this);
+
+            var pta = new SqlDatabase.PartsTableAdapter();
+            pta.Get.PartsList(2);
+
         }
 
         public object ActiveDataComboBox

@@ -82,14 +82,15 @@ namespace PartsTableAdapterExtension
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Dictionary<List<string>, int> PartsList(int id)
+        public Dictionary<List<string>, int> PartsList(int idOrder)
         {
             var list = DBConnector.Select(
                 "Parts_id, Amount",
                 false,
                 _partsTable,
-                string.Format("Orders_id=\'{0}\'", id));
-
+                string.Format("Orders_id=\'{0}\'", idOrder));
+            if (list[0].Count == 0)
+                return null;
             var str = string.Empty;
 
             for (int i = 0; i < list[0].Count - 1; i++)

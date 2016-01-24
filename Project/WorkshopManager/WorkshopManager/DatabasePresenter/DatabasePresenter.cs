@@ -26,6 +26,7 @@ namespace WorkshopManager.DatabasePresenter
         public int ID;
         public string Name;
         public double Price;
+        public int Amount;
     }
 
     class DatabasePresenter : IPartsDatabaseAdapter, IRequestDatabaseAdapter
@@ -124,8 +125,9 @@ namespace WorkshopManager.DatabasePresenter
 
         void IRequestDatabaseAdapter.AddToDatabase(ref Request newRequest)
         {
-
+            //dodanie do bazy Requesta i ustawia ID obiektu na to co przypisała baza
             newRequest.SetId(ordersData.Add.Order(newRequest.Mark, newRequest.Model, newRequest.Owner, newRequest.Description));
+            
         }
 
         /// <summary>
@@ -139,7 +141,7 @@ namespace WorkshopManager.DatabasePresenter
 
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {
-
+            ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
         }
 
 
@@ -230,16 +232,18 @@ namespace WorkshopManager.DatabasePresenter
         /// <returns></returns>
         private List<Part> PreparePartList(int reqId)
         {
-            databaseData = partsData.Get.PartsList(reqId);
+            
             List<Part> result = new List<Part>();
             convertedData = ConvertToTable(databaseData);
-            for (int i = 0; i < databaseData[0].Count(); i++)
+            var data =partsData.Get.PartsList(reqId);
+            foreach (var list in data)
             {
-                partBuff.ID = int.Parse(convertedData[0, 0]);
-                partBuff.Name = convertedData[0, 1];
-                partBuff.Price = double.Parse(convertedData[0, 2]);
+                partBuff.ID = int.Parse(list.Key[0]);
+                partBuff.Name = list.Key[1];
+                partBuff.Price = double.Parse(list.Key[2]);
+                partBuff.Amount = list.Value;
 
-                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price);
+                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price, partBuff.Amount);
                 newPart.SetId(partBuff.ID);
                 result.Add((Part)newPart);
             }
@@ -252,13 +256,15 @@ namespace WorkshopManager.DatabasePresenter
         /// <param name="id"></param>
         void IPartsDatabaseAdapter.DeleteById(int id)
         {
-
+            partsData.Delete.ByID(id);
         }
 
-        void IPartsDatabaseAdapter.UpdateById(int id)
+        private void UpdetePartList(List<Part> oldPartList)
         {
 
         }
+
+
         #endregion 
 
 

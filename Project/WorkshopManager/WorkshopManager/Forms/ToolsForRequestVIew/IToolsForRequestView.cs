@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 
-namespace WorkshopManager.Forms.ToolsForRequestVIew
+namespace WorkshopManager.Forms.ToolsForRequestView
 {
     public interface IToolsForRequestView
     {
-        List<Part> allPartsListBox { get; set; }
-        List<Part> requestPartsListBox { get; set; } 
+        ToolsForRequestPresenter Presenter { set; }
+        List<object> AllToolsListBox { get; set; }
+        List<object> ToolsForRequestListBox { get; set; }
     }
 }

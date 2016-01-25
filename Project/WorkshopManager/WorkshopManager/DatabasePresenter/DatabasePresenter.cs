@@ -142,6 +142,7 @@ namespace WorkshopManager.DatabasePresenter
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {
             ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
+            
         }
 
 
@@ -259,8 +260,10 @@ namespace WorkshopManager.DatabasePresenter
             partsData.Delete.ByID(id);
         }
 
-        private void UpdetePartList(List<Part> oldPartList)
+        private void UpdetePartList(ReqData oldRequest)
         {
+            Request Buffor = ((IRequestDatabaseAdapter)this).GetById(oldRequest.ID);
+            var firstNotSecond = oldRequest.ListOfParts.Except(Buffor.ListOfParts).ToList();
 
         }
 

@@ -41,5 +41,25 @@ namespace WorkshopManager
 
             return (firstNotSecond.Count == 0 && secondNotFirst.Count == 0);
         }
+
+        public void AddPartToRequest(Part part)
+        {
+            ListOfParts.Add(part);
+        }
+
+        public void DeletePartFromRequest(Part part)
+        {
+            ListOfParts.Remove(part);
+        }
+
+        public double GetTotalPrize()
+        {
+            double TotalPrize = 0;
+            foreach (var part in ListOfParts)
+            {
+                TotalPrize += part.Prize * part.Amount;
+            }
+            return TotalPrize;
+        }
     }
 }

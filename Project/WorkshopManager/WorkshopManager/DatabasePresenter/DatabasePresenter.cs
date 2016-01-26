@@ -246,7 +246,6 @@ namespace WorkshopManager.DatabasePresenter
                 partBuff.Name = list.Key[1];
                 partBuff.Price = double.Parse(list.Key[2]);
                 partBuff.Amount = list.Value;
-
                 IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price, partBuff.Amount);
                 newPart.SetId(partBuff.ID);
                 result.Add((Part)newPart);
@@ -258,14 +257,26 @@ namespace WorkshopManager.DatabasePresenter
         /// Usuwa zadanie z bazy po podanym id
         /// </summary>
         /// <param name="id"></param>
-        void IPartsDatabaseAdapter.DeleteById(int id)
+        void IPartsDatabaseAdapter.DeleteById(int idReq, int idPart)
         {
-            partsData.Delete.ByID(id);
+            partsList.Delete.Part(idReq, idPart);
         }
 
         private void UpdatePartList(Request updatedRequest)
         {
             Request oldRequest = ((IRequestDatabaseAdapter)this).GetById(updatedRequest.ID);
+            foreach (Part partOld in oldRequest.ListOfParts)
+            {
+                foreach ( Part partNew in updatedRequest.ListOfParts)
+                {
+                    if (partOld.ID == partNew.ID)
+                    {
+                        partOld.Amount = partNew.Amount;
+                        partsList.Update.Part(updatedRequest.ID, partNew.ID, partNew.Amount);
+                    }
+                }
+            }
+
             var firstNotSecond = updatedRequest.ListOfParts.Except(oldRequest.ListOfParts).ToList();
             foreach (Part part in firstNotSecond)
             {

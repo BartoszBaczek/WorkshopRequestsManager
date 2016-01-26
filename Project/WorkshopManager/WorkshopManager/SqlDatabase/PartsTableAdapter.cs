@@ -89,8 +89,10 @@ namespace PartsTableAdapterExtension
                 false,
                 _partsTable,
                 string.Format("Orders_id=\'{0}\'", idOrder));
+
             if (list[0].Count == 0)
                 return null;
+
             var str = string.Empty;
 
             for (int i = 0; i < list[0].Count - 1; i++)

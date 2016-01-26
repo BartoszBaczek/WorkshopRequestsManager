@@ -10,14 +10,14 @@ namespace WorkshopManager.SqlDatabase
 
     class PartsListTableAdapter
     {
-        public Get Get;
+        //public Get Get;
         public Add Add;
         public Update Update;
         public Delete Delete;
 
         public PartsListTableAdapter()
         {
-            Get = new Get();
+            //Get = new Get();
             Add = new Add();
             Update = new Update();
             Delete = new Delete();
@@ -67,7 +67,19 @@ namespace PartsListTableAdapterExtensions
 
     class Update
     {
+        private const string _listTable = "PartsList";
 
+        public void Part(int idOrder, int idPart, int amount)
+        {
+            DBConnector.Update(
+                _listTable,
+                string.Format(
+                    "Amount=\'{0}\'",
+                    amount),
+                string.Format(
+                    "Orders_id=\'{0}\' and Parts_id=\'{1}\'",
+                    idOrder, idPart));
+        }
     }
 
     class Delete
@@ -80,6 +92,15 @@ namespace PartsListTableAdapterExtensions
                 _listTable,
                 string.Format(
                     "Orders_id=\'{0}\'", idOrder));
+        }
+
+        public void Part(int idOrder, int idPart)
+        {
+            DBConnector.Delete(
+                _listTable,
+                string.Format(
+                    "Orders_id=\'{0}\' and Parts_id=\'{1}\'",
+                    idOrder, idPart));
         }
     }
 }

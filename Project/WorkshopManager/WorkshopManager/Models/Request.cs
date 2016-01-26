@@ -47,6 +47,11 @@ namespace WorkshopManager
             ListOfParts.Add(part);
         }
 
+        public void DeletePartFromRequest(Part part)
+        {
+            ListOfParts.Remove(part);
+        }
+
         public double GetTotalPrize()
         {
             double TotalPrize = 0;

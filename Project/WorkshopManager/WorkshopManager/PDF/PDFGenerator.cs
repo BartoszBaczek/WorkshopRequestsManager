@@ -35,7 +35,9 @@ namespace WorkshopManager
                     ReportParameter owner = new ReportParameter("owner", request.Owner);
                     ReportParameter pdfno = new ReportParameter("pdfno", numberPDF);
                     ReportParameter date = new ReportParameter("date", thisDay.ToString("d"));
-                    ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date });
+                    string totalcost = request.GetTotalPrize().ToString();
+                    ReportParameter totalprize = new ReportParameter("totalprize", totalcost);
+                    ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date, totalprize });
                     byte[] byteViewer = ReportViewer1.LocalReport.Render("PDF");
                     myStream.Write(byteViewer, 0, byteViewer.Length);
                     myStream.Close();

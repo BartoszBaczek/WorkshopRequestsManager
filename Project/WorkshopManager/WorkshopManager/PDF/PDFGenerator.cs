@@ -9,6 +9,7 @@ using Microsoft.Reporting.WinForms;
 using System.Windows.Forms;
 using System.Xml;
 using System.Data;
+using WorkshopManager.Models;
 
 namespace WorkshopManager
 {
@@ -22,8 +23,10 @@ namespace WorkshopManager
             string numberPDF = thisDay.ToString("d") + '/' + request.ID;
             ReportParameter owner = new ReportParameter("owner", request.Owner);
             ReportParameter pdfno = new ReportParameter("pdfno", numberPDF);
+            ReportParameter date = new ReportParameter("date", thisDay.ToString("d"));
+            ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date });
 
-            ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno });
+
             byte[] byteViewer = ReportViewer1.LocalReport.Render("PDF");
             FileStream newFile;
             string filename = request.ID.ToString() + ".pdf";

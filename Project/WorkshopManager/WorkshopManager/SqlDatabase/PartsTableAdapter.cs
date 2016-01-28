@@ -82,27 +82,43 @@ namespace PartsTableAdapterExtension
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<string>[] PartsList(int id)
+        public Dictionary<List<string>, int> PartsList(int idOrder)
         {
             var list = DBConnector.Select(
-                "Parts_id",
+                "Parts_id, Amount",
                 false,
                 _partsTable,
-                string.Format("Orders_id=\'{0}\'", id))[0];
+                string.Format("Orders_id=\'{0}\'", idOrder));
+
+            if (list[0].Count == 0)
+                return null;
 
             var str = string.Empty;
 
-            for (int i = 0; i < list.Count - 1; i++)
+            for (int i = 0; i < list[0].Count - 1; i++)
             {
-                str += string.Format("id=\'{0}\' or ", list[i]);
+                str += string.Format("id=\'{0}\' or ", list[0][i]);
             }
-            str += string.Format("id=\'{0}\'", list[list.Count - 1]);
+            str += string.Format("id=\'{0}\'", list[0][list[0].Count - 1]);
 
-            return DBConnector.Select(
+            var dict = new Dictionary<List<string>, int>();
+
+            var table =  DBConnector.Select(
                 _allColumns,
                 false,
                 _table,
                 str);
+
+            for (int i = 0; i < table[0].Count; i++)
+            {
+                var temp = new List<string>();
+                for (int j = 0; j < table.Length; j++)
+                {
+                    temp.Add(table[j][i]);
+                }
+                dict.Add(temp, Convert.ToInt32(list[1][i]));
+            }
+            return dict;
         }
     }
 

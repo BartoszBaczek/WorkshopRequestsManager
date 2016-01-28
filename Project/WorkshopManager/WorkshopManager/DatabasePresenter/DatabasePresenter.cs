@@ -26,16 +26,19 @@ namespace WorkshopManager.DatabasePresenter
         public int ID;
         public string Name;
         public double Price;
+        public int Amount;
     }
 
     class DatabasePresenter : IPartsDatabaseAdapter, IRequestDatabaseAdapter
     {
         private OrdersTableAdapter ordersData = new OrdersTableAdapter(); //obsluga tabeli zadani
         private PartsTableAdapter partsData = new PartsTableAdapter();  //obsluga tabeli czesci
+        private PartsListTableAdapter partsList = new PartsListTableAdapter();
         private List<string>[] databaseData; //zmienna przechowujaca wynik zapytania do bazy danych
         private string[,] convertedData; //zmienna przechowujaca przekonwertowaną tablice list bedaca wynikiem zapytania do bazy na tablice dwuwymiarowa
         private ReqData reqBuff; // zmienna przechowujaca dane dla zadania 
         private PartData partBuff; //zmienna przechowujaca zmienne dla czesci
+        
 
         #region operacje dla request
 
@@ -84,10 +87,10 @@ namespace WorkshopManager.DatabasePresenter
             databaseData = ordersData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             reqBuff.ID = int.Parse(convertedData[0, 0]);
-            reqBuff.Model = convertedData[0, 1];
-            reqBuff.Mark = convertedData[0, 3];
-            reqBuff.Owner = convertedData[0, 4];
-            reqBuff.Description = convertedData[0, 5];
+            reqBuff.Mark = convertedData[0, 1];
+            reqBuff.Model = convertedData[0, 2];
+            reqBuff.Owner = convertedData[0, 3];
+            reqBuff.Description = convertedData[0, 4];
             reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
             IRequestWithIdAcces result = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts);
             result.SetId(reqBuff.ID);
@@ -109,10 +112,10 @@ namespace WorkshopManager.DatabasePresenter
             for (int i = 0; i < databaseData[0].Count(); i++)
             {
                 reqBuff.ID = int.Parse(convertedData[i, 0]);
-                reqBuff.Model = convertedData[0, 1];
-                reqBuff.Mark = convertedData[0, 3];
-                reqBuff.Owner = convertedData[0, 4];
-                reqBuff.Description = convertedData[0, 5];
+                reqBuff.Mark = convertedData[i, 1];
+                reqBuff.Model = convertedData[i, 2];
+                reqBuff.Owner = convertedData[i, 3];
+                reqBuff.Description = convertedData[i, 4];
                 reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
 
                 IRequestWithIdAcces newRequest = new Request(reqBuff.Model, reqBuff.Owner,reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts);
@@ -124,8 +127,9 @@ namespace WorkshopManager.DatabasePresenter
 
         void IRequestDatabaseAdapter.AddToDatabase(ref Request newRequest)
         {
-
+            //dodanie do bazy Requesta i ustawia ID obiektu na to co przypisała baza
             newRequest.SetId(ordersData.Add.Order(newRequest.Mark, newRequest.Model, newRequest.Owner, newRequest.Description));
+            
         }
 
         /// <summary>
@@ -137,9 +141,12 @@ namespace WorkshopManager.DatabasePresenter
             ordersData.Delete.ByID(id);
         }
 
+
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {
-
+            ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
+            this.UpdatePartList(updatedRequest);
+         
         }
 
 
@@ -174,7 +181,6 @@ namespace WorkshopManager.DatabasePresenter
         /// <returns></returns>
         List<Part> IPartsDatabaseAdapter.GetAll()
         {
-
             databaseData = partsData.Get.All();
             return PreparePartList();
         }
@@ -213,9 +219,9 @@ namespace WorkshopManager.DatabasePresenter
             convertedData = ConvertToTable(databaseData);
             for (int i = 0; i < databaseData[0].Count(); i++)
             {
-                partBuff.ID = int.Parse(convertedData[0, 0]);
-                partBuff.Name = convertedData[0, 1];
-                partBuff.Price = double.Parse(convertedData[0, 2]);
+                partBuff.ID = int.Parse(convertedData[i, 0]);
+                partBuff.Name = convertedData[i, 1];
+                partBuff.Price = double.Parse(convertedData[i, 2]);
                 IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price);
                 newPart.SetId(partBuff.ID);
                 result.Add( (Part)newPart);
@@ -230,16 +236,17 @@ namespace WorkshopManager.DatabasePresenter
         /// <returns></returns>
         private List<Part> PreparePartList(int reqId)
         {
-            databaseData = partsData.Get.PartsList(reqId);
+            
             List<Part> result = new List<Part>();
             convertedData = ConvertToTable(databaseData);
-            for (int i = 0; i < databaseData[0].Count(); i++)
+            var data =partsData.Get.PartsList(reqId);
+            foreach (var list in data)
             {
-                partBuff.ID = int.Parse(convertedData[0, 0]);
-                partBuff.Name = convertedData[0, 1];
-                partBuff.Price = double.Parse(convertedData[0, 2]);
-
-                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price);
+                partBuff.ID = int.Parse(list.Key[0]);
+                partBuff.Name = list.Key[1];
+                partBuff.Price = double.Parse(list.Key[2]);
+                partBuff.Amount = list.Value;
+                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price, partBuff.Amount);
                 newPart.SetId(partBuff.ID);
                 result.Add((Part)newPart);
             }
@@ -250,15 +257,35 @@ namespace WorkshopManager.DatabasePresenter
         /// Usuwa zadanie z bazy po podanym id
         /// </summary>
         /// <param name="id"></param>
-        void IPartsDatabaseAdapter.DeleteById(int id)
+        void IPartsDatabaseAdapter.DeleteById(int idReq, int idPart)
         {
+            partsList.Delete.Part(idReq, idPart);
+        }
+
+        private void UpdatePartList(Request updatedRequest)
+        {
+            Request oldRequest = ((IRequestDatabaseAdapter)this).GetById(updatedRequest.ID);
+            foreach (Part partOld in oldRequest.ListOfParts)
+            {
+                foreach ( Part partNew in updatedRequest.ListOfParts)
+                {
+                    if (partOld.ID == partNew.ID)
+                    {
+                        partOld.Amount = partNew.Amount;
+                        partsList.Update.Part(updatedRequest.ID, partNew.ID, partNew.Amount);
+                    }
+                }
+            }
+
+            var firstNotSecond = updatedRequest.ListOfParts.Except(oldRequest.ListOfParts).ToList();
+            foreach (Part part in firstNotSecond)
+            {
+                partsList.Add.Single(updatedRequest.ID, part.ID, part.Amount);
+            }
 
         }
 
-        void IPartsDatabaseAdapter.UpdateById(int id)
-        {
 
-        }
         #endregion 
 
 

@@ -12,6 +12,6 @@ namespace WorkshopManager.DatabasePresenter
         List<Part> GetByName(string name);
         List<Part> GetByPrice(double price);
         Part GetById(int id);
-        void DeleteByd(int idReq, int idPart);
+        void DeleteById(int idReq, int idPart);
     }
 }

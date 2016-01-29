@@ -240,15 +240,18 @@ namespace WorkshopManager.DatabasePresenter
             List<Part> result = new List<Part>();
             convertedData = ConvertToTable(databaseData);
             var data =partsData.Get.PartsList(reqId);
-            foreach (var list in data)
+            if (data != null)
             {
-                partBuff.ID = int.Parse(list.Key[0]);
-                partBuff.Name = list.Key[1];
-                partBuff.Price = double.Parse(list.Key[2]);
-                partBuff.Amount = list.Value;
-                IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price, partBuff.Amount);
-                newPart.SetId(partBuff.ID);
-                result.Add((Part)newPart);
+                foreach (var list in data)
+                {
+                    partBuff.ID = int.Parse(list.Key[0]);
+                    partBuff.Name = list.Key[1];
+                    partBuff.Price = double.Parse(list.Key[2]);
+                    partBuff.Amount = list.Value;
+                    IPartWithIdAcces newPart = new Part(partBuff.Name, partBuff.Price, partBuff.Amount);
+                    newPart.SetId(partBuff.ID);
+                    result.Add((Part)newPart);
+                }
             }
             return result;
         }
@@ -298,14 +301,14 @@ namespace WorkshopManager.DatabasePresenter
         {
             int colCount = tabelOfLists.Length;
             int rowCount = tabelOfLists[0].Count;
-            string[,] result = new String[colCount, rowCount];
-            for (int i = 0; i < colCount; i++)
+            string[,] result = new String[rowCount, colCount];
+            for (int j = 0; j < colCount; j++)
             {
-                int j = 0;
-                foreach (string data in tabelOfLists[i])
+                int i = 0;
+                foreach (string data in tabelOfLists[j])
                 {
                     result[i, j] = data;
-                    j++;
+                    i++;
                 }
 
             }

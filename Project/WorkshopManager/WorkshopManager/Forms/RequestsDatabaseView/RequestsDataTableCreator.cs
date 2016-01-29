@@ -37,7 +37,6 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
                 newRow["Mark"] = request.Mark;
                 newRow["Owner"] = request.Owner;
                 newRow["Description"] = request.Description;
-
                 _requestsDataTable.Rows.Add(newRow);
             }
         }

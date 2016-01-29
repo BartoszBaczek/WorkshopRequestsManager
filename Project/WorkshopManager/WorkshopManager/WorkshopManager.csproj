@@ -60,6 +60,7 @@
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabaseView.Designer.cs">
       <DependentUpon>RequestsDatabaseView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RequestsDatabaseView\RequestsDataTableCreator.cs" />
     <Compile Include="Forms\RequestsModifierView\IRequestsModifierView.cs" />
     <Compile Include="Forms\RequestsModifierView\ModifierPresenters\RequestAdderPresenter.cs" />
     <Compile Include="Forms\RequestsModifierView\ModifierPresenters\RequestEditorPresenter.cs" />

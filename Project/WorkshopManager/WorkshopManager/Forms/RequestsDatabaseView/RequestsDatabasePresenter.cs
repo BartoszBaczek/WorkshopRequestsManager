@@ -21,7 +21,7 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         public void Init()
         {
             SetActiveComboBoxDataSource();
-            //LoadRequestDataToDataGridView();
+            LoadRequestDataToDataGridView();
         }
 
         private void LoadRequestDataToDataGridView()

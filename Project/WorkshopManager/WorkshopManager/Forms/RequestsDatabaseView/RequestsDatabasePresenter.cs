@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using WorkshopManager.DatabasePresenter;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
@@ -26,7 +27,13 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         private void LoadRequestDataToDataGridView()
         {
+            RequestsDataTableCreator dtCreator = new RequestsDataTableCreator();
+
             List<Request> requests = _dataBase.GetAll();
+            dtCreator.UpdateRows(requests);
+
+            DataTable currentDataTable = dtCreator.GetCurrentDataTable();
+            _view.DataGridViewSource = currentDataTable;
         }
 
         public void OpenModifierFormForAdding()

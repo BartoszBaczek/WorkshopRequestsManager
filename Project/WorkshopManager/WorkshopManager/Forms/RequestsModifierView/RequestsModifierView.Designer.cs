@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.descriptionGroupBox = new System.Windows.Forms.GroupBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.idLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.carModelTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
@@ -37,8 +39,6 @@
             this.ownerLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.idLabel = new System.Windows.Forms.Label();
             this.descriptionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +58,23 @@
             this.descriptionGroupBox.TabIndex = 0;
             this.descriptionGroupBox.TabStop = false;
             this.descriptionGroupBox.Text = "Description";
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(103, 19);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(166, 20);
+            this.idTextBox.TabIndex = 7;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(7, 22);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(21, 13);
+            this.idLabel.TabIndex = 6;
+            this.idLabel.Text = "ID:";
             // 
             // descriptionTextBox
             // 
@@ -116,6 +133,7 @@
             this.acceptButton.TabIndex = 1;
             this.acceptButton.Text = "OK";
             this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // cancelButton
             // 
@@ -125,23 +143,7 @@
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(103, 19);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(166, 20);
-            this.idTextBox.TabIndex = 7;
-            // 
-            // idLabel
-            // 
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(7, 22);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(21, 13);
-            this.idLabel.TabIndex = 6;
-            this.idLabel.Text = "ID:";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // RequestsModifierView
             // 

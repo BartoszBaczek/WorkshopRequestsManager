@@ -38,8 +38,11 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OpenModifierFormForAdding()
         {
-            var requestsModifierForm = new RequestsModifierView.RequestsModifierView();
+            //TODO musi wyciagac z comboBoxa aktualnie wybrana kategorie. Na razie roboczo zostawiono Active
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView(RequestsCategory.Active);
             requestsModifierForm.ShowDialog();
+
+            LoadRequestDataToDataGridView();
         }
 
         public void OpenModifierFormForEditing()

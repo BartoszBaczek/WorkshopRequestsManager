@@ -14,5 +14,15 @@
             _view.OwnerTextBox = "Do edycji";
             _view.DescriptionTextBox = "Do edycji";
         }
+
+        public override void OnAddRequesButtonClicked()
+        {
+            
+        }
+
+        public override void OnCancelButtonClicked()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

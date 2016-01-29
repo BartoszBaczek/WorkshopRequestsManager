@@ -48,11 +48,23 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             requestsModifierForm.ShowDialog();
         }
 
+        private Request GetSelectedRequest()
+        {
+            int selectedRequestId = (int) _view.SelectedRow.Cells[0].Value;
+            
+            return _dataBase.GetById(selectedRequestId);
+        }
+
+        public void OnDeleteSelectedRequest()
+        {
+            Request requestToDelete = GetSelectedRequest();
+            _dataBase.DeleteById(requestToDelete.ID);
+            LoadRequestDataToDataGridView();
+        }
+
         private void SetActiveComboBoxDataSource()
         {
             _view.ActiveDataComboBox = Enum.GetValues(typeof(RequestsCategory));
         }
-
-        
     }
 }

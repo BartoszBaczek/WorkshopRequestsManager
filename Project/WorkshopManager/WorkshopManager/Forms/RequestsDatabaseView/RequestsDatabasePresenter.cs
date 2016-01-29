@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using WorkshopManager.DatabasePresenter;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
 {
     public class RequestsDatabasePresenter
     {
         private IRequestsDatabaseView _view;
+        private IRequestDatabaseAdapter _dataBase;
 
         public RequestsDatabasePresenter(IRequestsDatabaseView view)
         {
             _view = view;
             _view.Presenter = this;
+            _dataBase = new DatabasePresenter.DatabasePresenter();
 
             Init();
         }
@@ -17,6 +21,12 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         public void Init()
         {
             SetActiveComboBoxDataSource();
+            LoadRequestDataToDataGridView();
+        }
+
+        private void LoadRequestDataToDataGridView()
+        {
+            List<Request> requests = _dataBase.GetAll();
         }
 
         public void OpenModifierFormForAdding()

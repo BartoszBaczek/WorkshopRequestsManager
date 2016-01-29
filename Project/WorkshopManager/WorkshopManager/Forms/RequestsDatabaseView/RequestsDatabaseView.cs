@@ -44,5 +44,10 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             Presenter.OpenModifierFormForEditing();
         }
+
+        private void deleteButton_Click(object sender, System.EventArgs e)
+        {
+            Presenter.OnDeleteSelectedRequest();
+        }
     }
 }

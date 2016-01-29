@@ -85,6 +85,8 @@ namespace UnitTests
 
             Assert.AreEqual(id, a.ID);
         }
+
+
         [TestMethod]
         public void ShouldRetrunTrueWhenVariablesAreEquals()
         {
@@ -99,14 +101,11 @@ namespace UnitTests
                 new Part("Opona", 600)
             };
             Request a = new Request(model, owner, mark, description, parts);
-<<<<<<< HEAD
             Request b = new Request(model, owner, mark, description, parts);
             Assert.IsTrue(a.Equals(b));
         }
-=======
-            Request b = new Request(model , owner, mark, description, parts);
-            Assert.IsTrue(a.Equals(b));
-        }
+
+
         [TestMethod]
         public void ShouldReturnFalseWhenListIsNotEqual()
         {
@@ -130,6 +129,5 @@ namespace UnitTests
             Request b = new Request(model, owner, mark, description, parts2);
             Assert.IsFalse(a.Equals(b));
         }
->>>>>>> refs/remotes/origin/Testy2
     }
 }

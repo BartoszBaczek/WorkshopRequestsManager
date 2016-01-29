@@ -49,5 +49,10 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             Presenter.OnDeleteSelectedRequest();
         }
+
+        private void generatePDFbutton_Click(object sender, System.EventArgs e)
+        {
+            Presenter.OnGeneratePDF();
+        }
     }
 }

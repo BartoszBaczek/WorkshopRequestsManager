@@ -37,6 +37,7 @@
             this.filterGroupBox = new System.Windows.Forms.GroupBox();
             this.activeComboBox = new System.Windows.Forms.ComboBox();
             this.activeLabel = new System.Windows.Forms.Label();
+            this.generatePDFbutton = new System.Windows.Forms.Button();
             this.requestsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).BeginInit();
             this.modifyGroupBox.SuspendLayout();
@@ -137,11 +138,22 @@
             this.activeLabel.TabIndex = 0;
             this.activeLabel.Text = "Active:";
             // 
+            // generatePDFbutton
+            // 
+            this.generatePDFbutton.Location = new System.Drawing.Point(583, 241);
+            this.generatePDFbutton.Name = "generatePDFbutton";
+            this.generatePDFbutton.Size = new System.Drawing.Size(246, 23);
+            this.generatePDFbutton.TabIndex = 3;
+            this.generatePDFbutton.Text = "jebnij mi tu ladnego pdfa";
+            this.generatePDFbutton.UseVisualStyleBackColor = true;
+            this.generatePDFbutton.Click += new System.EventHandler(this.generatePDFbutton_Click);
+            // 
             // RequestsDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 290);
+            this.Controls.Add(this.generatePDFbutton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
@@ -167,6 +179,7 @@
         private System.Windows.Forms.GroupBox filterGroupBox;
         private System.Windows.Forms.ComboBox activeComboBox;
         private System.Windows.Forms.Label activeLabel;
+        private System.Windows.Forms.Button generatePDFbutton;
     }
 }
 

@@ -51,6 +51,16 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             requestsModifierForm.ShowDialog();
         }
 
+        public void OnGeneratePDF()
+        {
+
+            //TODO rzuca exceptionem.
+            //PDFGenerator pdfGenerator = new PDFGenerator();
+
+            //Request selectedRequest = GetSelectedRequest();
+            //pdfGenerator.PDFGenerate(selectedRequest);
+        }
+
         private Request GetSelectedRequest()
         {
             int selectedRequestId = (int) _view.SelectedRow.Cells[0].Value;

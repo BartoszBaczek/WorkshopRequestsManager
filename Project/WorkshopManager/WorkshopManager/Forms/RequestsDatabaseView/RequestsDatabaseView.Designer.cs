@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.requestsGroupBox = new System.Windows.Forms.GroupBox();
             this.requestsDataGridView = new System.Windows.Forms.DataGridView();
             this.modifyGroupBox = new System.Windows.Forms.GroupBox();
@@ -58,11 +59,21 @@
             // 
             this.requestsDataGridView.AllowUserToAddRows = false;
             this.requestsDataGridView.AllowUserToDeleteRows = false;
+            this.requestsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
             this.requestsDataGridView.MultiSelect = false;
             this.requestsDataGridView.Name = "requestsDataGridView";
             this.requestsDataGridView.ReadOnly = true;
+            this.requestsDataGridView.RowHeadersVisible = false;
             this.requestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.requestsDataGridView.Size = new System.Drawing.Size(536, 252);
             this.requestsDataGridView.TabIndex = 0;

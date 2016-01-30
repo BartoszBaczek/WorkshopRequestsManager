@@ -16,10 +16,10 @@ namespace WorkshopManager.Forms.RequestsModifierView
         }
 
         //jako argument bedzie struktura posiadajaca informacje o request
-        public RequestsModifierView(string s)
+        public RequestsModifierView(object requestToModify)
         {
             InitializeComponent();
-            Presenter = new RequestEditorPresenter(this);
+            Presenter = new RequestEditorPresenter(this, requestToModify);
         }
 
         public string OwnerTextBox
@@ -37,7 +37,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
         public string CarMarkTextBox
         {
             get { return carMarkTextBox.Text; }
-            set { carModelTextBox.Text = value; }
+            set { carMarkTextBox.Text = value; }
         }
 
         public string DescriptionTextBox

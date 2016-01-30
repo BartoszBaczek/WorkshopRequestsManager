@@ -37,15 +37,15 @@
             this.ownerLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.idLabel = new System.Windows.Forms.Label();
+            this.carMarkTextBox = new System.Windows.Forms.TextBox();
+            this.carMarkModel = new System.Windows.Forms.Label();
             this.descriptionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // descriptionGroupBox
             // 
-            this.descriptionGroupBox.Controls.Add(this.idTextBox);
-            this.descriptionGroupBox.Controls.Add(this.idLabel);
+            this.descriptionGroupBox.Controls.Add(this.carMarkTextBox);
+            this.descriptionGroupBox.Controls.Add(this.carMarkModel);
             this.descriptionGroupBox.Controls.Add(this.descriptionTextBox);
             this.descriptionGroupBox.Controls.Add(this.carModelTextBox);
             this.descriptionGroupBox.Controls.Add(this.ownerTextBox);
@@ -54,14 +54,14 @@
             this.descriptionGroupBox.Controls.Add(this.ownerLabel);
             this.descriptionGroupBox.Location = new System.Drawing.Point(12, 12);
             this.descriptionGroupBox.Name = "descriptionGroupBox";
-            this.descriptionGroupBox.Size = new System.Drawing.Size(275, 231);
+            this.descriptionGroupBox.Size = new System.Drawing.Size(275, 229);
             this.descriptionGroupBox.TabIndex = 0;
             this.descriptionGroupBox.TabStop = false;
             this.descriptionGroupBox.Text = "Description";
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(103, 99);
+            this.descriptionTextBox.Location = new System.Drawing.Point(103, 98);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(166, 125);
@@ -69,14 +69,14 @@
             // 
             // carModelTextBox
             // 
-            this.carModelTextBox.Location = new System.Drawing.Point(103, 72);
+            this.carModelTextBox.Location = new System.Drawing.Point(103, 46);
             this.carModelTextBox.Name = "carModelTextBox";
             this.carModelTextBox.Size = new System.Drawing.Size(166, 20);
             this.carModelTextBox.TabIndex = 4;
             // 
             // ownerTextBox
             // 
-            this.ownerTextBox.Location = new System.Drawing.Point(103, 45);
+            this.ownerTextBox.Location = new System.Drawing.Point(103, 19);
             this.ownerTextBox.Name = "ownerTextBox";
             this.ownerTextBox.Size = new System.Drawing.Size(166, 20);
             this.ownerTextBox.TabIndex = 3;
@@ -84,7 +84,7 @@
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(7, 102);
+            this.descriptionLabel.Location = new System.Drawing.Point(7, 101);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(63, 13);
             this.descriptionLabel.TabIndex = 2;
@@ -93,7 +93,7 @@
             // carModelLabel
             // 
             this.carModelLabel.AutoSize = true;
-            this.carModelLabel.Location = new System.Drawing.Point(7, 75);
+            this.carModelLabel.Location = new System.Drawing.Point(7, 49);
             this.carModelLabel.Name = "carModelLabel";
             this.carModelLabel.Size = new System.Drawing.Size(57, 13);
             this.carModelLabel.TabIndex = 1;
@@ -102,7 +102,7 @@
             // ownerLabel
             // 
             this.ownerLabel.AutoSize = true;
-            this.ownerLabel.Location = new System.Drawing.Point(7, 48);
+            this.ownerLabel.Location = new System.Drawing.Point(7, 22);
             this.ownerLabel.Name = "ownerLabel";
             this.ownerLabel.Size = new System.Drawing.Size(58, 13);
             this.ownerLabel.TabIndex = 0;
@@ -110,44 +110,45 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(12, 249);
+            this.acceptButton.Location = new System.Drawing.Point(12, 247);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(75, 23);
             this.acceptButton.TabIndex = 1;
             this.acceptButton.Text = "OK";
             this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(212, 249);
+            this.cancelButton.Location = new System.Drawing.Point(212, 247);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // idTextBox
+            // carMarkTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(103, 19);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(166, 20);
-            this.idTextBox.TabIndex = 7;
+            this.carMarkTextBox.Location = new System.Drawing.Point(103, 72);
+            this.carMarkTextBox.Name = "carMarkTextBox";
+            this.carMarkTextBox.Size = new System.Drawing.Size(166, 20);
+            this.carMarkTextBox.TabIndex = 9;
             // 
-            // idLabel
+            // carMarkModel
             // 
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(7, 22);
-            this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(21, 13);
-            this.idLabel.TabIndex = 6;
-            this.idLabel.Text = "ID:";
+            this.carMarkModel.AutoSize = true;
+            this.carMarkModel.Location = new System.Drawing.Point(7, 75);
+            this.carMarkModel.Name = "carMarkModel";
+            this.carMarkModel.Size = new System.Drawing.Size(52, 13);
+            this.carMarkModel.TabIndex = 8;
+            this.carMarkModel.Text = "Car mark:";
             // 
             // RequestsModifierView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 280);
+            this.ClientSize = new System.Drawing.Size(294, 275);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.descriptionGroupBox);
@@ -170,7 +171,7 @@
         private System.Windows.Forms.Label ownerLabel;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox idTextBox;
-        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.TextBox carMarkTextBox;
+        private System.Windows.Forms.Label carMarkModel;
     }
 }

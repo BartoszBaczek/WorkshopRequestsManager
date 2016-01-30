@@ -37,6 +37,7 @@
             this.filterGroupBox = new System.Windows.Forms.GroupBox();
             this.activeComboBox = new System.Windows.Forms.ComboBox();
             this.activeLabel = new System.Windows.Forms.Label();
+            this.generatePDFbutton = new System.Windows.Forms.Button();
             this.requestsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).BeginInit();
             this.modifyGroupBox.SuspendLayout();
@@ -48,17 +49,22 @@
             this.requestsGroupBox.Controls.Add(this.requestsDataGridView);
             this.requestsGroupBox.Location = new System.Drawing.Point(12, 12);
             this.requestsGroupBox.Name = "requestsGroupBox";
-            this.requestsGroupBox.Size = new System.Drawing.Size(386, 278);
+            this.requestsGroupBox.Size = new System.Drawing.Size(545, 278);
             this.requestsGroupBox.TabIndex = 0;
             this.requestsGroupBox.TabStop = false;
             this.requestsGroupBox.Text = "Requests";
             // 
             // requestsDataGridView
             // 
+            this.requestsDataGridView.AllowUserToAddRows = false;
+            this.requestsDataGridView.AllowUserToDeleteRows = false;
             this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
+            this.requestsDataGridView.MultiSelect = false;
             this.requestsDataGridView.Name = "requestsDataGridView";
-            this.requestsDataGridView.Size = new System.Drawing.Size(373, 252);
+            this.requestsDataGridView.ReadOnly = true;
+            this.requestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.requestsDataGridView.Size = new System.Drawing.Size(536, 252);
             this.requestsDataGridView.TabIndex = 0;
             // 
             // modifyGroupBox
@@ -66,7 +72,7 @@
             this.modifyGroupBox.Controls.Add(this.deleteButton);
             this.modifyGroupBox.Controls.Add(this.editButton);
             this.modifyGroupBox.Controls.Add(this.addButton);
-            this.modifyGroupBox.Location = new System.Drawing.Point(418, 12);
+            this.modifyGroupBox.Location = new System.Drawing.Point(622, 12);
             this.modifyGroupBox.Name = "modifyGroupBox";
             this.modifyGroupBox.Size = new System.Drawing.Size(91, 107);
             this.modifyGroupBox.TabIndex = 1;
@@ -81,6 +87,7 @@
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -106,7 +113,7 @@
             // 
             this.filterGroupBox.Controls.Add(this.activeComboBox);
             this.filterGroupBox.Controls.Add(this.activeLabel);
-            this.filterGroupBox.Location = new System.Drawing.Point(425, 125);
+            this.filterGroupBox.Location = new System.Drawing.Point(629, 125);
             this.filterGroupBox.Name = "filterGroupBox";
             this.filterGroupBox.Size = new System.Drawing.Size(200, 100);
             this.filterGroupBox.TabIndex = 2;
@@ -131,11 +138,22 @@
             this.activeLabel.TabIndex = 0;
             this.activeLabel.Text = "Active:";
             // 
+            // generatePDFbutton
+            // 
+            this.generatePDFbutton.Location = new System.Drawing.Point(583, 241);
+            this.generatePDFbutton.Name = "generatePDFbutton";
+            this.generatePDFbutton.Size = new System.Drawing.Size(246, 23);
+            this.generatePDFbutton.TabIndex = 3;
+            this.generatePDFbutton.Text = "jebnij mi tu ladnego pdfa";
+            this.generatePDFbutton.UseVisualStyleBackColor = true;
+            this.generatePDFbutton.Click += new System.EventHandler(this.generatePDFbutton_Click);
+            // 
             // RequestsDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 290);
+            this.ClientSize = new System.Drawing.Size(844, 290);
+            this.Controls.Add(this.generatePDFbutton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
@@ -161,6 +179,7 @@
         private System.Windows.Forms.GroupBox filterGroupBox;
         private System.Windows.Forms.ComboBox activeComboBox;
         private System.Windows.Forms.Label activeLabel;
+        private System.Windows.Forms.Button generatePDFbutton;
     }
 }
 

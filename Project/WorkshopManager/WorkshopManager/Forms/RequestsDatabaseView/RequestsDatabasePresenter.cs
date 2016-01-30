@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using WorkshopManager.DatabasePresenter;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
@@ -21,18 +22,27 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         public void Init()
         {
             SetActiveComboBoxDataSource();
-            //LoadRequestDataToDataGridView();
+            LoadRequestDataToDataGridView();
         }
 
         private void LoadRequestDataToDataGridView()
         {
+            RequestsDataTableCreator dtCreator = new RequestsDataTableCreator();
+
             List<Request> requests = _dataBase.GetAll();
+            dtCreator.UpdateRows(requests);
+
+            DataTable currentDataTable = dtCreator.GetCurrentDataTable();
+            _view.DataGridViewSource = currentDataTable;
         }
 
         public void OpenModifierFormForAdding()
         {
-            var requestsModifierForm = new RequestsModifierView.RequestsModifierView();
+            //TODO musi wyciagac z comboBoxa aktualnie wybrana kategorie. Na razie roboczo zostawiono Active
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView(RequestsCategory.Active);
             requestsModifierForm.ShowDialog();
+
+            LoadRequestDataToDataGridView();
         }
 
         public void OpenModifierFormForEditing()
@@ -41,11 +51,33 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             requestsModifierForm.ShowDialog();
         }
 
+        public void OnGeneratePDF()
+        {
+
+            //TODO rzuca exceptionem.
+            //PDFGenerator pdfGenerator = new PDFGenerator();
+
+            //Request selectedRequest = GetSelectedRequest();
+            //pdfGenerator.PDFGenerate(selectedRequest);
+        }
+
+        private Request GetSelectedRequest()
+        {
+            int selectedRequestId = (int) _view.SelectedRow.Cells[0].Value;
+            
+            return _dataBase.GetById(selectedRequestId);
+        }
+
+        public void OnDeleteSelectedRequest()
+        {
+            Request requestToDelete = GetSelectedRequest();
+            _dataBase.DeleteById(requestToDelete.ID);
+            LoadRequestDataToDataGridView();
+        }
+
         private void SetActiveComboBoxDataSource()
         {
             _view.ActiveDataComboBox = Enum.GetValues(typeof(RequestsCategory));
         }
-
-        
     }
 }

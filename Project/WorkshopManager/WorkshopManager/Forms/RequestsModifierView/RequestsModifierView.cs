@@ -22,12 +22,6 @@ namespace WorkshopManager.Forms.RequestsModifierView
             Presenter = new RequestEditorPresenter(this);
         }
 
-        public string RequestId
-        {
-            get { return idTextBox.Text; }
-            set { idTextBox.Text = value; }
-        }
-
         public string OwnerTextBox
         {
             get { return ownerTextBox.Text; }
@@ -37,6 +31,12 @@ namespace WorkshopManager.Forms.RequestsModifierView
         public string CarModelTextBox
         {
             get { return carModelTextBox.Text; }
+            set { carModelTextBox.Text = value; }
+        }
+
+        public string CarMarkTextBox
+        {
+            get { return carMarkTextBox.Text; }
             set { carModelTextBox.Text = value; }
         }
 
@@ -60,7 +60,5 @@ namespace WorkshopManager.Forms.RequestsModifierView
         {
             Presenter.OnCancelButtonClicked();
         }
-
-
     }
 }

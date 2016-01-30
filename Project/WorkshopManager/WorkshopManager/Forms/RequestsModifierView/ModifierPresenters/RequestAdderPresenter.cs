@@ -18,7 +18,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
         {
             Request newRequest = new Request(_view.CarModelTextBox,
                                              _view.OwnerTextBox,
-                                             "marka ktora musze dodac do widoku",
+                                             _view.CarMarkTextBox,
                                              _view.DescriptionTextBox,
                                              new List<Part>());
             

@@ -9,8 +9,8 @@
 
         public void Init()
         {
-            _view.RequestId = "tysiacPiecsietStoDziewiecset";
             _view.CarModelTextBox = "Do edycji";
+            _view.CarMarkTextBox = "markachujowa";
             _view.OwnerTextBox = "Do edycji";
             _view.DescriptionTextBox = "Do edycji";
         }

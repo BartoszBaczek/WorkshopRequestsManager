@@ -1,4 +1,7 @@
-﻿namespace WorkshopManager.Forms.RequestsModifierView
+﻿using System.Collections.Generic;
+using WorkshopManager.Models.IRequest;
+
+namespace WorkshopManager.Forms.RequestsModifierView
 {
     public class RequestEditorPresenter : RequestsModifierPresenter
     {
@@ -20,7 +23,13 @@
 
         public override void OnAddRequesButtonClicked()
         {
-            
+            _requestToModify.Model = _view.CarModelTextBox;
+            _requestToModify.Mark = _view.CarMarkTextBox;
+            _requestToModify.Owner = _view.OwnerTextBox;
+            _requestToModify.Description = _view.DescriptionTextBox;
+
+            _dataBase.UpdateRequest(_requestToModify);
+            _view.CloseForm();
         }
 
         public override void OnCancelButtonClicked()

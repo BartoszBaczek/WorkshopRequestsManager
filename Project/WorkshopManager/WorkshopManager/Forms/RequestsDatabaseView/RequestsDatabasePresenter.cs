@@ -50,11 +50,12 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             Request selectedRequest = GetSelectedRequest();
             var requestsModifierForm = new RequestsModifierView.RequestsModifierView(selectedRequest);
             requestsModifierForm.ShowDialog();
+
+            LoadRequestDataToDataGridView();
         }
 
         public void OnGeneratePDF()
         {
-
             //TODO rzuca exceptionem.
             PDFGenerator pdfGenerator = new PDFGenerator();
 

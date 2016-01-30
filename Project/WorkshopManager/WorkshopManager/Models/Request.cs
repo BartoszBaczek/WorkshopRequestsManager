@@ -12,6 +12,7 @@ namespace WorkshopManager
         public string Owner { get; set; }
         public string Description { get; set; }
         public List<Part> ListOfParts { get; set; }
+        public bool isArchivized { get; set; }
 
         public Request(string model, string owner,string mark, string description, List<Part> listOfParts)
         {

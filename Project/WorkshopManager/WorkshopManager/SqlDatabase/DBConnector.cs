@@ -62,6 +62,9 @@ namespace WorkshopManager.SqlDatabase.MySql
                     case 1045:
                         MessageBox.Show("Invalid username/password!");
                         break;
+                    default:
+                        MessageBox.Show(ex.Message);
+                        break;
                 }
                 return false;
             }

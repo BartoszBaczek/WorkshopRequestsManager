@@ -52,6 +52,7 @@
     <Compile Include="DatabasePresenter\DatabasePresenter.cs" />
     <Compile Include="DatabasePresenter\Interfaces\IPartsDatabaseAdapter.cs" />
     <Compile Include="DatabasePresenter\Interfaces\IRequestDatabaseAdapter.cs" />
+    <Compile Include="Forms\FormsEnums.cs" />
     <Compile Include="Forms\RequestsDatabaseView\IRequestsDatabaseView.cs" />
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabasePresenter.cs" />
     <Compile Include="Forms\RequestsDatabaseView\RequestsDatabaseView.cs">

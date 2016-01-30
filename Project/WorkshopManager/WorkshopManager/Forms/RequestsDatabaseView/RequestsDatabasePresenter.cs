@@ -38,21 +38,48 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OpenModifierFormForAdding()
         {
-            var requestsModifierForm = new RequestsModifierView.RequestsModifierView();
+            //TODO musi wyciagac z comboBoxa aktualnie wybrana kategorie. Na razie roboczo zostawiono Active
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView(RequestsCategory.Active);
             requestsModifierForm.ShowDialog();
+
+            LoadRequestDataToDataGridView();
         }
 
         public void OpenModifierFormForEditing()
         {
-            var requestsModifierForm = new RequestsModifierView.RequestsModifierView("dsfdsf"); //bedzie przesylana struktura z informacjami o requescie
+            Request selectedRequest = GetSelectedRequest();
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView(selectedRequest);
             requestsModifierForm.ShowDialog();
+
+            LoadRequestDataToDataGridView();
+        }
+
+        public void OnGeneratePDF()
+        {
+            //TODO rzuca exceptionem.
+            PDFGenerator pdfGenerator = new PDFGenerator();
+
+            Request selectedRequest = GetSelectedRequest();
+            pdfGenerator.PDFGenerate(selectedRequest);
+        }
+
+        private Request GetSelectedRequest()
+        {
+            int selectedRequestId = (int) _view.SelectedRow.Cells[0].Value;
+            
+            return _dataBase.GetById(selectedRequestId);
+        }
+
+        public void OnDeleteSelectedRequest()
+        {
+            Request requestToDelete = GetSelectedRequest();
+            _dataBase.DeleteById(requestToDelete.ID);
+            LoadRequestDataToDataGridView();
         }
 
         private void SetActiveComboBoxDataSource()
         {
             _view.ActiveDataComboBox = Enum.GetValues(typeof(RequestsCategory));
         }
-
-        
     }
 }

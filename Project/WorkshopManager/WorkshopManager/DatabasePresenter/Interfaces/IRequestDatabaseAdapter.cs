@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkshopManager.DatabasePresenter
 {
-    interface IRequestDatabaseAdapter
+    public interface IRequestDatabaseAdapter
     {
 
         List<Request> GetAll();

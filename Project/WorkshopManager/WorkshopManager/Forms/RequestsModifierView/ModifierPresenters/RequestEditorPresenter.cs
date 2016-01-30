@@ -2,17 +2,20 @@
 {
     public class RequestEditorPresenter : RequestsModifierPresenter
     {
-        public RequestEditorPresenter(IRequestsModifierView view) : base(view)
+        private Request _requestToModify;
+
+        public RequestEditorPresenter(IRequestsModifierView view, object requestToModify) : base(view)
         {
+            _requestToModify = requestToModify as Request;
             Init();
         }
 
         public void Init()
         {
-            _view.RequestId = "tysiacPiecsietStoDziewiecset";
-            _view.CarModelTextBox = "Do edycji";
-            _view.OwnerTextBox = "Do edycji";
-            _view.DescriptionTextBox = "Do edycji";
+            _view.CarModelTextBox = _requestToModify.Model;
+            _view.CarMarkTextBox = _requestToModify.Mark;
+            _view.OwnerTextBox = _requestToModify.Owner;
+            _view.DescriptionTextBox = _requestToModify.Description;
         }
 
         public override void OnAddRequesButtonClicked()
@@ -22,7 +25,7 @@
 
         public override void OnCancelButtonClicked()
         {
-            throw new System.NotImplementedException();
+            _view.CloseForm();
         }
     }
 }

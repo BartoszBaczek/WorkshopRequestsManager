@@ -47,7 +47,8 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OpenModifierFormForEditing()
         {
-            var requestsModifierForm = new RequestsModifierView.RequestsModifierView("dsfdsf"); //bedzie przesylana struktura z informacjami o requescie
+            Request selectedRequest = GetSelectedRequest();
+            var requestsModifierForm = new RequestsModifierView.RequestsModifierView(selectedRequest);
             requestsModifierForm.ShowDialog();
         }
 
@@ -55,10 +56,10 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
 
             //TODO rzuca exceptionem.
-            //PDFGenerator pdfGenerator = new PDFGenerator();
+            PDFGenerator pdfGenerator = new PDFGenerator();
 
-            //Request selectedRequest = GetSelectedRequest();
-            //pdfGenerator.PDFGenerate(selectedRequest);
+            Request selectedRequest = GetSelectedRequest();
+            pdfGenerator.PDFGenerate(selectedRequest);
         }
 
         private Request GetSelectedRequest()

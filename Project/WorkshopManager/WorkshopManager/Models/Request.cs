@@ -12,6 +12,7 @@ namespace WorkshopManager
         public string Owner { get; set; }
         public string Description { get; set; }
         public List<Part> ListOfParts { get; set; }
+        public bool isArchivized { get; set; }
 
         public Request(string model, string owner,string mark, string description, List<Part> listOfParts)
         {
@@ -47,9 +48,9 @@ namespace WorkshopManager
             ListOfParts.Add(part);
         }
 
-        public void DeletePartFromRequest(Part part)
+        public void DeletePartFromRequest(int idOfPartToDelete)
         {
-            ListOfParts.Remove(part);
+            ListOfParts.RemoveAll(part => part.ID == idOfPartToDelete);
         }
 
         public double GetTotalPrize()

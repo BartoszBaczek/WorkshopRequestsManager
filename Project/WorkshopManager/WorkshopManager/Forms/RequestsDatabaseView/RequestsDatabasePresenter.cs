@@ -55,10 +55,10 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
 
             //TODO rzuca exceptionem.
-            //PDFGenerator pdfGenerator = new PDFGenerator();
+            PDFGenerator pdfGenerator = new PDFGenerator();
 
-            //Request selectedRequest = GetSelectedRequest();
-            //pdfGenerator.PDFGenerate(selectedRequest);
+            Request selectedRequest = GetSelectedRequest();
+            pdfGenerator.PDFGenerate(selectedRequest);
         }
 
         private Request GetSelectedRequest()

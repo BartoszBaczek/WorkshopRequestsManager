@@ -61,5 +61,14 @@ namespace WorkshopManager
             }
             return TotalPrize;
         }
+        public static List<Part> GetAllParts(Request request)
+        {
+            if (request.ListOfParts == null)
+            {
+                request.ListOfParts = new List<Part>();
+                request.ListOfParts.Add(new Part("", 0, 0));
+            }
+            return request.ListOfParts;
+        }
     }
 }

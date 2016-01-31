@@ -30,10 +30,10 @@
         <Top>6.39974cm</Top>
         <Left>0.29104cm</Left>
         <Height>1.34083cm</Height>
-        <Width>22.11125cm</Width>
+        <Width>20.15333cm</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -63,9 +63,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.68474cm</Top>
-        <Left>15.72188cm</Left>
+        <Left>15.08688cm</Left>
         <Height>0.9175cm</Height>
-        <Width>6.68041cm</Width>
+        <Width>5.35749cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -135,7 +135,7 @@
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -177,13 +177,13 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>1.90182cm</Top>
-        <Left>12.15cm</Left>
+        <Left>11.515cm</Left>
         <Height>2.505cm</Height>
-        <Width>10.25229cm</Width>
+        <Width>8.92937cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -198,13 +198,13 @@
               <Width>1.5584cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>15.29028cm</Width>
+              <Width>14.28486cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.19339cm</Width>
+              <Width>2.03464cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.06917cm</Width>
+              <Width>2.27543cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -606,11 +606,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>DataSetListOfParts</DataSetName>
         <Top>8.19891cm</Top>
         <Left>0.29104cm</Left>
         <Height>2.17042cm</Height>
-        <Width>22.11125cm</Width>
+        <Width>20.15333cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -626,14 +626,14 @@
       </Border>
     </Style>
   </Body>
-  <Width>23.10313cm</Width>
+  <Width>21cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
@@ -648,7 +648,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="DataSetListOfParts">
       <Query>
         <DataSourceName>WorkshopManager</DataSourceName>
         <CommandText>/* Local Query */</CommandText>

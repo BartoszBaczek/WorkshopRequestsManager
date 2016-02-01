@@ -31,7 +31,7 @@ namespace WorkshopManager
                     ReportViewer ReportViewer1 = new ReportViewer();
                     ReportViewer1.LocalReport.ReportEmbeddedResource = "WorkshopManager.PDF.PDF.rdlc";
                     DateTime thisDay = DateTime.Today;
-                    string numberPDF = thisDay.ToString("d") + '/' + request.ID;
+                    string numberPDF = thisDay.ToString("dd'/'MM'/'yyyy") + '/' + request.ID;
                     ReportParameter owner = new ReportParameter("owner", request.Owner);
                     ReportParameter pdfno = new ReportParameter("pdfno", numberPDF);
                     ReportParameter date = new ReportParameter("date", thisDay.ToString("d"));

@@ -12,6 +12,7 @@ namespace WorkshopManager
         public string Owner { get; set; }
         public string Description { get; set; }
         public List<Part> ListOfParts { get; set; }
+        public bool isArchivized { get; set; }
 
         public Request(string model, string owner,string mark, string description, List<Part> listOfParts)
         {
@@ -60,6 +61,15 @@ namespace WorkshopManager
                 TotalPrize += part.Prize * part.Amount;
             }
             return TotalPrize;
+        }
+        public static List<Part> GetAllParts(Request request)
+        {
+            if (request.ListOfParts == null)
+            {
+                request.ListOfParts = new List<Part>();
+                request.ListOfParts.Add(new Part("", 0, 0));
+            }
+            return request.ListOfParts;
         }
     }
 }

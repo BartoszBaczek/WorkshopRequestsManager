@@ -37,6 +37,13 @@ namespace WorkshopManager
                     ReportParameter date = new ReportParameter("date", thisDay.ToString("d"));
                     string totalcost = request.GetTotalPrize().ToString();
                     ReportParameter totalprize = new ReportParameter("totalprize", totalcost);
+                    var parts = Request.GetAllParts(request);
+                    ReportViewer1.LocalReport.DataSources.Add(new
+                    Microsoft.Reporting.WinForms.ReportDataSource()
+                    {
+                        Name = "DataSetListOfParts",
+                        Value = parts
+                    });
                     ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date, totalprize });
                     byte[] byteViewer = ReportViewer1.LocalReport.Render("PDF");
                     myStream.Write(byteViewer, 0, byteViewer.Length);

@@ -687,7 +687,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="date">
-      <DataType>DateTime</DataType>
+      <DataType>String</DataType>
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

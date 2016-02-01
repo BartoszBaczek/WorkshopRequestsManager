@@ -65,12 +65,6 @@ namespace WorkshopManager
         }
         public static List<Part> GetAllParts(Request request)
         {
-            if (request.ListOfParts.Count == 0)
-            {
-                request.ListOfParts.Add(new Part("coś", 100, 2));
-                request.ListOfParts.Add(new Part("coś2", 20, 1));
-                request.ListOfParts.Add(new Part("coś3", 1000, 5));
-            }
             return request.ListOfParts;
         }
     }

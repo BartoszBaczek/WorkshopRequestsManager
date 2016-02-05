@@ -182,7 +182,7 @@ namespace WorkshopManager.DatabasePresenter
         Part IPartsDatabaseAdapter.GetById(int id)
         {
             IPartWithIdAcces result;
-            databaseData = ordersData.Get.ById(id);
+            databaseData = partsData.Get.ById(id);
             convertedData = ConvertToTable(databaseData);
             partBuff.ID = int.Parse(convertedData[0, 0]);
             partBuff.Name = convertedData[0, 1];

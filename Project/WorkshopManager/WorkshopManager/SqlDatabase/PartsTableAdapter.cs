@@ -48,6 +48,15 @@ namespace PartsTableAdapterExtension
                 "");
         }
 
+        public List<string>[] ById(int id)
+        {
+            return DBConnector.Select(
+                _allColumns,
+                false,
+                _table,
+                string.Format("id=\'{0}\'", id));
+        }
+
         /// <summary>
         /// Zwraca tablicę list stringów zawierającą wszystkie rekordy z tabeli 'Parts' o podanej Nazwie
         /// </summary>

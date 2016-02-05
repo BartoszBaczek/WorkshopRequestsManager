@@ -24,7 +24,7 @@ namespace UnitTests
             };
 
             //Do Krystiana : ja sobie tworze obiekt w ten sposob. Dzieki temu nie mam dostepu do metody SetId()
-            IRequest request_1 = new Request(model, owner, mark, description, parts);
+            IRequest request_1 = new Request(model, owner, mark, description, parts, true);
             //acces1.SetId(34); <- u mnie nie dziala
 
 
@@ -35,7 +35,7 @@ namespace UnitTests
             request_2.SetId(34);    // <- u ciebie dziala
 
             //Jezeli potrzebujesz utworzyc obiekt od zera, a nie na podstawie otrzymanego ode mnie:
-            IRequestWithIdAcces request_3 = new Request(model, owner, mark, description, parts);
+            IRequestWithIdAcces request_3 = new Request(model, owner, mark, description, parts, true);
 
             Assert.IsTrue(1 == 1);
         }
@@ -54,7 +54,7 @@ namespace UnitTests
                 new Part("Opona", 600)
             };
 
-            IRequest request = new Request(model, owner,mark, description, parts);
+            IRequest request = new Request(model, owner, mark, description, parts, true);
 
             IRequestWithIdAcces requestWithIdAcces = (IRequestWithIdAcces) request;
 
@@ -79,7 +79,7 @@ namespace UnitTests
                 new Part("Kierownica", 400),
                 new Part("Opona", 600)
             };
-            Request a = new Request(model, owner,mark, description, parts);
+            Request a = new Request(model, owner, mark, description, parts, true);
                 int id = 34;
             a.SetId(id);
 
@@ -100,8 +100,8 @@ namespace UnitTests
                 new Part("Kierownica", 400),
                 new Part("Opona", 600)
             };
-            Request a = new Request(model, owner, mark, description, parts);
-            Request b = new Request(model, owner, mark, description, parts);
+            Request a = new Request(model, owner, mark, description, parts, true);
+            Request b = new Request(model, owner, mark, description, parts, true);
             Assert.IsTrue(a.Equals(b));
         }
 
@@ -125,8 +125,8 @@ namespace UnitTests
                 new Part("Lampa przednia", 270),
                 new Part("Opona", 600)
             };
-            Request a = new Request(model, owner, mark, description, parts);
-            Request b = new Request(model, owner, mark, description, parts2);
+            Request a = new Request(model, owner, mark, description, parts, true);
+            Request b = new Request(model, owner, mark, description, parts2, true);
             Assert.IsFalse(a.Equals(b));
         }
     }

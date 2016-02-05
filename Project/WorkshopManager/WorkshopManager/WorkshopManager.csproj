@@ -73,6 +73,8 @@
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ToolsForRequestVIew\IToolsForRequestView.cs" />
+    <Compile Include="Forms\RequestUnderModification.cs" />
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestDataTableCreator.cs" />
     <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using WorkshopManager.DatabasePresenter;
+using WorkshopManager.Forms.ToolsForRequestVIew;
 
 namespace WorkshopManager.Forms.ToolsForRequestView
 {
@@ -20,14 +23,41 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         private void Init()
         {
-            LoadAllToolsListBox();
+            LoadAllPartsDataToDataGridView();
+            LoadRequestpartsDataToDataGridView();
         }
 
-        private void LoadAllToolsListBox()
+        private void LoadAllPartsDataToDataGridView()
         {
+            ToolsForRequestDataTableCreator dtCreator = new ToolsForRequestDataTableCreator();
+
             List<Part> allParts = _dataBase.GetAll();
-            List<string> partsNames = allParts.Select(part => part.Name).ToList();
-            _view.AllToolsListBox = partsNames;
+            dtCreator.UpdateAllPartsRows(allParts);
+
+            DataTable allPartsDataTable = dtCreator.GetAllPartsDataTable();
+            _view.AllPartsDataGridViewSource = allPartsDataTable;
+        }
+
+        private void LoadRequestpartsDataToDataGridView()
+        {
+            ToolsForRequestDataTableCreator dtCreator = new ToolsForRequestDataTableCreator();
+
+            List<Part> requestParts = RequestUnderModification.Value.ListOfParts;
+            dtCreator.UpdateRequestPartsRows(requestParts);
+            
+            DataTable requestPartsDataTable = dtCreator.GetRequestPartsDataTable();
+            _view.RequestPartsDataGridViewSource = requestPartsDataTable;
+        }
+
+        private Part GetSelectedFromAllParts()
+        {
+            int selectedFromAllPartsID = (int) _view.AllPartsSelectedRow.Cells[0].Value;
+            return _dataBase.GetById(selectedFromAllPartsID);
+        }
+
+        public void OnMoveSingleToRequestButtonClicked()
+        {
+            Part selectedPart = GetSelectedFromAllParts();
         }
     }
 }

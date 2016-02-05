@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace WorkshopManager.Forms.ToolsForRequestView
@@ -13,16 +14,44 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             Presenter = new ToolsForRequestPresenter(this);
         }
 
-        public List<string> AllToolsListBox
+        public DataTable AllPartsDataGridViewSource
         {
-            get { return allToolsListBox.DataSource as List<string>; }
-            set { allToolsListBox.DataSource = value; }
+            set { allPartsDataGridView.DataSource = value; }
         }
 
-        public List<string> ToolsForRequestListBox
+        public DataGridViewRow AllPartsSelectedRow
         {
-            get { return toolsForRequestListBox.DataSource as List<string>; }
-            set { toolsForRequestListBox.DataSource = value; }
+            get { return allPartsDataGridView.SelectedRows[0]; }
+        }
+
+        public DataTable RequestPartsDataGridViewSource
+        {
+            set { requestPartsDataGridView.DataSource = value; }
+        }
+
+        public DataGridViewRow RequestPartsSelectedRow
+        {
+            get { return requestPartsDataGridView.SelectedRows[0]; }
+        }
+
+        private void moveSingleToAllButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void moveFewToAllButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void mvoeSingleToRequestButton_Click(object sender, System.EventArgs e)
+        {
+            Presenter.OnMoveSingleToRequestButtonClicked();
+        }
+
+        private void moveFewToRequestButton_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

@@ -100,8 +100,9 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OnDeleteSelectedRequest()
         {
-            Request requestToDelete = GetSelectedRequest();
-            _dataBase.DeleteById(requestToDelete.ID);
+            int selectedRequestId = (int)_view.SelectedRow.Cells[0].Value;
+
+            _dataBase.DeleteById(selectedRequestId);
             LoadRequestDataToDataGridView();
         }
 

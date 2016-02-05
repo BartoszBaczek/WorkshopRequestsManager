@@ -22,10 +22,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         public override void OnAddRequesButtonClicked()
         {
-            RequestUnderModification.Value.Model = _view.CarModelTextBox;
-            RequestUnderModification.Value.Mark = _view.CarMarkTextBox;
-            RequestUnderModification.Value.Owner = _view.OwnerTextBox;
-            RequestUnderModification.Value.Description = _view.DescriptionTextBox;
+            BuildRequestFromTextBoxesData();
 
             _dataBase.UpdateRequest(RequestUnderModification.Value);
             _view.CloseForm();
@@ -46,7 +43,8 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         public override void OnToolsForRequestButtonClicked()
         {
-            throw new System.NotImplementedException();
+            var toolsForRequestForm = new ToolsForRequestView.ToolsForRequestView();
+            toolsForRequestForm.ShowDialog();
         }
     }
 }

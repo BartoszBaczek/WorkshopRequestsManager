@@ -58,6 +58,8 @@ namespace WorkshopManager.Forms.ToolsForRequestView
         public void OnMoveSingleToRequestButtonClicked()
         {
             Part selectedPart = GetSelectedFromAllParts();
+            RequestUnderModification.Value.ListOfParts.Add(selectedPart);
+            LoadRequestpartsDataToDataGridView();
         }
     }
 }

@@ -92,7 +92,7 @@ namespace WorkshopManager.DatabasePresenter
             reqBuff.Model = convertedData[0, 2];
             reqBuff.Owner = convertedData[0, 3];
             reqBuff.Description = convertedData[0, 4];
-            if (convertedData[0, 5] == "true")
+            if (convertedData[0, 5] == "True")
             {
                 reqBuff.Archiwized = true;
             }
@@ -126,7 +126,8 @@ namespace WorkshopManager.DatabasePresenter
                 reqBuff.Model = convertedData[i, 2];
                 reqBuff.Owner = convertedData[i, 3];
                 reqBuff.Description = convertedData[i, 4];
-                if (convertedData[i, 5] == "true")
+
+                if (convertedData[i, 5] == "True")
                 {
                     reqBuff.Archiwized = true;
                 }
@@ -134,6 +135,7 @@ namespace WorkshopManager.DatabasePresenter
                 {
                     reqBuff.Archiwized = false;
                 }
+
                 reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
                 IRequestWithIdAcces newRequest = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts, reqBuff.Archiwized);
                 newRequest.SetId(reqBuff.ID);
@@ -146,7 +148,6 @@ namespace WorkshopManager.DatabasePresenter
         {
             //dodanie do bazy Requesta i ustawia ID obiektu na to co przypisała baza
             newRequest.SetId(ordersData.Add.Order(newRequest.Mark, newRequest.Model, newRequest.Owner, newRequest.Description));
-            
         }
 
         /// <summary>
@@ -157,7 +158,6 @@ namespace WorkshopManager.DatabasePresenter
         {
             ordersData.Delete.ByID(id);
         }
-
 
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {

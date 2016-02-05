@@ -163,12 +163,12 @@ namespace WorkshopManager.DatabasePresenter
         {
             ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
             this.UpdatePartList(updatedRequest);
-         
         }
 
-
-        
-
+        void IRequestDatabaseAdapter.Archivize(Request request)
+        {
+            ordersData.Update.Archive(request.ID);
+        }
         #endregion
 
 
@@ -332,8 +332,5 @@ namespace WorkshopManager.DatabasePresenter
             return result;
 
         }
-
-
-
     }
 }

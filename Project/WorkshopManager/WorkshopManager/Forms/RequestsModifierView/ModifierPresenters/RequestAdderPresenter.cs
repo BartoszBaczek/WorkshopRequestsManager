@@ -20,8 +20,13 @@ namespace WorkshopManager.Forms.RequestsModifierView
             BuildRequestFromTextBoxesData();
 
             Request req = RequestUnderModification.Value;
+            
             _dataBase.AddToDatabase(ref req);
 
+            foreach (var part in req.ListOfParts)
+            {
+                _dataBase.AddPart(req.ID, part.ID, part.Amount);
+            }
             _view.CloseForm();
         }
 

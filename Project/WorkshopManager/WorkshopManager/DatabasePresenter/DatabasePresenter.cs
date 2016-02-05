@@ -169,6 +169,11 @@ namespace WorkshopManager.DatabasePresenter
         {
             ordersData.Update.Archive(request.ID);
         }
+
+        void IRequestDatabaseAdapter.AddPart(int requestID, int partID, int ammount)
+        {
+            partsList.Add.Single(requestID, partID, ammount);
+        }
         #endregion
 
 

@@ -9,6 +9,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
         public RequestEditorPresenter(IRequestsModifierView view, object requestToModify) : base(view)
         {
             RequestUnderModification.Value = requestToModify as Request;
+            RequestUnderModification.Value.ListOfParts = (requestToModify as Request).ListOfParts;
             Init();
         }
 
@@ -40,7 +41,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
             RequestUnderModification.Value.Mark = _view.CarMarkTextBox;
             RequestUnderModification.Value.Description = _view.DescriptionTextBox;
         }
-
+        
         public override void OnToolsForRequestButtonClicked()
         {
             var toolsForRequestForm = new ToolsForRequestView.ToolsForRequestView();

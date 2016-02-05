@@ -22,7 +22,7 @@ namespace WorkshopManager.SqlDatabase
             Update = new Update();
             Delete = new Delete();
         }
-    } 
+    }
 }
 
 namespace OrdersTableAdapterExtension

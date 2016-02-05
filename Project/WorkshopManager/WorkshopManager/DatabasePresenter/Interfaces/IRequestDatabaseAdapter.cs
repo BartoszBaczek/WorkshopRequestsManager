@@ -17,5 +17,6 @@ namespace WorkshopManager.DatabasePresenter
         void DeleteById(int id);
         void UpdateRequest(Request updatedRequest);
         void Archivize(Request request);
+        void AddPart(int requestID, int partID, int ammount);
     }
 }

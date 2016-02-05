@@ -32,12 +32,18 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             RequestsDataTableCreator dtCreator = new RequestsDataTableCreator();
             List<Request> requests = new List<Request>();
 
-            if ((RequestsCategory) _view.SelectedActiveData == RequestsCategory.Active)
-                requests = _dataBase.GetAll().Where(p => p.isArchivized == false).ToList();
-            else if ((RequestsCategory)_view.SelectedActiveData == RequestsCategory.Archivized)
-                requests = _dataBase.GetAll().Where(p => p.isArchivized == true).ToList();
-            else
-                requests = _dataBase.GetAll();
+            switch ((RequestsCategory) _view.SelectedActiveData)
+            {
+                case RequestsCategory.Active:
+                    requests = _dataBase.GetAll().Where(p => !p.isArchivized).ToList();
+                    break;
+                case RequestsCategory.Archivized:
+                    requests = _dataBase.GetAll().Where(p => p.isArchivized).ToList();
+                    break;
+                default:
+                    requests = _dataBase.GetAll();
+                    break;
+            }
 
             dtCreator.UpdateRows(requests);
 
@@ -65,7 +71,6 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OnGeneratePDF()
         {
-            //TODO rzuca exceptionem.
             PDFGenerator pdfGenerator = new PDFGenerator();
 
             Request selectedRequest = GetSelectedRequest();
@@ -74,6 +79,16 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         public void OnSelectedActiveDataChanged()
         {
+            LoadRequestDataToDataGridView();
+            SetArchivizeUnarchivizeButonAccesibility();
+        }
+
+        public void OnArchivize()
+        {
+            Request selectedRequest = GetSelectedRequest();
+
+            _dataBase.Archivize(selectedRequest);
+
             LoadRequestDataToDataGridView();
         }
 
@@ -95,5 +110,22 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         {
             _view.ActiveDataComboBox = Enum.GetValues(typeof(RequestsCategory));
         }
+
+        private void SetArchivizeUnarchivizeButonAccesibility()
+        {
+            switch ((RequestsCategory)_view.SelectedActiveData)
+            {
+                case RequestsCategory.Active:
+                    _view.ArchivizeUnarchivizeButtonActive = true;
+                    break;
+                case RequestsCategory.Archivized:
+                    _view.ArchivizeUnarchivizeButtonActive = false;
+                    break;
+                default:
+                    _view.ArchivizeUnarchivizeButtonActive = false;
+                    break;
+            }
+        }
+
     }
 }

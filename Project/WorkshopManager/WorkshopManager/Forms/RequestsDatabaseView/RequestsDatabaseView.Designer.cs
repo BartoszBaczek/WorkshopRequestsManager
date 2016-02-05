@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.requestsGroupBox = new System.Windows.Forms.GroupBox();
             this.requestsDataGridView = new System.Windows.Forms.DataGridView();
             this.modifyGroupBox = new System.Windows.Forms.GroupBox();
@@ -39,6 +39,7 @@
             this.activeComboBox = new System.Windows.Forms.ComboBox();
             this.activeLabel = new System.Windows.Forms.Label();
             this.generatePDFbutton = new System.Windows.Forms.Button();
+            this.archivizeUnarchivizeButton = new System.Windows.Forms.Button();
             this.requestsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requestsDataGridView)).BeginInit();
             this.modifyGroupBox.SuspendLayout();
@@ -61,14 +62,14 @@
             this.requestsDataGridView.AllowUserToDeleteRows = false;
             this.requestsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
             this.requestsDataGridView.MultiSelect = false;
             this.requestsDataGridView.Name = "requestsDataGridView";
@@ -83,7 +84,7 @@
             this.modifyGroupBox.Controls.Add(this.deleteButton);
             this.modifyGroupBox.Controls.Add(this.editButton);
             this.modifyGroupBox.Controls.Add(this.addButton);
-            this.modifyGroupBox.Location = new System.Drawing.Point(622, 12);
+            this.modifyGroupBox.Location = new System.Drawing.Point(583, 12);
             this.modifyGroupBox.Name = "modifyGroupBox";
             this.modifyGroupBox.Size = new System.Drawing.Size(91, 107);
             this.modifyGroupBox.TabIndex = 1;
@@ -124,9 +125,9 @@
             // 
             this.filterGroupBox.Controls.Add(this.activeComboBox);
             this.filterGroupBox.Controls.Add(this.activeLabel);
-            this.filterGroupBox.Location = new System.Drawing.Point(629, 125);
+            this.filterGroupBox.Location = new System.Drawing.Point(583, 125);
             this.filterGroupBox.Name = "filterGroupBox";
-            this.filterGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.filterGroupBox.Size = new System.Drawing.Size(187, 39);
             this.filterGroupBox.TabIndex = 2;
             this.filterGroupBox.TabStop = false;
             this.filterGroupBox.Text = "Filters:";
@@ -135,15 +136,16 @@
             // 
             this.activeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activeComboBox.FormattingEnabled = true;
-            this.activeComboBox.Location = new System.Drawing.Point(60, 28);
+            this.activeComboBox.Location = new System.Drawing.Point(59, 13);
             this.activeComboBox.Name = "activeComboBox";
             this.activeComboBox.Size = new System.Drawing.Size(121, 21);
             this.activeComboBox.TabIndex = 1;
+            this.activeComboBox.SelectedIndexChanged += new System.EventHandler(this.activeComboBox_SelectedIndexChanged);
             // 
             // activeLabel
             // 
             this.activeLabel.AutoSize = true;
-            this.activeLabel.Location = new System.Drawing.Point(7, 31);
+            this.activeLabel.Location = new System.Drawing.Point(6, 16);
             this.activeLabel.Name = "activeLabel";
             this.activeLabel.Size = new System.Drawing.Size(40, 13);
             this.activeLabel.TabIndex = 0;
@@ -151,19 +153,30 @@
             // 
             // generatePDFbutton
             // 
-            this.generatePDFbutton.Location = new System.Drawing.Point(583, 241);
+            this.generatePDFbutton.Location = new System.Drawing.Point(583, 170);
             this.generatePDFbutton.Name = "generatePDFbutton";
-            this.generatePDFbutton.Size = new System.Drawing.Size(246, 23);
+            this.generatePDFbutton.Size = new System.Drawing.Size(91, 32);
             this.generatePDFbutton.TabIndex = 3;
-            this.generatePDFbutton.Text = "jebnij mi tu ladnego pdfa";
+            this.generatePDFbutton.Text = "Generuj raport";
             this.generatePDFbutton.UseVisualStyleBackColor = true;
             this.generatePDFbutton.Click += new System.EventHandler(this.generatePDFbutton_Click);
+            // 
+            // archivizeUnarchivizeButton
+            // 
+            this.archivizeUnarchivizeButton.Location = new System.Drawing.Point(680, 170);
+            this.archivizeUnarchivizeButton.Name = "archivizeUnarchivizeButton";
+            this.archivizeUnarchivizeButton.Size = new System.Drawing.Size(90, 32);
+            this.archivizeUnarchivizeButton.TabIndex = 4;
+            this.archivizeUnarchivizeButton.Text = "Archiwizuj";
+            this.archivizeUnarchivizeButton.UseVisualStyleBackColor = true;
+            this.archivizeUnarchivizeButton.Click += new System.EventHandler(this.archivizeUnarchivizeButton_Click);
             // 
             // RequestsDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 290);
+            this.Controls.Add(this.archivizeUnarchivizeButton);
             this.Controls.Add(this.generatePDFbutton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
@@ -191,6 +204,7 @@
         private System.Windows.Forms.ComboBox activeComboBox;
         private System.Windows.Forms.Label activeLabel;
         private System.Windows.Forms.Button generatePDFbutton;
+        private System.Windows.Forms.Button archivizeUnarchivizeButton;
     }
 }
 

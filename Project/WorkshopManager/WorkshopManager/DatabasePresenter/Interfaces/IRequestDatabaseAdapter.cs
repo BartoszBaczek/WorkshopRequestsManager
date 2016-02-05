@@ -8,7 +8,6 @@ namespace WorkshopManager.DatabasePresenter
 {
     public interface IRequestDatabaseAdapter
     {
-
         List<Request> GetAll();
         List<Request> GetByModel(string model);
         List<Request> GetByOwner(string owner);
@@ -16,6 +15,7 @@ namespace WorkshopManager.DatabasePresenter
         Request GetById(int id);
         void AddToDatabase(ref Request newRequest);
         void DeleteById(int id);
-        void UpdateRequest(Request updatedRequest); 
+        void UpdateRequest(Request updatedRequest);
+        void Archivize(Request request);
     }
 }

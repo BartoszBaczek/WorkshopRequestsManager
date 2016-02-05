@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.CodeDom;
+using System.Data;
 using System.Windows.Forms;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
@@ -35,6 +36,18 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             get { return requestsDataGridView.SelectedRows[0]; }
         }
 
+        public string ArchivizeUnarchivizeButtonName
+        {
+            get { return archivizeUnarchivizeButton.Text; }
+            set { archivizeUnarchivizeButton.Text = value; }
+        }
+
+        public bool ArchivizeUnarchivizeButtonActive 
+        {
+            get { return archivizeUnarchivizeButton.Enabled; }
+            set { archivizeUnarchivizeButton.Enabled = value; }
+        }
+
         private void addButton_Click(object sender, System.EventArgs e)
         {
             Presenter.OpenModifierFormForAdding();
@@ -53,6 +66,16 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         private void generatePDFbutton_Click(object sender, System.EventArgs e)
         {
             Presenter.OnGeneratePDF();
+        }
+
+        private void activeComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            Presenter.OnSelectedActiveDataChanged();
+        }
+
+        private void archivizeUnarchivizeButton_Click(object sender, System.EventArgs e)
+        {
+            Presenter.OnArchivize();
         }
     }
 }

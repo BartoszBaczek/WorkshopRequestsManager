@@ -63,6 +63,7 @@ namespace WorkshopManager
             }
             return TotalPrize;
         }
+
         public static List<Part> GetAllParts(Request request)
         {
             return request.ListOfParts;

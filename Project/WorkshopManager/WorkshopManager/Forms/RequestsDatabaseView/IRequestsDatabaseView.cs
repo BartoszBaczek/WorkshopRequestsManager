@@ -12,5 +12,8 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
         DataTable DataGridViewSource { set; }
         DataGridViewRow SelectedRow { get; }
+
+        string ArchivizeUnarchivizeButtonName { get; set; }
+        bool ArchivizeUnarchivizeButtonActive { get; set; }
     }
 }

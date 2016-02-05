@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.descriptionGroupBox = new System.Windows.Forms.GroupBox();
+            this.carMarkTextBox = new System.Windows.Forms.TextBox();
+            this.carMarkModel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.carModelTextBox = new System.Windows.Forms.TextBox();
             this.ownerTextBox = new System.Windows.Forms.TextBox();
@@ -37,13 +39,13 @@
             this.ownerLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.carMarkTextBox = new System.Windows.Forms.TextBox();
-            this.carMarkModel = new System.Windows.Forms.Label();
+            this.toolsForRequestButton = new System.Windows.Forms.Button();
             this.descriptionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // descriptionGroupBox
             // 
+            this.descriptionGroupBox.Controls.Add(this.toolsForRequestButton);
             this.descriptionGroupBox.Controls.Add(this.carMarkTextBox);
             this.descriptionGroupBox.Controls.Add(this.carMarkModel);
             this.descriptionGroupBox.Controls.Add(this.descriptionTextBox);
@@ -54,10 +56,26 @@
             this.descriptionGroupBox.Controls.Add(this.ownerLabel);
             this.descriptionGroupBox.Location = new System.Drawing.Point(12, 12);
             this.descriptionGroupBox.Name = "descriptionGroupBox";
-            this.descriptionGroupBox.Size = new System.Drawing.Size(275, 229);
+            this.descriptionGroupBox.Size = new System.Drawing.Size(275, 286);
             this.descriptionGroupBox.TabIndex = 0;
             this.descriptionGroupBox.TabStop = false;
             this.descriptionGroupBox.Text = "Description";
+            // 
+            // carMarkTextBox
+            // 
+            this.carMarkTextBox.Location = new System.Drawing.Point(103, 72);
+            this.carMarkTextBox.Name = "carMarkTextBox";
+            this.carMarkTextBox.Size = new System.Drawing.Size(166, 20);
+            this.carMarkTextBox.TabIndex = 9;
+            // 
+            // carMarkModel
+            // 
+            this.carMarkModel.AutoSize = true;
+            this.carMarkModel.Location = new System.Drawing.Point(7, 75);
+            this.carMarkModel.Name = "carMarkModel";
+            this.carMarkModel.Size = new System.Drawing.Size(52, 13);
+            this.carMarkModel.TabIndex = 8;
+            this.carMarkModel.Text = "Car mark:";
             // 
             // descriptionTextBox
             // 
@@ -110,7 +128,7 @@
             // 
             // acceptButton
             // 
-            this.acceptButton.Location = new System.Drawing.Point(12, 247);
+            this.acceptButton.Location = new System.Drawing.Point(7, 304);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(75, 23);
             this.acceptButton.TabIndex = 1;
@@ -120,7 +138,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(212, 247);
+            this.cancelButton.Location = new System.Drawing.Point(207, 304);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
@@ -128,27 +146,21 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // carMarkTextBox
+            // toolsForRequestButton
             // 
-            this.carMarkTextBox.Location = new System.Drawing.Point(103, 72);
-            this.carMarkTextBox.Name = "carMarkTextBox";
-            this.carMarkTextBox.Size = new System.Drawing.Size(166, 20);
-            this.carMarkTextBox.TabIndex = 9;
-            // 
-            // carMarkModel
-            // 
-            this.carMarkModel.AutoSize = true;
-            this.carMarkModel.Location = new System.Drawing.Point(7, 75);
-            this.carMarkModel.Name = "carMarkModel";
-            this.carMarkModel.Size = new System.Drawing.Size(52, 13);
-            this.carMarkModel.TabIndex = 8;
-            this.carMarkModel.Text = "Car mark:";
+            this.toolsForRequestButton.Location = new System.Drawing.Point(10, 241);
+            this.toolsForRequestButton.Name = "toolsForRequestButton";
+            this.toolsForRequestButton.Size = new System.Drawing.Size(75, 23);
+            this.toolsForRequestButton.TabIndex = 10;
+            this.toolsForRequestButton.Text = "Parts";
+            this.toolsForRequestButton.UseVisualStyleBackColor = true;
+            this.toolsForRequestButton.Click += new System.EventHandler(this.toolsForRequestButton_Click);
             // 
             // RequestsModifierView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 275);
+            this.ClientSize = new System.Drawing.Size(294, 339);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.descriptionGroupBox);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox carMarkTextBox;
         private System.Windows.Forms.Label carMarkModel;
+        private System.Windows.Forms.Button toolsForRequestButton;
     }
 }

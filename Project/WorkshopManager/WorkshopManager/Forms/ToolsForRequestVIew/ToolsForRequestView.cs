@@ -3,26 +3,26 @@ using System.Windows.Forms;
 
 namespace WorkshopManager.Forms.ToolsForRequestView
 {
-    public partial class ToolsForRequest : Form, IToolsForRequestView
+    public partial class ToolsForRequestView : Form, IToolsForRequestView
     {
         public ToolsForRequestPresenter Presenter { private get; set; }
 
-        public ToolsForRequest()
+        public ToolsForRequestView()
         {
             InitializeComponent();
         }
 
-
-        public List<object> AllToolsListBox
+        public List<string> AllToolsListBox
         {
-            get { return allToolsListBox.DataSource as List<object>; }
+            get { return allToolsListBox.DataSource as List<string>; }
             set { allToolsListBox.DataSource = value; }
         }
 
-        public List<object> ToolsForRequestListBox
+        public List<string> ToolsForRequestListBox
         {
-            get { return toolsForRequestListBox.DataSource as List<object>; }
+            get { return toolsForRequestListBox.DataSource as List<string>; }
             set { toolsForRequestListBox.DataSource = value; }
         }
     }
 }
+    

@@ -36,5 +36,10 @@ namespace WorkshopManager.Forms.RequestsModifierView
         {
             _view.CloseForm();
         }
+
+        public override void OnToolsForRequestButtonClicked()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

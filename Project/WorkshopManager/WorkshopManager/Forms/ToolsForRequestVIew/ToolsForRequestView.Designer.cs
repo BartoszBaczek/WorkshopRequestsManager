@@ -1,6 +1,6 @@
 ﻿namespace WorkshopManager.Forms.ToolsForRequestView
 {
-    partial class ToolsForRequest
+    partial class ToolsForRequestView
     {
         /// <summary>
         /// Required designer variable.
@@ -113,7 +113,7 @@
             this.mvoeSingleToRequestButton.Text = "<";
             this.mvoeSingleToRequestButton.UseVisualStyleBackColor = true;
             // 
-            // ToolsForRequest
+            // ToolsForRequestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,8 +124,8 @@
             this.Controls.Add(this.moveSingleToAllButton);
             this.Controls.Add(this.allToolsGroupBox);
             this.Controls.Add(this.toolsForRequestLGroupBox);
-            this.Name = "ToolsForRequest";
-            this.Text = "ToolsForRequest";
+            this.Name = "ToolsForRequestView";
+            this.Text = "ToolsForRequestView";
             this.toolsForRequestLGroupBox.ResumeLayout(false);
             this.allToolsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);

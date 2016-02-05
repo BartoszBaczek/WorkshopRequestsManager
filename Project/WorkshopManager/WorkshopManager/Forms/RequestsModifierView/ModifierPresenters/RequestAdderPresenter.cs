@@ -31,5 +31,11 @@ namespace WorkshopManager.Forms.RequestsModifierView
         {
             _view.CloseForm();
         }
+
+        public override void OnToolsForRequestButtonClicked()
+        {
+            var toolsForRequestForm = new ToolsForRequestView.ToolsForRequestView();
+            toolsForRequestForm.ShowDialog();
+        }
     }
 }

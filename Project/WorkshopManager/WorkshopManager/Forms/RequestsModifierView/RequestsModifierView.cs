@@ -60,5 +60,10 @@ namespace WorkshopManager.Forms.RequestsModifierView
         {
             Presenter.OnCancelButtonClicked();
         }
+
+        private void toolsForRequestButton_Click(object sender, System.EventArgs e)
+        {
+            Presenter.OnToolsForRequestButtonClicked();
+        }
     }
 }

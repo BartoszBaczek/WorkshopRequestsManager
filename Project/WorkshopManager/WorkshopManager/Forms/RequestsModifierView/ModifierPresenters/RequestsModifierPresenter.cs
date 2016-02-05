@@ -16,5 +16,6 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         public abstract void OnAddRequesButtonClicked();
         public abstract void OnCancelButtonClicked();
+        public abstract void OnToolsForRequestButtonClicked();
     }
 }

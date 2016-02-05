@@ -73,11 +73,11 @@
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ToolsForRequestVIew\IToolsForRequestView.cs" />
-    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequest.cs">
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequest.Designer.cs">
-      <DependentUpon>ToolsForRequest.cs</DependentUpon>
+    <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestView.Designer.cs">
+      <DependentUpon>ToolsForRequestView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ToolsForRequestVIew\ToolsForRequestPresenter.cs" />
     <Compile Include="Models\IPart\IPart.cs" />
@@ -99,8 +99,8 @@
     <EmbeddedResource Include="Forms\RequestsModifierView\RequestsModifierView.resx">
       <DependentUpon>RequestsModifierView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ToolsForRequestVIew\ToolsForRequest.resx">
-      <DependentUpon>ToolsForRequest.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ToolsForRequestVIew\ToolsForRequestView.resx">
+      <DependentUpon>ToolsForRequestView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PDF\PDF.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -10,6 +10,7 @@ namespace WorkshopManager.Forms.ToolsForRequestView
         public ToolsForRequestView()
         {
             InitializeComponent();
+            Presenter = new ToolsForRequestPresenter(this);
         }
 
         public List<string> AllToolsListBox

@@ -5,8 +5,6 @@ namespace WorkshopManager.Forms.RequestsModifierView
 {
     public class RequestAdderPresenter : RequestsModifierPresenter
     {
-        private Request requestToAdd;
-
         public RequestAdderPresenter(IRequestsModifierView view) : base(view)
         {
             Init();
@@ -14,14 +12,15 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         public void Init()
         {
-            requestToAdd = new Request("-", "-", "-", "-", new List<Part>(), false);
+            RequestUnderModification.Value = new Request("-", "-", "-", "-", new List<Part>(), false);
         }
 
         public override void OnAddRequesButtonClicked()
         {
             BuildRequestFromTextBoxesData();
 
-            _dataBase.AddToDatabase(ref requestToAdd);
+            Request req = RequestUnderModification.Value;
+            _dataBase.AddToDatabase(ref req);
 
             _view.CloseForm();
         }

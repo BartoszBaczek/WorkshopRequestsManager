@@ -19,6 +19,7 @@ namespace WorkshopManager.DatabasePresenter
         public string Mark;
         public string Owner;
         public string Description;
+        public bool Archiwized;
         public List<Part> ListOfParts;
     }
     struct PartData
@@ -91,8 +92,17 @@ namespace WorkshopManager.DatabasePresenter
             reqBuff.Model = convertedData[0, 2];
             reqBuff.Owner = convertedData[0, 3];
             reqBuff.Description = convertedData[0, 4];
+            if (convertedData[0, 5] == "true")
+            {
+                reqBuff.Archiwized = true;
+            }
+            else
+            {
+                reqBuff.Archiwized = false;
+            }
+
             reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
-            IRequestWithIdAcces result = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts);
+            IRequestWithIdAcces result = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts, reqBuff.Archiwized);
             result.SetId(reqBuff.ID);
 
             return (Request) result;
@@ -116,9 +126,16 @@ namespace WorkshopManager.DatabasePresenter
                 reqBuff.Model = convertedData[i, 2];
                 reqBuff.Owner = convertedData[i, 3];
                 reqBuff.Description = convertedData[i, 4];
+                if (convertedData[i, 5] == "true")
+                {
+                    reqBuff.Archiwized = true;
+                }
+                else
+                {
+                    reqBuff.Archiwized = false;
+                }
                 reqBuff.ListOfParts = PreparePartList(reqBuff.ID);
-
-                IRequestWithIdAcces newRequest = new Request(reqBuff.Model, reqBuff.Owner,reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts);
+                IRequestWithIdAcces newRequest = new Request(reqBuff.Model, reqBuff.Owner, reqBuff.Mark, reqBuff.Description, reqBuff.ListOfParts, reqBuff.Archiwized);
                 newRequest.SetId(reqBuff.ID);
                 result.Add((Request)newRequest);
             }

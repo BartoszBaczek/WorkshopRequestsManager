@@ -20,7 +20,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
                                              _view.OwnerTextBox,
                                              _view.CarMarkTextBox,
                                              _view.DescriptionTextBox,
-                                             new List<Part>());
+                                             new List<Part>(),true); //uwaga nalezy poprawic bo dodalem byle co
             
             _dataBase.AddToDatabase(ref newRequest);
 

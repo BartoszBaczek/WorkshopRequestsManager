@@ -14,13 +14,14 @@ namespace WorkshopManager
         public List<Part> ListOfParts { get; set; }
         public bool isArchivized { get; set; }
 
-        public Request(string model, string owner,string mark, string description, List<Part> listOfParts)
+        public Request(string model, string owner, string mark, string description, List<Part> listOfParts, bool archivized)
         {
             Mark = mark;
             Model = model;
             Owner = owner;
             Description = description;
             ListOfParts = listOfParts;
+            isArchivized = archivized;
         }
 
         public void SetId(int id)
@@ -64,11 +65,6 @@ namespace WorkshopManager
         }
         public static List<Part> GetAllParts(Request request)
         {
-            if (request.ListOfParts == null)
-            {
-                request.ListOfParts = new List<Part>();
-                request.ListOfParts.Add(new Part("", 0, 0));
-            }
             return request.ListOfParts;
         }
     }

@@ -10,14 +10,12 @@ namespace WorkshopManager.SqlDatabase
 
     class PartsListTableAdapter
     {
-        //public Get Get;
         public Add Add;
         public Update Update;
         public Delete Delete;
 
         public PartsListTableAdapter()
         {
-            //Get = new Get();
             Add = new Add();
             Update = new Update();
             Delete = new Delete();
@@ -28,11 +26,6 @@ namespace WorkshopManager.SqlDatabase
 namespace PartsListTableAdapterExtensions
 {
     using WorkshopManager.SqlDatabase.MySql;
-
-    class Get
-    {
-
-    }
 
     class Add
     {

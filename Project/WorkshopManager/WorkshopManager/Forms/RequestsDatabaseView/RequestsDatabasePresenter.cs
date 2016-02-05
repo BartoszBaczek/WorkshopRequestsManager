@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 using WorkshopManager.DatabasePresenter;
 
 namespace WorkshopManager.Forms.RequestsDatabaseView
@@ -28,8 +30,15 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
         private void LoadRequestDataToDataGridView()
         {
             RequestsDataTableCreator dtCreator = new RequestsDataTableCreator();
+            List<Request> requests = new List<Request>();
 
-            List<Request> requests = _dataBase.GetAll();
+            if ((RequestsCategory) _view.SelectedActiveData == RequestsCategory.Active)
+                requests = _dataBase.GetAll().Where(p => p.isArchivized == false).ToList();
+            else if ((RequestsCategory)_view.SelectedActiveData == RequestsCategory.Archivized)
+                requests = _dataBase.GetAll().Where(p => p.isArchivized == true).ToList();
+            else
+                requests = _dataBase.GetAll();
+
             dtCreator.UpdateRows(requests);
 
             DataTable currentDataTable = dtCreator.GetCurrentDataTable();
@@ -61,6 +70,11 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
             Request selectedRequest = GetSelectedRequest();
             pdfGenerator.PDFGenerate(selectedRequest);
+        }
+
+        public void OnSelectedActiveDataChanged()
+        {
+            LoadRequestDataToDataGridView();
         }
 
         private Request GetSelectedRequest()

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.requestsGroupBox = new System.Windows.Forms.GroupBox();
             this.requestsDataGridView = new System.Windows.Forms.DataGridView();
             this.modifyGroupBox = new System.Windows.Forms.GroupBox();
@@ -62,14 +62,14 @@
             this.requestsDataGridView.AllowUserToDeleteRows = false;
             this.requestsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
             this.requestsDataGridView.MultiSelect = false;
             this.requestsDataGridView.Name = "requestsDataGridView";
@@ -155,7 +155,7 @@
             // 
             this.generatePDFbutton.Location = new System.Drawing.Point(583, 170);
             this.generatePDFbutton.Name = "generatePDFbutton";
-            this.generatePDFbutton.Size = new System.Drawing.Size(91, 32);
+            this.generatePDFbutton.Size = new System.Drawing.Size(91, 42);
             this.generatePDFbutton.TabIndex = 3;
             this.generatePDFbutton.Text = "Generate Report";
             this.generatePDFbutton.UseVisualStyleBackColor = true;
@@ -165,7 +165,7 @@
             // 
             this.archivizeUnarchivizeButton.Location = new System.Drawing.Point(680, 170);
             this.archivizeUnarchivizeButton.Name = "archivizeUnarchivizeButton";
-            this.archivizeUnarchivizeButton.Size = new System.Drawing.Size(90, 32);
+            this.archivizeUnarchivizeButton.Size = new System.Drawing.Size(90, 42);
             this.archivizeUnarchivizeButton.TabIndex = 4;
             this.archivizeUnarchivizeButton.Text = "Archive";
             this.archivizeUnarchivizeButton.UseVisualStyleBackColor = true;

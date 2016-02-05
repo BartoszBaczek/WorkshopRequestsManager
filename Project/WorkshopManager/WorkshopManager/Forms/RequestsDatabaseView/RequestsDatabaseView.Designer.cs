@@ -157,7 +157,7 @@
             this.generatePDFbutton.Name = "generatePDFbutton";
             this.generatePDFbutton.Size = new System.Drawing.Size(91, 32);
             this.generatePDFbutton.TabIndex = 3;
-            this.generatePDFbutton.Text = "Generuj raport";
+            this.generatePDFbutton.Text = "Generate Report";
             this.generatePDFbutton.UseVisualStyleBackColor = true;
             this.generatePDFbutton.Click += new System.EventHandler(this.generatePDFbutton_Click);
             // 
@@ -167,7 +167,7 @@
             this.archivizeUnarchivizeButton.Name = "archivizeUnarchivizeButton";
             this.archivizeUnarchivizeButton.Size = new System.Drawing.Size(90, 32);
             this.archivizeUnarchivizeButton.TabIndex = 4;
-            this.archivizeUnarchivizeButton.Text = "Archiwizuj";
+            this.archivizeUnarchivizeButton.Text = "Archive";
             this.archivizeUnarchivizeButton.UseVisualStyleBackColor = true;
             this.archivizeUnarchivizeButton.Click += new System.EventHandler(this.archivizeUnarchivizeButton_Click);
             // 

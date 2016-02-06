@@ -56,6 +56,7 @@
             // 
             this.requestPartsDataGridView.AllowUserToAddRows = false;
             this.requestPartsDataGridView.AllowUserToDeleteRows = false;
+            this.requestPartsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.requestPartsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.requestPartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.requestPartsDataGridView.Location = new System.Drawing.Point(7, 20);
@@ -81,6 +82,7 @@
             // 
             this.allPartsDataGridView.AllowUserToAddRows = false;
             this.allPartsDataGridView.AllowUserToDeleteRows = false;
+            this.allPartsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.allPartsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.allPartsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.allPartsDataGridView.Location = new System.Drawing.Point(7, 20);

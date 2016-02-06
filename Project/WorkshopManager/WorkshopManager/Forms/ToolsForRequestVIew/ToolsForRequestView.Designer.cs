@@ -50,7 +50,7 @@
             this.toolsForRequestLGroupBox.Size = new System.Drawing.Size(336, 236);
             this.toolsForRequestLGroupBox.TabIndex = 0;
             this.toolsForRequestLGroupBox.TabStop = false;
-            this.toolsForRequestLGroupBox.Text = "Narzędzia zlecenia";
+            this.toolsForRequestLGroupBox.Text = "Order parts";
             // 
             // requestPartsDataGridView
             // 
@@ -75,7 +75,7 @@
             this.allToolsGroupBox.Size = new System.Drawing.Size(336, 236);
             this.allToolsGroupBox.TabIndex = 1;
             this.allToolsGroupBox.TabStop = false;
-            this.allToolsGroupBox.Text = "Wszystkie narzędzia";
+            this.allToolsGroupBox.Text = "All parts";
             // 
             // allPartsDataGridView
             // 
@@ -124,21 +124,23 @@
             this.quantityLabel1.AutoSize = true;
             this.quantityLabel1.Location = new System.Drawing.Point(536, 255);
             this.quantityLabel1.Name = "quantityLabel1";
-            this.quantityLabel1.Size = new System.Drawing.Size(64, 13);
+            this.quantityLabel1.Size = new System.Drawing.Size(38, 13);
             this.quantityLabel1.TabIndex = 8;
-            this.quantityLabel1.Text = "Liczebność:";
+            this.quantityLabel1.Text = "Count:";
             // 
             // ToolsForRequestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 312);
+            this.ClientSize = new System.Drawing.Size(709, 301);
             this.Controls.Add(this.quantityLabel1);
             this.Controls.Add(this.quantityToMoveAtOnceTextBox);
             this.Controls.Add(this.moveToRequestButton);
             this.Controls.Add(this.DeleteFromRequestButton);
             this.Controls.Add(this.allToolsGroupBox);
             this.Controls.Add(this.toolsForRequestLGroupBox);
+            this.MaximumSize = new System.Drawing.Size(725, 340);
+            this.MinimumSize = new System.Drawing.Size(725, 340);
             this.Name = "ToolsForRequestView";
             this.Text = "ToolsForRequestView";
             this.toolsForRequestLGroupBox.ResumeLayout(false);

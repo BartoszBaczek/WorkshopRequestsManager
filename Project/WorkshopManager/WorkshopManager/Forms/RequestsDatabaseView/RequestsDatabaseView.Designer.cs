@@ -48,10 +48,12 @@
             // 
             // requestsGroupBox
             // 
+            this.requestsGroupBox.AutoSize = true;
             this.requestsGroupBox.Controls.Add(this.requestsDataGridView);
-            this.requestsGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.requestsGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.requestsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.requestsGroupBox.Name = "requestsGroupBox";
-            this.requestsGroupBox.Size = new System.Drawing.Size(545, 278);
+            this.requestsGroupBox.Size = new System.Drawing.Size(846, 302);
             this.requestsGroupBox.TabIndex = 0;
             this.requestsGroupBox.TabStop = false;
             this.requestsGroupBox.Text = "Requests";
@@ -60,6 +62,7 @@
             // 
             this.requestsDataGridView.AllowUserToAddRows = false;
             this.requestsDataGridView.AllowUserToDeleteRows = false;
+            this.requestsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.requestsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.requestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -70,21 +73,23 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.requestsDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.requestsDataGridView.Location = new System.Drawing.Point(7, 20);
+            this.requestsDataGridView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.requestsDataGridView.Location = new System.Drawing.Point(3, 16);
             this.requestsDataGridView.MultiSelect = false;
             this.requestsDataGridView.Name = "requestsDataGridView";
             this.requestsDataGridView.ReadOnly = true;
             this.requestsDataGridView.RowHeadersVisible = false;
             this.requestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.requestsDataGridView.Size = new System.Drawing.Size(536, 252);
+            this.requestsDataGridView.Size = new System.Drawing.Size(840, 283);
             this.requestsDataGridView.TabIndex = 0;
             // 
             // modifyGroupBox
             // 
+            this.modifyGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.modifyGroupBox.Controls.Add(this.deleteButton);
             this.modifyGroupBox.Controls.Add(this.editButton);
             this.modifyGroupBox.Controls.Add(this.addButton);
-            this.modifyGroupBox.Location = new System.Drawing.Point(583, 12);
+            this.modifyGroupBox.Location = new System.Drawing.Point(871, 41);
             this.modifyGroupBox.Name = "modifyGroupBox";
             this.modifyGroupBox.Size = new System.Drawing.Size(91, 107);
             this.modifyGroupBox.TabIndex = 1;
@@ -123,9 +128,10 @@
             // 
             // filterGroupBox
             // 
+            this.filterGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.filterGroupBox.Controls.Add(this.activeComboBox);
             this.filterGroupBox.Controls.Add(this.activeLabel);
-            this.filterGroupBox.Location = new System.Drawing.Point(583, 125);
+            this.filterGroupBox.Location = new System.Drawing.Point(871, 154);
             this.filterGroupBox.Name = "filterGroupBox";
             this.filterGroupBox.Size = new System.Drawing.Size(187, 39);
             this.filterGroupBox.TabIndex = 2;
@@ -153,7 +159,8 @@
             // 
             // generatePDFbutton
             // 
-            this.generatePDFbutton.Location = new System.Drawing.Point(583, 170);
+            this.generatePDFbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generatePDFbutton.Location = new System.Drawing.Point(871, 199);
             this.generatePDFbutton.Name = "generatePDFbutton";
             this.generatePDFbutton.Size = new System.Drawing.Size(91, 42);
             this.generatePDFbutton.TabIndex = 3;
@@ -163,7 +170,8 @@
             // 
             // archivizeUnarchivizeButton
             // 
-            this.archivizeUnarchivizeButton.Location = new System.Drawing.Point(680, 170);
+            this.archivizeUnarchivizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.archivizeUnarchivizeButton.Location = new System.Drawing.Point(968, 199);
             this.archivizeUnarchivizeButton.Name = "archivizeUnarchivizeButton";
             this.archivizeUnarchivizeButton.Size = new System.Drawing.Size(90, 42);
             this.archivizeUnarchivizeButton.TabIndex = 4;
@@ -175,12 +183,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 290);
+            this.ClientSize = new System.Drawing.Size(1064, 302);
             this.Controls.Add(this.archivizeUnarchivizeButton);
             this.Controls.Add(this.generatePDFbutton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
+            this.MaximumSize = new System.Drawing.Size(1080, 1080);
+            this.MinimumSize = new System.Drawing.Size(1080, 340);
             this.Name = "RequestsDatabaseView";
             this.Text = "Form1";
             this.requestsGroupBox.ResumeLayout(false);
@@ -189,6 +199,7 @@
             this.filterGroupBox.ResumeLayout(false);
             this.filterGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -15,7 +15,6 @@ namespace WorkshopManager
             Name = name;
             Prize = prize;
             Amount = amount;
-
         }
 
         public Part(string name, double prize)
@@ -24,6 +23,7 @@ namespace WorkshopManager
             Prize = prize;
 
         }
+
         public bool Equals(Part part)
         {
             return (Name == part.Name && Prize == part.Prize);

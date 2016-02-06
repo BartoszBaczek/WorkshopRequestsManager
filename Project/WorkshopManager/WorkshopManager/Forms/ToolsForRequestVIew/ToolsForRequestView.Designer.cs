@@ -94,7 +94,7 @@
             // 
             // DeleteFromRequestButton
             // 
-            this.DeleteFromRequestButton.Location = new System.Drawing.Point(20, 256);
+            this.DeleteFromRequestButton.Location = new System.Drawing.Point(20, 268);
             this.DeleteFromRequestButton.Name = "DeleteFromRequestButton";
             this.DeleteFromRequestButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteFromRequestButton.TabIndex = 3;
@@ -104,7 +104,7 @@
             // 
             // moveToRequestButton
             // 
-            this.moveToRequestButton.Location = new System.Drawing.Point(620, 256);
+            this.moveToRequestButton.Location = new System.Drawing.Point(620, 268);
             this.moveToRequestButton.Name = "moveToRequestButton";
             this.moveToRequestButton.Size = new System.Drawing.Size(75, 23);
             this.moveToRequestButton.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             // quantityToMoveAtOnceTextBox
             // 
-            this.quantityToMoveAtOnceTextBox.Location = new System.Drawing.Point(326, 270);
+            this.quantityToMoveAtOnceTextBox.Location = new System.Drawing.Point(539, 271);
             this.quantityToMoveAtOnceTextBox.Name = "quantityToMoveAtOnceTextBox";
             this.quantityToMoveAtOnceTextBox.Size = new System.Drawing.Size(75, 20);
             this.quantityToMoveAtOnceTextBox.TabIndex = 6;
@@ -122,7 +122,7 @@
             // quantityLabel1
             // 
             this.quantityLabel1.AutoSize = true;
-            this.quantityLabel1.Location = new System.Drawing.Point(323, 254);
+            this.quantityLabel1.Location = new System.Drawing.Point(536, 255);
             this.quantityLabel1.Name = "quantityLabel1";
             this.quantityLabel1.Size = new System.Drawing.Size(64, 13);
             this.quantityLabel1.TabIndex = 8;

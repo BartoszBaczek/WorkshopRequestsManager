@@ -48,6 +48,7 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
 
             DataTable currentDataTable = dtCreator.GetCurrentDataTable();
             _view.DataGridViewSource = currentDataTable;
+            _view.DataGridView.Columns["ID"].Visible = false;
         }
 
         public void OpenModifierFormForAdding()

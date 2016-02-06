@@ -38,6 +38,16 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             }
         }
 
+        public DataGridView AllPartsDataGridView
+        {
+            get { return allPartsDataGridView; }
+        }
+
+        public DataGridView RequestPartsDataGridView
+        {
+            get { return requestPartsDataGridView; }
+        }
+
         public int QuantityOfPartsToMoveAtOnce
         {
             get
@@ -62,6 +72,8 @@ namespace WorkshopManager.Forms.ToolsForRequestView
         {
             Presenter.OnDeleteFromRequestButtonClicked();
         }
+
+
     }
 }
     

@@ -162,7 +162,7 @@ namespace WorkshopManager.DatabasePresenter
         void IRequestDatabaseAdapter.UpdateRequest(Request updatedRequest)
         {
             ordersData.Update.Record(updatedRequest.ID,updatedRequest.Mark,updatedRequest.Model,updatedRequest.Owner,updatedRequest.Description);
-            this.UpdatePartList(updatedRequest);
+            //this.UpdatePartList(updatedRequest);
         }
 
         void IRequestDatabaseAdapter.Archivize(Request request)
@@ -237,7 +237,7 @@ namespace WorkshopManager.DatabasePresenter
         }
 
         /// <summary>
-        /// metoda pozwala na przygotowanie listy czsci n apodstawie danych otrzymanych z bazy
+        /// metoda pozwala na przygotowanie listy czsci napodstawie danych otrzymanych z bazy
         /// </summary>
         /// <returns></returns>
         private List<Part> PreparePartList()
@@ -292,31 +292,28 @@ namespace WorkshopManager.DatabasePresenter
             partsList.Delete.Part(idReq, idPart);
         }
 
-        private void UpdatePartList(Request updatedRequest)
-        {
-            Request oldRequest = ((IRequestDatabaseAdapter)this).GetById(updatedRequest.ID);
-            foreach (Part partOld in oldRequest.ListOfParts)
-            {
-                foreach (Part partNew in updatedRequest.ListOfParts)
-                {
-                    if (partOld.ID == partNew.ID)
-                    {
-                        partOld.Amount = partNew.Amount;
-                        partsList.Update.Part(updatedRequest.ID, partNew.ID, partNew.Amount);
-                    }
-                }
-            }
+        //private void UpdatePartList(Request updatedRequest)
+        //{
+        //    Request oldRequest = ((IRequestDatabaseAdapter)this).GetById(updatedRequest.ID);
+        //    foreach (Part partOld in oldRequest.ListOfParts)
+        //    {
+        //        foreach ( Part partNew in updatedRequest.ListOfParts)
+        //        {
+        //            if (partOld.ID == partNew.ID)
+        //            {
+        //                partOld.Amount = partNew.Amount;
+        //                partsList.Update.Part(updatedRequest.ID, partNew.ID, partNew.Amount);
+        //            }
+        //        }
+        //    }
 
-            var firstNotSecond = updatedRequest.ListOfParts
-                                               .Where(updatedPart => oldRequest.ListOfParts
-                                               .All(oldPart => updatedPart.ID != oldPart.ID));
+        //    var firstNotSecond = updatedRequest.ListOfParts.Except(oldRequest.ListOfParts).ToList();
+        //    foreach (Part part in firstNotSecond)
+        //    {
+        //        partsList.Add.Single(updatedRequest.ID, part.ID, part.Amount);
+        //    }
 
-            foreach (Part part in firstNotSecond)
-            {
-                partsList.Add.Single(updatedRequest.ID, part.ID, part.Amount);
-            }
-
-        }
+        //}
 
 
         #endregion 

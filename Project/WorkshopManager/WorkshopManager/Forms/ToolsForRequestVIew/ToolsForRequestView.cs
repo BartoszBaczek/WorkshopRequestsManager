@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -34,6 +35,13 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             get { return requestPartsDataGridView.SelectedRows[0]; }
         }
 
+        public int QuantityOfPartsToMoveAtOnce
+        {
+            get { return Int32.Parse(quantityToMoveAtOnceTextBox.Text); }
+            set { quantityToMoveAtOnceTextBox.Text = value.ToString(); }
+        }
+
+
         private void moveSingleToAllButton_Click(object sender, System.EventArgs e)
         {
 
@@ -51,7 +59,7 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         private void moveFewToRequestButton_Click(object sender, System.EventArgs e)
         {
-            Presenter.OnMoveSingleToRequestButtonClicked();
+            Presenter.OnMoveFewToRequestButtonClicked();
         }
     }
 }

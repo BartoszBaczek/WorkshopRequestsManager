@@ -36,6 +36,8 @@
             this.moveFewToAllButton = new System.Windows.Forms.Button();
             this.moveFewToRequestButton = new System.Windows.Forms.Button();
             this.mvoeSingleToRequestButton = new System.Windows.Forms.Button();
+            this.quantityToMoveAtOnceTextBox = new System.Windows.Forms.TextBox();
+            this.quantityLabel1 = new System.Windows.Forms.Label();
             this.toolsForRequestLGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requestPartsDataGridView)).BeginInit();
             this.allToolsGroupBox.SuspendLayout();
@@ -104,7 +106,7 @@
             // 
             // moveFewToAllButton
             // 
-            this.moveFewToAllButton.Location = new System.Drawing.Point(131, 256);
+            this.moveFewToAllButton.Location = new System.Drawing.Point(186, 256);
             this.moveFewToAllButton.Name = "moveFewToAllButton";
             this.moveFewToAllButton.Size = new System.Drawing.Size(75, 23);
             this.moveFewToAllButton.TabIndex = 3;
@@ -114,7 +116,7 @@
             // 
             // moveFewToRequestButton
             // 
-            this.moveFewToRequestButton.Location = new System.Drawing.Point(514, 257);
+            this.moveFewToRequestButton.Location = new System.Drawing.Point(441, 256);
             this.moveFewToRequestButton.Name = "moveFewToRequestButton";
             this.moveFewToRequestButton.Size = new System.Drawing.Size(75, 23);
             this.moveFewToRequestButton.TabIndex = 4;
@@ -124,7 +126,7 @@
             // 
             // mvoeSingleToRequestButton
             // 
-            this.mvoeSingleToRequestButton.Location = new System.Drawing.Point(626, 256);
+            this.mvoeSingleToRequestButton.Location = new System.Drawing.Point(611, 256);
             this.mvoeSingleToRequestButton.Name = "mvoeSingleToRequestButton";
             this.mvoeSingleToRequestButton.Size = new System.Drawing.Size(75, 23);
             this.mvoeSingleToRequestButton.TabIndex = 5;
@@ -133,11 +135,29 @@
             this.mvoeSingleToRequestButton.UseVisualStyleBackColor = true;
             this.mvoeSingleToRequestButton.Click += new System.EventHandler(this.mvoeSingleToRequestButton_Click);
             // 
+            // quantityToMoveAtOnceTextBox
+            // 
+            this.quantityToMoveAtOnceTextBox.Location = new System.Drawing.Point(326, 270);
+            this.quantityToMoveAtOnceTextBox.Name = "quantityToMoveAtOnceTextBox";
+            this.quantityToMoveAtOnceTextBox.Size = new System.Drawing.Size(75, 20);
+            this.quantityToMoveAtOnceTextBox.TabIndex = 6;
+            // 
+            // quantityLabel1
+            // 
+            this.quantityLabel1.AutoSize = true;
+            this.quantityLabel1.Location = new System.Drawing.Point(323, 254);
+            this.quantityLabel1.Name = "quantityLabel1";
+            this.quantityLabel1.Size = new System.Drawing.Size(64, 13);
+            this.quantityLabel1.TabIndex = 8;
+            this.quantityLabel1.Text = "Liczebność:";
+            // 
             // ToolsForRequestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 293);
+            this.ClientSize = new System.Drawing.Size(707, 312);
+            this.Controls.Add(this.quantityLabel1);
+            this.Controls.Add(this.quantityToMoveAtOnceTextBox);
             this.Controls.Add(this.mvoeSingleToRequestButton);
             this.Controls.Add(this.moveFewToRequestButton);
             this.Controls.Add(this.moveFewToAllButton);
@@ -151,6 +171,7 @@
             this.allToolsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.allPartsDataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,5 +185,7 @@
         private System.Windows.Forms.Button mvoeSingleToRequestButton;
         private System.Windows.Forms.DataGridView requestPartsDataGridView;
         private System.Windows.Forms.DataGridView allPartsDataGridView;
+        private System.Windows.Forms.TextBox quantityToMoveAtOnceTextBox;
+        private System.Windows.Forms.Label quantityLabel1;
     }
 }

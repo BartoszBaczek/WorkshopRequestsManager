@@ -73,6 +73,21 @@ namespace WorkshopManager.Forms.ToolsForRequestView
         public void OnMoveFewToRequestButtonClicked()
         {
             Part selectedPart = GetSelectedFromAllParts();
+
+            if (RequestUnderModification.Value.ListOfParts.Any(p => p.ID == selectedPart.ID))
+                for (int i = 0; i < _view.QuantityOfPartsToMoveAtOnce; i++)
+                    RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
+            else
+            {
+                RequestUnderModification.Value.ListOfParts.Add(selectedPart);
+                RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
+
+                for (int i = 0; i < _view.QuantityOfPartsToMoveAtOnce - 1; i++)
+                    RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
+            }
+
+            LoadRequestpartsDataToDataGridView();
+
         }
 
 

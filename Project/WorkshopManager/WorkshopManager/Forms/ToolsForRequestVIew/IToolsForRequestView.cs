@@ -13,5 +13,7 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         DataTable RequestPartsDataGridViewSource { set; }
         DataGridViewRow RequestPartsSelectedRow { get; }
+
+        int QuantityOfPartsToMoveAtOnce { get; set; }
     }
 }

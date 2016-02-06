@@ -37,6 +37,8 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
             DataTable allPartsDataTable = dtCreator.GetAllPartsDataTable();
             _view.AllPartsDataGridViewSource = allPartsDataTable;
+
+            _view.AllPartsDataGridView.Columns["ID"].Visible = false;
         }
 
         private void LoadRequestpartsDataToDataGridView()
@@ -48,6 +50,8 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             
             DataTable requestPartsDataTable = dtCreator.GetRequestPartsDataTable();
             _view.RequestPartsDataGridViewSource = requestPartsDataTable;
+
+            _view.RequestPartsDataGridView.Columns["ID"].Visible = false;
         }
 
         private Part GetSelectedFromAllParts()

@@ -48,6 +48,11 @@ namespace WorkshopManager.Forms.RequestsDatabaseView
             set { archivizeUnarchivizeButton.Enabled = value; }
         }
 
+        public DataGridView DataGridView
+        {
+            get { return requestsDataGridView; }
+        }
+
         private void addButton_Click(object sender, System.EventArgs e)
         {
             Presenter.OpenModifierFormForAdding();

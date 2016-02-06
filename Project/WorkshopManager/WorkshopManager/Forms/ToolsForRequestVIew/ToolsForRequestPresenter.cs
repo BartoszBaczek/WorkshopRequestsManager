@@ -58,8 +58,11 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         private Part GetSelectedFromRequestParts()
         {
+            if (_view.RequestPartsSelectedRow == null)
+                return null;
+
             int selectedFromAllPartsID = (int)_view.RequestPartsSelectedRow.Cells[0].Value;
-            return _dataBase.GetById(selectedFromAllPartsID);
+                return _dataBase.GetById(selectedFromAllPartsID);
         }
 
         public void OnMoveToRequestButtonClicked()

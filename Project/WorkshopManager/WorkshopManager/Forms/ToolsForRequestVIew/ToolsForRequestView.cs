@@ -32,7 +32,10 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         public DataGridViewRow RequestPartsSelectedRow
         {
-            get { return requestPartsDataGridView.SelectedRows[0]; }
+            get
+            {
+                return requestPartsDataGridView.SelectedRows.Count == 0 ? null : requestPartsDataGridView.SelectedRows[0];
+            }
         }
 
         public int QuantityOfPartsToMoveAtOnce

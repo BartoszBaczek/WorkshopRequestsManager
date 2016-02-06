@@ -45,7 +45,7 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         private void BuildRequestFromTextBoxesData()
         {
-            RequestUnderModification.Value.Model = _view.CarMarkTextBox;
+            RequestUnderModification.Value.Model = _view.CarModelTextBox;
             RequestUnderModification.Value.Owner = _view.OwnerTextBox;
             RequestUnderModification.Value.Mark = _view.CarMarkTextBox;
             RequestUnderModification.Value.Description = _view.DescriptionTextBox;

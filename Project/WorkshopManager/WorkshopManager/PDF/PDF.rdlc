@@ -909,7 +909,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total prize : </Value>
+                              <Value>Suma: </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

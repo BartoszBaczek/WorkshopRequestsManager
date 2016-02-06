@@ -53,7 +53,7 @@
             this.requestsGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.requestsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.requestsGroupBox.Name = "requestsGroupBox";
-            this.requestsGroupBox.Size = new System.Drawing.Size(846, 287);
+            this.requestsGroupBox.Size = new System.Drawing.Size(846, 302);
             this.requestsGroupBox.TabIndex = 0;
             this.requestsGroupBox.TabStop = false;
             this.requestsGroupBox.Text = "Requests";
@@ -80,7 +80,7 @@
             this.requestsDataGridView.ReadOnly = true;
             this.requestsDataGridView.RowHeadersVisible = false;
             this.requestsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.requestsDataGridView.Size = new System.Drawing.Size(840, 268);
+            this.requestsDataGridView.Size = new System.Drawing.Size(840, 283);
             this.requestsDataGridView.TabIndex = 0;
             // 
             // modifyGroupBox
@@ -183,13 +183,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 287);
+            this.ClientSize = new System.Drawing.Size(1064, 302);
             this.Controls.Add(this.archivizeUnarchivizeButton);
             this.Controls.Add(this.generatePDFbutton);
             this.Controls.Add(this.filterGroupBox);
             this.Controls.Add(this.modifyGroupBox);
             this.Controls.Add(this.requestsGroupBox);
-            this.MinimumSize = new System.Drawing.Size(1080, 38);
+            this.MaximumSize = new System.Drawing.Size(1080, 1080);
+            this.MinimumSize = new System.Drawing.Size(1080, 340);
             this.Name = "RequestsDatabaseView";
             this.Text = "Form1";
             this.requestsGroupBox.ResumeLayout(false);

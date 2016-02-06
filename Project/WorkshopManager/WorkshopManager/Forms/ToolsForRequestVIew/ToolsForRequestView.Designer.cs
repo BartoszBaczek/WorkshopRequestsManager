@@ -132,13 +132,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 312);
+            this.ClientSize = new System.Drawing.Size(709, 302);
             this.Controls.Add(this.quantityLabel1);
             this.Controls.Add(this.quantityToMoveAtOnceTextBox);
             this.Controls.Add(this.moveToRequestButton);
             this.Controls.Add(this.DeleteFromRequestButton);
             this.Controls.Add(this.allToolsGroupBox);
             this.Controls.Add(this.toolsForRequestLGroupBox);
+            this.MaximumSize = new System.Drawing.Size(725, 340);
+            this.MinimumSize = new System.Drawing.Size(725, 340);
             this.Name = "ToolsForRequestView";
             this.Text = "ToolsForRequestView";
             this.toolsForRequestLGroupBox.ResumeLayout(false);

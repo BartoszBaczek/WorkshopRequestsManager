@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.descriptionGroupBox = new System.Windows.Forms.GroupBox();
+            this.toolsForRequestButton = new System.Windows.Forms.Button();
             this.carMarkTextBox = new System.Windows.Forms.TextBox();
             this.carMarkModel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.ownerLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.toolsForRequestButton = new System.Windows.Forms.Button();
             this.descriptionGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,16 @@
             this.descriptionGroupBox.TabIndex = 0;
             this.descriptionGroupBox.TabStop = false;
             this.descriptionGroupBox.Text = "Description";
+            // 
+            // toolsForRequestButton
+            // 
+            this.toolsForRequestButton.Location = new System.Drawing.Point(10, 241);
+            this.toolsForRequestButton.Name = "toolsForRequestButton";
+            this.toolsForRequestButton.Size = new System.Drawing.Size(75, 23);
+            this.toolsForRequestButton.TabIndex = 10;
+            this.toolsForRequestButton.Text = "Parts";
+            this.toolsForRequestButton.UseVisualStyleBackColor = true;
+            this.toolsForRequestButton.Click += new System.EventHandler(this.toolsForRequestButton_Click);
             // 
             // carMarkTextBox
             // 
@@ -146,16 +156,6 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // toolsForRequestButton
-            // 
-            this.toolsForRequestButton.Location = new System.Drawing.Point(10, 241);
-            this.toolsForRequestButton.Name = "toolsForRequestButton";
-            this.toolsForRequestButton.Size = new System.Drawing.Size(75, 23);
-            this.toolsForRequestButton.TabIndex = 10;
-            this.toolsForRequestButton.Text = "Parts";
-            this.toolsForRequestButton.UseVisualStyleBackColor = true;
-            this.toolsForRequestButton.Click += new System.EventHandler(this.toolsForRequestButton_Click);
-            // 
             // RequestsModifierView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +164,8 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.descriptionGroupBox);
+            this.MaximumSize = new System.Drawing.Size(310, 377);
+            this.MinimumSize = new System.Drawing.Size(310, 377);
             this.Name = "RequestsModifierView";
             this.Text = "RequestsModifierView";
             this.descriptionGroupBox.ResumeLayout(false);

@@ -307,7 +307,10 @@ namespace WorkshopManager.DatabasePresenter
                 }
             }
 
-            var firstNotSecond = updatedRequest.ListOfParts.Except(oldRequest.ListOfParts).ToList();
+            var firstNotSecond = updatedRequest.ListOfParts
+                                               .Where(updatedPart => oldRequest.ListOfParts
+                                               .All(oldPart => updatedPart.ID != oldPart.ID));
+
             foreach (Part part in firstNotSecond)
             {
                 partsList.Add.Single(updatedRequest.ID, part.ID, part.Amount);

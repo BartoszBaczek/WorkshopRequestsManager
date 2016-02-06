@@ -51,7 +51,7 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         private void moveFewToRequestButton_Click(object sender, System.EventArgs e)
         {
-
+            Presenter.OnMoveSingleToRequestButtonClicked();
         }
     }
 }

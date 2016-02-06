@@ -69,5 +69,12 @@ namespace WorkshopManager.Forms.ToolsForRequestView
                 
             LoadRequestpartsDataToDataGridView();
         }
+
+        public void OnMoveFewToRequestButtonClicked()
+        {
+            Part selectedPart = GetSelectedFromAllParts();
+        }
+
+
     }
 }

@@ -6,9 +6,12 @@ namespace WorkshopManager.Forms.RequestsModifierView
     public partial class RequestsModifierView : Form, IRequestsModifierView
     {
         public RequestsModifierPresenter Presenter { private get; set; }
+        public RequestsCategory RequestCategory { get; private set; }
 
-        public RequestsModifierView()
+
+        public RequestsModifierView(RequestsCategory requestCategory)
         {
+            RequestCategory = requestCategory;
             InitializeComponent();
             Presenter = new RequestAdderPresenter(this);
         }

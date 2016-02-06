@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Constraints;
 using WorkshopManager;
 using WorkshopManager.Models.IRequest;
 
@@ -10,7 +12,7 @@ namespace UnitTests
     public class RequestUnitTests
     {
         [TestMethod]
-        public void DoKrystiana()       //Wypierdol potem cały ten test. Ten nizej mozesz zostawic.
+        public void DoKrystiana()       //Usuń potem cały ten test. Ten nizej mozesz zostawic.
         {
             string model = "Fiat";
             string owner = "Andrzej Miodek";
@@ -128,6 +130,51 @@ namespace UnitTests
             Request a = new Request(model, owner, mark, description, parts, true);
             Request b = new Request(model, owner, mark, description, parts2, true);
             Assert.IsFalse(a.Equals(b));
+        }
+
+        [TestMethod]
+        public void ShoulAddPartToRequest()
+        {
+            string model = "Fiat";
+            string owner = "Andrzej Miodek";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
+            List<Part> parts = new List<Part>()
+            {
+                new Part("Uszczelka", 40),
+                new Part("Kierownica", 400),
+                new Part("Opona", 600)
+            };
+
+            Part partToAdd = new Part("Migacz", 24.0);
+
+            Request testRequest = new Request(model, owner, mark, description, parts, true);
+
+            testRequest.AddPartToRequest(partToAdd);
+
+            bool partsListContainsAddedPart = testRequest.ListOfParts.Contains(partToAdd);
+
+            Assert.IsTrue(partsListContainsAddedPart);
+        }
+
+        [TestMethod]
+        public void ShouldCountTotalPrize()
+        {
+            string model = "Fiat";
+            string owner = "Andrzej Miodek";
+            string mark = "126p";
+            string description = "Wymiana zderzaka";
+            List<Part> parts = new List<Part>()
+            {
+                new Part("Uszczelka", 40, 1),
+                new Part("Kierownica", 400, 1),
+                new Part("Opona", 600, 1)
+            };
+
+            double goodPrize = 40 + 400 + 600;
+            Request testRequest = new Request(model, owner, mark, description, parts, true);
+
+            Assert.AreEqual(goodPrize, testRequest.GetTotalPrize());
         }
     }
 }

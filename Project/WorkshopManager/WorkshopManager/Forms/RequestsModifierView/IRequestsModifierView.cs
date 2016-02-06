@@ -2,7 +2,6 @@
 {
     public interface IRequestsModifierView
     {
-        RequestsCategory RequestCategory { get; }
         RequestsModifierPresenter Presenter { set; }
 
         string OwnerTextBox { get; set; }

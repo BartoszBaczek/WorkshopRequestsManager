@@ -20,7 +20,7 @@ namespace WorkshopManager
             Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "pdf files (*.pdf)|*.pdf";
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
@@ -36,21 +36,20 @@ namespace WorkshopManager
                     {
                         Name = "DataSetListOfParts",
                         Value = parts
-                    });
-                    
+                    });                    
                     DateTime thisDay = DateTime.Today;
                     string numberPDF = thisDay.ToString("dd'/'MM'/'yyyy") + '/' + request.ID;
-                    ReportParameter owner = new ReportParameter("owner", request.Owner);
                     ReportParameter pdfno = new ReportParameter("pdfno", numberPDF);
+                    ReportParameter owner = new ReportParameter("owner", request.Owner);                    
                     ReportParameter date = new ReportParameter("date", thisDay.ToString("d"));
-                    double tempcost1 = request.ListOfParts.Count() * 100;
-                    string repaircost = Convert.ToString(tempcost1);
-                    ReportParameter repairprize = new ReportParameter("repaircost", repaircost);
-                    string partscost = request.GetTotalPrize().ToString();
-                    double tempcost2 = Convert.ToDouble(partscost) + Convert.ToDouble(repaircost);
-                    string totalcost = Convert.ToString(tempcost2);
-                    ReportParameter totalprize = new ReportParameter("totalprize", totalcost);
-                    ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date, repairprize, totalprize });
+                    double tempRepairCost = request.ListOfParts.Count() * 100;
+                    string repairCost = Convert.ToString(tempRepairCost);
+                    ReportParameter repairprize = new ReportParameter("repaircost", repairCost);
+                    string partsCost = request.GetTotalPrize().ToString();
+                    double tempTotalCost = Convert.ToDouble(partsCost) + Convert.ToDouble(repairCost);
+                    string totalCost = Convert.ToString(tempTotalCost);
+                    ReportParameter totalPrize = new ReportParameter("totalprize", totalCost);
+                    ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { owner, pdfno, date, repairprize, totalPrize });
                     byte[] byteViewer = ReportViewer1.LocalReport.Render("PDF");
                     myStream.Write(byteViewer, 0, byteViewer.Length);
                     myStream.Close();

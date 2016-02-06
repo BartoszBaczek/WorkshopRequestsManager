@@ -32,10 +32,8 @@
             this.requestPartsDataGridView = new System.Windows.Forms.DataGridView();
             this.allToolsGroupBox = new System.Windows.Forms.GroupBox();
             this.allPartsDataGridView = new System.Windows.Forms.DataGridView();
-            this.moveSingleToAllButton = new System.Windows.Forms.Button();
-            this.moveFewToAllButton = new System.Windows.Forms.Button();
-            this.moveFewToRequestButton = new System.Windows.Forms.Button();
-            this.mvoeSingleToRequestButton = new System.Windows.Forms.Button();
+            this.DeleteFromRequestButton = new System.Windows.Forms.Button();
+            this.moveToRequestButton = new System.Windows.Forms.Button();
             this.quantityToMoveAtOnceTextBox = new System.Windows.Forms.TextBox();
             this.quantityLabel1 = new System.Windows.Forms.Label();
             this.toolsForRequestLGroupBox.SuspendLayout();
@@ -94,46 +92,25 @@
             this.allPartsDataGridView.Size = new System.Drawing.Size(323, 210);
             this.allPartsDataGridView.TabIndex = 1;
             // 
-            // moveSingleToAllButton
+            // DeleteFromRequestButton
             // 
-            this.moveSingleToAllButton.Location = new System.Drawing.Point(19, 256);
-            this.moveSingleToAllButton.Name = "moveSingleToAllButton";
-            this.moveSingleToAllButton.Size = new System.Drawing.Size(75, 23);
-            this.moveSingleToAllButton.TabIndex = 2;
-            this.moveSingleToAllButton.Text = ">";
-            this.moveSingleToAllButton.UseVisualStyleBackColor = true;
-            this.moveSingleToAllButton.Click += new System.EventHandler(this.moveSingleToAllButton_Click);
+            this.DeleteFromRequestButton.Location = new System.Drawing.Point(20, 256);
+            this.DeleteFromRequestButton.Name = "DeleteFromRequestButton";
+            this.DeleteFromRequestButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteFromRequestButton.TabIndex = 3;
+            this.DeleteFromRequestButton.Text = ">>";
+            this.DeleteFromRequestButton.UseVisualStyleBackColor = true;
+            this.DeleteFromRequestButton.Click += new System.EventHandler(this.DeleteFromRequestButton_Click);
             // 
-            // moveFewToAllButton
+            // moveToRequestButton
             // 
-            this.moveFewToAllButton.Location = new System.Drawing.Point(186, 256);
-            this.moveFewToAllButton.Name = "moveFewToAllButton";
-            this.moveFewToAllButton.Size = new System.Drawing.Size(75, 23);
-            this.moveFewToAllButton.TabIndex = 3;
-            this.moveFewToAllButton.Text = ">>";
-            this.moveFewToAllButton.UseVisualStyleBackColor = true;
-            this.moveFewToAllButton.Click += new System.EventHandler(this.moveFewToAllButton_Click);
-            // 
-            // moveFewToRequestButton
-            // 
-            this.moveFewToRequestButton.Location = new System.Drawing.Point(441, 256);
-            this.moveFewToRequestButton.Name = "moveFewToRequestButton";
-            this.moveFewToRequestButton.Size = new System.Drawing.Size(75, 23);
-            this.moveFewToRequestButton.TabIndex = 4;
-            this.moveFewToRequestButton.Text = "<<";
-            this.moveFewToRequestButton.UseVisualStyleBackColor = true;
-            this.moveFewToRequestButton.Click += new System.EventHandler(this.moveFewToRequestButton_Click);
-            // 
-            // mvoeSingleToRequestButton
-            // 
-            this.mvoeSingleToRequestButton.Location = new System.Drawing.Point(611, 256);
-            this.mvoeSingleToRequestButton.Name = "mvoeSingleToRequestButton";
-            this.mvoeSingleToRequestButton.Size = new System.Drawing.Size(75, 23);
-            this.mvoeSingleToRequestButton.TabIndex = 5;
-            this.mvoeSingleToRequestButton.TabStop = false;
-            this.mvoeSingleToRequestButton.Text = "<";
-            this.mvoeSingleToRequestButton.UseVisualStyleBackColor = true;
-            this.mvoeSingleToRequestButton.Click += new System.EventHandler(this.mvoeSingleToRequestButton_Click);
+            this.moveToRequestButton.Location = new System.Drawing.Point(620, 256);
+            this.moveToRequestButton.Name = "moveToRequestButton";
+            this.moveToRequestButton.Size = new System.Drawing.Size(75, 23);
+            this.moveToRequestButton.TabIndex = 4;
+            this.moveToRequestButton.Text = "<<";
+            this.moveToRequestButton.UseVisualStyleBackColor = true;
+            this.moveToRequestButton.Click += new System.EventHandler(this.moveFewToRequestButton_Click);
             // 
             // quantityToMoveAtOnceTextBox
             // 
@@ -158,10 +135,8 @@
             this.ClientSize = new System.Drawing.Size(707, 312);
             this.Controls.Add(this.quantityLabel1);
             this.Controls.Add(this.quantityToMoveAtOnceTextBox);
-            this.Controls.Add(this.mvoeSingleToRequestButton);
-            this.Controls.Add(this.moveFewToRequestButton);
-            this.Controls.Add(this.moveFewToAllButton);
-            this.Controls.Add(this.moveSingleToAllButton);
+            this.Controls.Add(this.moveToRequestButton);
+            this.Controls.Add(this.DeleteFromRequestButton);
             this.Controls.Add(this.allToolsGroupBox);
             this.Controls.Add(this.toolsForRequestLGroupBox);
             this.Name = "ToolsForRequestView";
@@ -179,10 +154,8 @@
 
         private System.Windows.Forms.GroupBox toolsForRequestLGroupBox;
         private System.Windows.Forms.GroupBox allToolsGroupBox;
-        private System.Windows.Forms.Button moveSingleToAllButton;
-        private System.Windows.Forms.Button moveFewToAllButton;
-        private System.Windows.Forms.Button moveFewToRequestButton;
-        private System.Windows.Forms.Button mvoeSingleToRequestButton;
+        private System.Windows.Forms.Button DeleteFromRequestButton;
+        private System.Windows.Forms.Button moveToRequestButton;
         private System.Windows.Forms.DataGridView requestPartsDataGridView;
         private System.Windows.Forms.DataGridView allPartsDataGridView;
         private System.Windows.Forms.TextBox quantityToMoveAtOnceTextBox;

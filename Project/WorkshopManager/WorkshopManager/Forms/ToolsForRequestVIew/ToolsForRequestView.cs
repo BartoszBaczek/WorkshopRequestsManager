@@ -37,29 +37,27 @@ namespace WorkshopManager.Forms.ToolsForRequestView
 
         public int QuantityOfPartsToMoveAtOnce
         {
-            get { return Int32.Parse(quantityToMoveAtOnceTextBox.Text); }
+            get
+            {
+                int n;
+                if (Int32.TryParse(quantityToMoveAtOnceTextBox.Text, out n))
+                    return n;
+
+                    QuantityOfPartsToMoveAtOnce = 1;
+                    return 1;
+            }
             set { quantityToMoveAtOnceTextBox.Text = value.ToString(); }
         }
 
 
-        private void moveSingleToAllButton_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void moveFewToAllButton_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void mvoeSingleToRequestButton_Click(object sender, System.EventArgs e)
-        {
-            Presenter.OnMoveSingleToRequestButtonClicked();
-        }
-
         private void moveFewToRequestButton_Click(object sender, System.EventArgs e)
         {
-            Presenter.OnMoveFewToRequestButtonClicked();
+            Presenter.OnMoveToRequestButtonClicked();
+        }
+
+        private void DeleteFromRequestButton_Click(object sender, EventArgs e)
+        {
+            Presenter.OnDeleteFromRequestButtonClicked();
         }
     }
 }

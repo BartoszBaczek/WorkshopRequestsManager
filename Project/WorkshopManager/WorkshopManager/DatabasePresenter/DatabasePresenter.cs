@@ -174,6 +174,11 @@ namespace WorkshopManager.DatabasePresenter
         {
             partsList.Add.Single(requestID, partID, ammount);
         }
+
+        void IRequestDatabaseAdapter.DeletePart(int requestID, int partID)
+        {
+            partsList.Delete.Part(requestID, partID);
+        }
         #endregion
 
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WorkshopManager.Forms.ToolsForRequestVIew;
 using WorkshopManager.Models.IRequest;
 
@@ -26,6 +27,14 @@ namespace WorkshopManager.Forms.RequestsModifierView
             BuildRequestFromTextBoxesData();
 
             _dataBase.UpdateRequest(RequestUnderModification.Value);
+
+            deletedParts = deletedParts.Except(RequestUnderModification.Value.ListOfParts).ToList();
+
+            foreach (var part in deletedParts)
+            {
+                _dataBase.DeletePart(RequestUnderModification.Value.ID, part.ID);
+            }
+
             _view.CloseForm();
         }
 
@@ -36,14 +45,17 @@ namespace WorkshopManager.Forms.RequestsModifierView
 
         private void BuildRequestFromTextBoxesData()
         {
-            RequestUnderModification.Value.Model = _view.CarMarkTextBox;
+            RequestUnderModification.Value.Model = _view.CarModelTextBox;
             RequestUnderModification.Value.Owner = _view.OwnerTextBox;
             RequestUnderModification.Value.Mark = _view.CarMarkTextBox;
             RequestUnderModification.Value.Description = _view.DescriptionTextBox;
         }
         
+        List<Part> deletedParts = new List<Part>(); 
         public override void OnToolsForRequestButtonClicked()
         {
+            deletedParts = RequestUnderModification.Value.ListOfParts;
+
             var toolsForRequestForm = new ToolsForRequestView.ToolsForRequestView();
             toolsForRequestForm.ShowDialog();
         }

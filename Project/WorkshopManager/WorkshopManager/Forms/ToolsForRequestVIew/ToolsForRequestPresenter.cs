@@ -2,6 +2,7 @@
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using WorkshopManager.DatabasePresenter;
 using WorkshopManager.Forms.ToolsForRequestVIew;
 
@@ -55,25 +56,15 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             return _dataBase.GetById(selectedFromAllPartsID);
         }
 
-        public void OnMoveSingleToRequestButtonClicked()
+        private Part GetSelectedFromRequestParts()
         {
-            Part selectedPart = GetSelectedFromAllParts();
-
-            if (RequestUnderModification.Value.ListOfParts.Any(p => p.ID == selectedPart.ID))
-                RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
-            else
-            {
-                RequestUnderModification.Value.ListOfParts.Add(selectedPart);
-                RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
-            }
-                
-            LoadRequestpartsDataToDataGridView();
+            int selectedFromAllPartsID = (int)_view.RequestPartsSelectedRow.Cells[0].Value;
+            return _dataBase.GetById(selectedFromAllPartsID);
         }
 
-        public void OnMoveFewToRequestButtonClicked()
+        public void OnMoveToRequestButtonClicked()
         {
             Part selectedPart = GetSelectedFromAllParts();
-
             if (RequestUnderModification.Value.ListOfParts.Any(p => p.ID == selectedPart.ID))
                 for (int i = 0; i < _view.QuantityOfPartsToMoveAtOnce; i++)
                     RequestUnderModification.Value.ListOfParts.First(p => p.ID == selectedPart.ID).Amount++;
@@ -87,7 +78,14 @@ namespace WorkshopManager.Forms.ToolsForRequestView
             }
 
             LoadRequestpartsDataToDataGridView();
+        }
 
+        public void OnDeleteFromRequestButtonClicked()
+        {
+            Part selectedPart = GetSelectedFromRequestParts();
+            RequestUnderModification.Value.ListOfParts.RemoveAll(p => p.ID == selectedPart.ID);
+
+            LoadRequestpartsDataToDataGridView();
         }
 
 

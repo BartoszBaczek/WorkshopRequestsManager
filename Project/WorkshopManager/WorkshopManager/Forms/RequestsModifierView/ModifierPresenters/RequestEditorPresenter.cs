@@ -54,7 +54,10 @@ namespace WorkshopManager.Forms.RequestsModifierView
         List<Part> deletedParts = new List<Part>(); 
         public override void OnToolsForRequestButtonClicked()
         {
-            deletedParts = RequestUnderModification.Value.ListOfParts;
+            foreach (var part in RequestUnderModification.Value.ListOfParts)
+            {
+                deletedParts.Add(part);
+            }
 
             var toolsForRequestForm = new ToolsForRequestView.ToolsForRequestView();
             toolsForRequestForm.ShowDialog();
